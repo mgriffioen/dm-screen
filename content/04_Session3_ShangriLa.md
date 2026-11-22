@@ -18,17 +18,26 @@ The vale is built from the guests' happiest memories, so it fits each character 
 A weathered, sun-browned old groundskeeper in a broad hat who rides a little golden cart that trundles along without a horse. He welcomes everyone by name. He knows the answers they gave in Session 1 about *why they accepted the invitation*. He's folksy, generous and funny, and he drives everyone to their lodge. The cart leaves no tracks.
 
 ### 🏡 The Seven Lodges
-Each guest is given a lodge key carved with a sigil. Each lodge has its own temptation: using it grants its benefit **and +1 Contentment.**
+Each guest is given a lodge key carved with a sigil. The Keeper drops each guest at their own door: *"Have a rest before supper, friend."*
 
-| Sigil over the door | Inside | Benefit | The tell |
-|---|---|---|---|
-| **An open book** | A reading nook with every book you ever loved | Advantage on one INT check | Past the middle, every book's pages are blank. |
-| **A perfect spiral** | A yard where every thrown thing flies true | +1 to ranged attacks for the session | The spiral matches the invitations, and the Mayor's ring |
-| **An open, watchful eye** | A bunk room of old cloaks, masks and a **crate of sky-rockets** | 10 temp HP | The crate is stenciled *"Confiscated from guests."* |
-| **A wave beneath a roof** | A deck with a steaming hot spring | Remove all conditions and exhaustion | The water is a little *too* warm, and slightly thick |
-| **A heart, with verse carved beneath** | *Dusty's character's lodge.* The lintel reads: *"I hear it in the deep heart's core."* | Advantage on WIS saves | His own initials, carved into the bedpost years ago |
-| **A sun that never sets** | A porch facing a perfect sunset | Regain all spell slots | The sunset never finishes setting. The same bird crosses it every minute. (Pass Erik a note first.) |
-| **A hound** (the Hound's Hearth) | **Locked.** The Keeper: *"Oh, nobody stays in that one."* | — | It's humming. The floor is warm. The Heart is beneath it. |
+**Using a lodge** means doing the one thing it invites you to do (the **bait** column). Ask the player, *"What do you do in there?"* If they take the bait, they gain the benefit **and +1 Contentment**. Hand them a **Comfort card** that names the benefit, and add the Contentment pip in front of them without comment. If they only look around, nothing happens, and they may notice the tell.
+- **Once per lodge, per guest.** Using the same lodge again does nothing.
+- **Your key opens only your lodge.** The Keeper's or a groundskeeper's **ring of lodge keys** opens the rest (not the Hound's Hearth), so pinching one is a temptation of its own.
+- **After the reveal**, the lodges are teeth, but their doors still open. Using one then takes an action, still grants the benefit, and costs **+2 Contentment**.
+
+| Sigil over the door | Inside | The bait | Benefit | The tell |
+|---|---|---|---|---|
+| **An open book** | A reading nook with every book you ever loved | Read a favorite book | Advantage on one INT check (save it for when you need it) | Past the middle, every book's pages are blank. |
+| **A perfect spiral** | A yard where every thrown thing flies true | Throw something | +1 to ranged attacks for the session | The spiral matches the invitations, and the Mayor's ring |
+| **An open, watchful eye** | A bunk room of old cloaks, masks and a **crate of sky-rockets** | Try on an old cloak | 10 temp HP (they last until spent) | The crate is stenciled *"Confiscated from guests."* |
+| **A wave beneath a roof** | A cool, quiet room with a single **glass of ice-cold water** on the table | Drink the water | Once, as a reaction, end one condition on yourself | The ice never melts, and the glass is full again when you look back |
+| **A heart, with verse carved beneath** | *Dusty's character's lodge.* The lintel reads: *"I hear it in the deep heart's core."* | Lie down on the bed | Advantage on WIS saves | His own initials, carved into the bedpost years ago |
+| **A sun that never sets** | A porch facing a perfect sunset | Sit and watch the sunset | Regain all spell slots **or** all expended class features (Rage, Second Wind, Ki, and so on) | The sunset never finishes setting. The same bird crosses it every minute. (Pass Erik a note first.) |
+| **A hound** (the Hound's Hearth) | **Locked.** The Keeper: *"Oh, nobody stays in that one."* | — | — | It's humming. The floor is warm. The Heart is beneath it. |
+
+**The sky-rockets are free.** Anyone who looks around the watchful-eye lodge finds the crate, with no bait needed and no Contentment cost. The fight's big prop should never depend on someone taking the bait.
+
+**Make the lodges tempting:** the party arrives straight from the Undercroft with no long rest (see the end of [03_Session2_Undercroft.md](03_Session2_Undercroft.md)). Hurt, tired guests want what the lodges offer.
 
 ### Pleasures of the vale (each = +1 Contentment and a small benefit; see **Shangri-La Pleasures** in the roll tables)
 - **The Feast:** roasts over the fire, fresh bread, honeyed fruit. Heals to full. (The players may be wary of eating, which is perfect.)
