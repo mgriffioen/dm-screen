@@ -416,37 +416,37 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **an open book**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A reading nook holding every book you ever loved. The bait: read a favorite book. Benefit: advantage on one INT check, saved until needed. +1 Contentment. The tell: Past the middle, every book's pages are blank.
+- **DM:** Inside: A cozy library of every book you ever loved, with deep, comfy armchairs. The bait: settle into a chair with a favorite book. Benefit: advantage on one INT check, saved until needed. +1 Contentment. The tell: Past the middle, every book's pages are blank.
 
 ### Lodge Key: Spiral
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a perfect spiral**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A yard where every thrown thing flies true. The bait: throw something. Benefit: +1 to ranged attacks for the session. +1 Contentment. The tell: The spiral matches the invitations, and the Mayor's ring.
+- **DM:** Inside: The cabin opens onto a deck and a vast green yard; balls, flying discs and bocce sets wait on the deck, and every thrown thing flies true. The bait: throw something. Benefit: +1 to ranged attacks for the session. +1 Contentment. The tell: The spiral matches the invitations, and the Mayor's ring.
 
 ### Lodge Key: Eye
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **an open, watchful eye**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A bunk room of old cloaks, masks and a crate of sky-rockets. The bait: try on an old cloak. Benefit: 10 temporary HP, lasting until spent. +1 Contentment. The rockets are found just by looking around, with no Contentment cost. The tell: The crate is stenciled "Confiscated from guests."
+- **DM:** Inside: Racks of familiar, inviting jackets, shirts and hats, with a crate of sky-rockets hidden behind the finery. The bait: try something on. Benefit: 10 temporary HP, lasting until spent. +1 Contentment. The rockets are found by looking through the finery, with no Contentment cost. The tell: The crate is stenciled "Confiscated from guests."
 
 ### Lodge Key: Wave
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a wave beneath a roof**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A cool, quiet room with a single glass of ice-cold water on the table. The bait: drink the water. Benefit: once, as a reaction, end one condition on yourself. +1 Contentment. The tell: The ice never melts, and the glass is full again when you look back.
+- **DM:** Inside: A calm, spa-like room with soft light, a trickling waterfall fountain, and a single glass of ice-cold water on the table. The bait: drink the water. Benefit: once, as a reaction, end one condition on yourself. +1 Contentment. The tell: The ice never melts, and the glass is full again when you look back.
 
 ### Lodge Key: Heart
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a heart, with a line of verse beneath it**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: Dusty's character's lodge; the lintel reads "I hear it in the deep heart's core." The bait: lie down on the bed. Benefit: advantage on WIS saves. +1 Contentment. The tell: His own initials are carved into the bedpost from years ago. Give this key to Dusty's character.
+- **DM:** Inside: Dusty's character's lodge, a bedroom with the most comfortable bed he's ever seen; the lintel reads "I hear it in the deep heart's core." The bait: lie down on the bed. Benefit: advantage on WIS saves. +1 Contentment. The tell: His own initials are carved into the bedpost from years ago. Give this key to Dusty's character.
 
 ### Lodge Key: Sun
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a sun that never sets**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A porch facing a perfect sunset. The bait: sit and watch the sunset. Benefit: regain all spell slots or all expended class features (Rage, Second Wind, Ki, and so on). +1 Contentment. The tell: The sunset never finishes setting, and the same bird crosses it every minute. Pass Erik a note first.
+- **DM:** Inside: Somehow, a balcony high above the trees, with a cushioned porch swing and a tempting cocktail on a side table, facing a perfect sunset. The bait: sit on the swing and sip the cocktail. Benefit: regain all spell slots or all expended class features (Rage, Second Wind, Ki, and so on). +1 Contentment. The tell: The sunset never finishes setting, and the same bird crosses it every minute. Pass Erik a note first.
 
 ### Iron Key to the Sewer Grate
 - **Type:** Key item
@@ -482,6 +482,64 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 - **Type:** Gear, single use
 - **Found:** Auntie Grell's gift (Session 1)
 > A whistle carved from a gull's leg bone. Blow it once and a **swarm of river rats** answers, fighting at your side for 1 minute. It cracks after one use.
+
+## Lodge Comforts
+
+One card per lodge, handed over when a PC takes its bait in Session 3. Each one also costs **+1 Contentment** (+2 after the reveal), which the card never mentions.
+
+### Comfort: Open Book
+- **Type:** Lodge comfort
+- **Found:** The open-book lodge, Session 3
+- **Also called:** open book comfort
+> *You sink into the armchair and read until the words feel like home. For once, everything makes sense.*
+>
+> Once, when you make an Intelligence check, you can spend this comfort to make it **with advantage**. Hand this card back to the DM when you do.
+- **DM:** Hand over when a PC settles in with a book in the open-book lodge. +1 Contentment (+2 after the reveal).
+
+### Comfort: Spiral
+- **Type:** Lodge comfort
+- **Found:** The spiral lodge, Session 3
+- **Also called:** spiral comfort
+> *You throw, and it flies exactly where you meant it to. Again. And again. Your arm has never felt so sure.*
+>
+> For the rest of the session, you have a **+1 bonus to ranged attack rolls**.
+- **DM:** Hand over when a PC throws something in the spiral lodge's yard. +1 Contentment (+2 after the reveal).
+
+### Comfort: Eye
+- **Type:** Lodge comfort
+- **Found:** The watchful-eye lodge, Session 3
+- **Also called:** eye comfort
+> *It fits perfectly, like it was always yours. You feel bolder in it, and a little harder to hurt.*
+>
+> You gain **10 temporary hit points**. They last until they're used up.
+- **DM:** Hand over when a PC tries something on in the watchful-eye lodge. The sky-rocket crate is separate: anyone who looks through the finery finds it, at no cost. +1 Contentment (+2 after the reveal).
+
+### Comfort: Wave
+- **Type:** Lodge comfort
+- **Found:** The wave lodge, Session 3
+- **Also called:** wave comfort
+> *The water is so cold it makes your teeth ache, and so clean you feel washed out from the inside.*
+>
+> Once, as a **reaction**, you can **end one condition** affecting you. Hand this card back to the DM when you do.
+- **DM:** Hand over when a PC drinks the ice-cold water in the wave lodge. The ice never melts. +1 Contentment (+2 after the reveal).
+
+### Comfort: Heart
+- **Type:** Lodge comfort
+- **Found:** The heart lodge, Session 3
+- **Also called:** heart comfort
+> *The bed takes you in like it remembers you. When you get up, your mind feels steady and quiet.*
+>
+> You have **advantage on Wisdom saving throws**.
+- **DM:** Dusty's character's lodge. Hand over when he lies down on the bed. The Contentment track still applies: at 3, disadvantage on WIS saves against the Keeper's charms cancels this out. +1 Contentment (+2 after the reveal).
+
+### Comfort: Sun
+- **Type:** Lodge comfort
+- **Found:** The sun lodge, Session 3
+- **Also called:** sun comfort
+> *You rock gently on the swing, the drink cool in your hand, and watch the sun slip toward the trees. Every ache you carried down here melts away.*
+>
+> You **regain all expended spell slots**, or **all expended uses of your class features** (Rage, Second Wind, Ki, and so on).
+- **DM:** Hand over when a PC sits on the swing and sips the cocktail. Pass Erik a note first. The sunset never finishes setting. +1 Contentment (+2 after the reveal).
 
 ## Letters & Documents
 
