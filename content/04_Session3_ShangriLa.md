@@ -20,6 +20,8 @@ A weathered, sun-browned old groundskeeper in a broad hat who rides a little gol
 ### 🏡 The Seven Lodges
 Each guest is given a lodge key carved with a sigil. The Keeper drops each guest at their own door: *"Have a rest before supper, friend."*
 
+🖼️ When a player opens their door, show them their lodge's picture (Maps → **Lodge interiors**). Each one has the lodge's sigil carved somewhere in it, matching the key in their hand.
+
 **Using a lodge** means doing the one thing it invites you to do (the **bait** column). Ask the player, *"What do you do in there?"* If they take the bait, they gain the benefit **and +1 Contentment**. Hand them a **Comfort card** that names the benefit, and add the Contentment pip in front of them without comment. If they only look around, nothing happens, and they may notice the tell.
 - **Once per lodge, per guest.** Using the same lodge again does nothing.
 - **Your key opens only your lodge.** The Keeper's or a groundskeeper's **ring of lodge keys** opens the rest (not the Hound's Hearth), so pinching one is a temptation of its own.

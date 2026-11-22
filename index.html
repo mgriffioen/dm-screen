@@ -1908,6 +1908,14 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       ["ho03-shangri-la", "Shangri-La"],
       ["ho04-seers-floor-key", "Seer's Floor key (Erik only)"],
     ] },
+    { group: "Lodge interiors", items: [
+      ["lodge-book", "Open Book · The library"],
+      ["lodge-spiral", "Spiral · The deck and the yard"],
+      ["lodge-eye", "Watchful Eye · The finery"],
+      ["lodge-wave", "Wave · The spa room"],
+      ["lodge-heart", "Heart · The bedroom"],
+      ["lodge-sun", "Sun · The sunset balcony"],
+    ] },
   ];
   const mapList = MAPS.flatMap(g => g.items.map(([f, title]) => ({ src: `maps/${f}.jpg?v=${MAP_V}`, title })));
   let vList = mapList;
