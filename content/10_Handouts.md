@@ -4,7 +4,7 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 **How each entry prints:**
 - **Type** becomes the card's banner and subtitle.
-- **Value**, **Weight** and **Charges** print as rows.
+- **Attack**, **Damage**, **Value**, **Weight** and **Charges** print as rows. Every weapon lists its Attack and Damage.
 - The quoted text is what the players read.
 - **Found** and **Also called** never print. They tell you where it comes from and help the app match it to loot.
 - **DM** lines go into SpellMaster's note, which only prints if you tick it.
@@ -46,6 +46,8 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Fire-Pot
 - **Type:** Alchemical weapon, common
+- **Attack:** No attack roll. Thrown, range 20/60 ft.; DC 12 Dexterity save, 5-ft. radius
+- **Damage:** 2d6 fire (half on a save)
 - **Value:** 10 gp
 - **Weight:** 1 lb
 - **Found:** Kobold sappers (1d4)
@@ -54,6 +56,8 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Snik's Big Pot
 - **Type:** Alchemical weapon, uncommon
+- **Attack:** No attack roll. Thrown, range 20/60 ft.; DC 12 Dexterity save, 15-ft. radius
+- **Damage:** 4d6 fire (half on a save)
 - **Weight:** 4 lb
 - **Found:** Snik, if he didn't throw it
 - **Also called:** big pot
@@ -83,12 +87,16 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Oakheart Mace
 - **Type:** Weapon (mace), uncommon
+- **Attack:** +1 + Str mod + proficiency, melee, reach 5 ft.
+- **Damage:** 1d6 + 1 + Str mod bludgeoning
 - **Weight:** 4 lb
 - **Found:** The Three Oaks steam hall
 > A mace carved from a single piece of petrified oak, its head still showing the rings of the tree. **+1 to attack and damage rolls.** Once per day, you can raise it and cast ***bless*** (no spell slot needed).
 
 ### Gilded Scimitar
 - **Type:** Weapon (scimitar), uncommon
+- **Attack:** +1 + Str or Dex mod + proficiency, melee, reach 5 ft. (finesse, light)
+- **Damage:** 1d6 + 1 + Str or Dex mod slashing
 - **Weight:** 3 lb
 - **Found:** Captain Saye
 - **Also called:** +1 scimitar
@@ -103,6 +111,8 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Festival Prize Weapon
 - **Type:** Weapon (your choice), uncommon
+- **Attack:** +1 + your usual attack bonus with that weapon
+- **Damage:** The weapon's damage die + 1 + ability mod (magical)
 - **Found:** Morning Boons
 - **Also called:** festival prize, +1 weapon
 > Your own weapon, returned from the festival smiths overnight with a winner's ribbon tied to it. The edge is keener and the balance is perfect. **+1 to attack and damage rolls.** Its attacks count as magical.
@@ -110,6 +120,8 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Festival Prize Arrows
 - **Type:** Ammunition (20 pieces), uncommon
+- **Attack:** +1 + your usual attack bonus with the bow, crossbow or sling
+- **Damage:** The weapon's damage die + 1 + Dex mod (magical)
 - **Found:** Morning Boons
 - **Also called:** +1 ammunition, +1 arrows, +1 bolts
 > A quiver of twenty arrows (or bolts, or sling stones) fletched in festival colors. **+1 to attack and damage rolls** with them. Once one hits its target, it's no longer magical.
@@ -117,6 +129,8 @@ Player-facing cards for everything the party can find, win or be given. On the D
 
 ### Gourd Archery Arrows
 - **Type:** Ammunition (5 pieces), uncommon
+- **Attack:** +1 + your usual attack bonus with the bow
+- **Damage:** The bow's damage die + 1 + Dex mod piercing (magical)
 - **Found:** The Gourd Archery contest, Winter Festival
 - **Also called:** 5 arrows +1
 > Five arrows with silver-painted fletching, the champion's prize from the Gourd Archery booth. **+1 to attack and damage rolls** with them. Once one hits its target, it's no longer magical.
