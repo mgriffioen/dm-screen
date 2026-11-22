@@ -1343,7 +1343,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   }
   function handoutLink(o) {
     const type = o.f.Type || "Item";
-    const rows = ["Value", "Weight", "Charges"].filter(k => o.f[k] && o.f[k] !== "—").map(k => [k, plain(o.f[k])]);
+    const rows = ["Attack", "Damage", "Value", "Weight", "Charges"].filter(k => o.f[k] && o.f[k] !== "—").map(k => [k, plain(o.f[k])]);
     const payload = {
       banner: type.split(/[,(]/)[0].trim().slice(0, 40),
       title: o.title,
