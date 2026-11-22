@@ -416,37 +416,37 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **an open book**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A reading nook holding every book you ever loved. Using it: Advantage on one INT check. +1 Contentment. The tell: Past the middle, every book's pages are blank.
+- **DM:** Inside: A reading nook holding every book you ever loved. The bait: read a favorite book. Benefit: advantage on one INT check, saved until needed. +1 Contentment. The tell: Past the middle, every book's pages are blank.
 
 ### Lodge Key: Spiral
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a perfect spiral**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A yard where every thrown thing flies true. Using it: +1 to ranged attacks for the session. +1 Contentment. The tell: The spiral matches the invitations, and the Mayor's ring.
+- **DM:** Inside: A yard where every thrown thing flies true. The bait: throw something. Benefit: +1 to ranged attacks for the session. +1 Contentment. The tell: The spiral matches the invitations, and the Mayor's ring.
 
 ### Lodge Key: Eye
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **an open, watchful eye**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A bunk room of old cloaks, masks and a crate of sky-rockets. Using it: 10 temporary HP. +1 Contentment. The tell: The crate is stenciled "Confiscated from guests."
+- **DM:** Inside: A bunk room of old cloaks, masks and a crate of sky-rockets. The bait: try on an old cloak. Benefit: 10 temporary HP, lasting until spent. +1 Contentment. The rockets are found just by looking around, with no Contentment cost. The tell: The crate is stenciled "Confiscated from guests."
 
 ### Lodge Key: Wave
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a wave beneath a roof**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A deck with a steaming hot spring. Using it: Remove all conditions and exhaustion. +1 Contentment. The tell: The water is a little too warm, and slightly thick.
+- **DM:** Inside: A cool, quiet room with a single glass of ice-cold water on the table. The bait: drink the water. Benefit: once, as a reaction, end one condition on yourself. +1 Contentment. The tell: The ice never melts, and the glass is full again when you look back.
 
 ### Lodge Key: Heart
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a heart, with a line of verse beneath it**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: Dusty's character's lodge; the lintel reads "I hear it in the deep heart's core." Using it: Advantage on WIS saves. +1 Contentment. The tell: His own initials are carved into the bedpost from years ago. Give this key to Dusty's character.
+- **DM:** Inside: Dusty's character's lodge; the lintel reads "I hear it in the deep heart's core." The bait: lie down on the bed. Benefit: advantage on WIS saves. +1 Contentment. The tell: His own initials are carved into the bedpost from years ago. Give this key to Dusty's character.
 
 ### Lodge Key: Sun
 - **Type:** Key item
 - **Found:** Given by the Keeper, Session 3
 > A warm brass key on a wooden tag carved with **a sun that never sets**. It opens the lodge with the same sign over its door. The Keeper pressed it into your hand himself: *"This one's yours. It always was."*
-- **DM:** Inside: A porch facing a perfect sunset. Using it: Regain all spell slots. +1 Contentment. The tell: The sunset never finishes setting, and the same bird crosses it every minute. Pass Erik a note first.
+- **DM:** Inside: A porch facing a perfect sunset. The bait: sit and watch the sunset. Benefit: regain all spell slots or all expended class features (Rage, Second Wind, Ki, and so on). +1 Contentment. The tell: The sunset never finishes setting, and the same bird crosses it every minute. Pass Erik a note first.
 
 ### Iron Key to the Sewer Grate
 - **Type:** Key item

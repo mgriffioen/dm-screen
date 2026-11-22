@@ -105,6 +105,6 @@ Enormous golden doors set into living rock, carved with a perfect spiral. Above 
 
 > The invitations in your packs begin to hum. The Gate swings open on its own, and sunlight, real and impossible sunlight, pours into the cave. Beyond lies a green hill sloping down to a sparkling lake. Timber lodges sit in a row along the ridge. Out on the water a wooden raft bobs, and something long and yellow curls from it down into the lake. A little golden cart trundles toward you along a gravel path, with no horse pulling it. The old man driving it lifts his hat. "Well, look who made it," he says. "Come in, come in. You must be tired."
 
-**End session.** No level-up. Hand out the **Gate Gifts** over dinner (see [09_Table_Guide.md](09_Table_Guide.md)).
+**End session.** No level-up, and **no long rest**: everyone starts Session 3 with the HP, spell slots, features and conditions they have right now (write them down). That's what makes the lodges tempting. Hand out the **Gate Gifts** over dinner (see [09_Table_Guide.md](09_Table_Guide.md)).
 
 ⏱️ **If short on time:** skip [6] and go straight from the Toll Bridge to the Glass Mere. If running *long*, make [9] a non-combat check-in. Only skip [4] if they already have Emberoak Sap.
