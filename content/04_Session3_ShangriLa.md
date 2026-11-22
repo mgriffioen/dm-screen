@@ -27,15 +27,15 @@ Each guest is given a lodge key carved with a sigil. The Keeper drops each guest
 
 | Sigil over the door | Inside | The bait | Benefit | The tell |
 |---|---|---|---|---|
-| **An open book** | A reading nook with every book you ever loved | Read a favorite book | Advantage on one INT check (save it for when you need it) | Past the middle, every book's pages are blank. |
-| **A perfect spiral** | A yard where every thrown thing flies true | Throw something | +1 to ranged attacks for the session | The spiral matches the invitations, and the Mayor's ring |
-| **An open, watchful eye** | A bunk room of old cloaks, masks and a **crate of sky-rockets** | Try on an old cloak | 10 temp HP (they last until spent) | The crate is stenciled *"Confiscated from guests."* |
-| **A wave beneath a roof** | A cool, quiet room with a single **glass of ice-cold water** on the table | Drink the water | Once, as a reaction, end one condition on yourself | The ice never melts, and the glass is full again when you look back |
-| **A heart, with verse carved beneath** | *Dusty's character's lodge.* The lintel reads: *"I hear it in the deep heart's core."* | Lie down on the bed | Advantage on WIS saves | His own initials, carved into the bedpost years ago |
-| **A sun that never sets** | A porch facing a perfect sunset | Sit and watch the sunset | Regain all spell slots **or** all expended class features (Rage, Second Wind, Ki, and so on) | The sunset never finishes setting. The same bird crosses it every minute. (Pass Erik a note first.) |
+| **An open book** | A cozy library of every book you ever loved, with deep, comfy armchairs | Settle into a chair with a favorite book | Advantage on one INT check (save it for when you need it) | Past the middle, every book's pages are blank. |
+| **A perfect spiral** | The cabin opens onto a deck and a vast green yard. Balls, flying discs and bocce sets wait on the deck, and every thrown thing flies true | Throw something | +1 to ranged attacks for the session | The spiral matches the invitations, and the Mayor's ring |
+| **An open, watchful eye** | Racks of familiar, inviting clothes: jackets, shirts and hats that all seem to fit you. A **crate of sky-rockets** is hidden behind the finery | Try something on | 10 temp HP (they last until spent) | The crate is stenciled *"Confiscated from guests."* |
+| **A wave beneath a roof** | A calm, spa-like room with soft light, a trickling waterfall fountain, and a single **glass of ice-cold water** on the table | Drink the water | Once, as a reaction, end one condition on yourself | The ice never melts, and the glass is full again when you look back |
+| **A heart, with verse carved beneath** | *Dusty's character's lodge.* A bedroom with the most comfortable bed you've ever seen. The lintel reads: *"I hear it in the deep heart's core."* | Lie down on the bed | Advantage on WIS saves | His own initials, carved into the bedpost years ago |
+| **A sun that never sets** | Somehow, the lodge opens onto a balcony high above the trees, with a cushioned porch swing and a tempting cocktail on a side table, facing a perfect sunset | Sit on the swing and sip the cocktail | Regain all spell slots **or** all expended class features (Rage, Second Wind, Ki, and so on) | The sunset never finishes setting. The same bird crosses it every minute. (Pass Erik a note first.) |
 | **A hound** (the Hound's Hearth) | **Locked.** The Keeper: *"Oh, nobody stays in that one."* | — | — | It's humming. The floor is warm. The Heart is beneath it. |
 
-**The sky-rockets are free.** Anyone who looks around the watchful-eye lodge finds the crate, with no bait needed and no Contentment cost. The fight's big prop should never depend on someone taking the bait.
+**The sky-rockets are free.** Anyone who looks through the finery in the watchful-eye lodge finds the crate, with no bait needed and no Contentment cost. The fight's big prop should never depend on someone taking the bait.
 
 **Make the lodges tempting:** the party arrives straight from the Undercroft with no long rest (see the end of [03_Session2_Undercroft.md](03_Session2_Undercroft.md)). Hurt, tired guests want what the lodges offer.
 
