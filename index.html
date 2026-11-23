@@ -253,6 +253,9 @@ button.dice { border: 0; padding: 0 4px; border-radius: 4px; background: var(--h
 .init input { width: 100%; min-width: 0; padding: 5px 6px; border-radius: 6px; border: 1px solid var(--line); background: var(--raise); }
 .init input.n { text-align: center; font-family: var(--font-mono); }
 .round { font-family: var(--font-mono); font-size: 0.85em; color: var(--muted); }
+.echo-link { margin-left: auto; padding: 2px 9px; min-height: 28px; border-radius: 999px; border: 1px solid var(--line); background: none; color: var(--muted); font: inherit; font-size: 0.75em; cursor: pointer; white-space: nowrap; }
+.echo-link.on { color: var(--ok); border-color: currentColor; }
+.echo-link.bad { color: var(--ember); border-color: currentColor; }
 .timer { font-family: var(--font-mono); font-size: 2em; font-weight: 600; font-variant-numeric: tabular-nums; }
 .timer.done { color: var(--ember); animation: pulse 1s infinite; }
 @keyframes pulse { 50% { opacity: 0.35; } }
@@ -629,7 +632,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     </section>
 
     <section class="sec">
-      <header><h2>Initiative</h2><span class="round" id="roundN">Round 1</span></header>
+      <header><h2>Initiative</h2><button class="echo-link" type="button" id="echoLink" title="Send Roll &amp; add to the DM Companion on the Echo Show">Echo: off</button><span class="round" id="roundN">Round 1</span></header>
       <div class="body">
         <ul class="init" id="init"></ul>
         <form class="row" id="initForm">
@@ -1297,20 +1300,68 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     let next = mine.length + 1;
     const group = $("#sbGroup").checked && sheetCount > 1;
     const groupRoll = r(20) + dex;
-    const added = [], ids = [];
+    const added = [], ids = [], toEcho = [];
     for (let i = 0; i < sheetCount; i++) {
       const roll = group ? groupRoll : r(20) + dex;
       const name = sheetCount === 1 && !mine.length ? base : `${base} ${next++}`;
       const id = uid();
       S.init.push({ id, name, roll, hp, max: hp, ac: parseInt(m.ac, 10) || null, mon: m.n });
       ids.push(id); added.push(`${name} ${roll}`);
+      toEcho.push({ id, name, base, roll, hp, ac: parseInt(m.ac, 10) || null });
       if (!group) pushLog(`${name} initiative`, roll);
     }
     if (group) pushLog(`${base} ×${sheetCount} initiative`, groupRoll);
     sortInit(); changed(); renderInit();
     closeMon();
     showTracker(ids);
+    sendToEcho({ type: "initiative.add", combatants: toEcho });
   });
+  // ---------- DM Companion on the Echo Show ----------
+  // The Echo runs a small HTTP server on the Wi-Fi (DM Companion app, port 8787).
+  // Chrome lets this https page reach a private IP like 192.168.x.x once the
+  // "local network access" permission is allowed. Contract: POST /message with
+  // {type: "initiative.add", combatants: [{id, name, base, roll, hp, ac}]};
+  // the Echo numbers copies itself and answers {ok, added: ["Goblin 2 · 14"]}.
+  // Source: ~/Documents/Echo Show/dm-companion (assets/initiative.js, LinkServer.java).
+  const ECHO_PORT = 8787;
+  let echoAddr = store.get("lr-echo", "");
+  const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
+  function echoState(t, cls) { const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
+  async function echoFetch(path, body) {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
+    try {
+      // text/plain keeps it a "simple" request (no CORS preflight).
+      const res = await fetch(echoUrl(path), body ? { method: "POST", body: JSON.stringify(body), headers: { "Content-Type": "text/plain" }, signal: ctl.signal } : { signal: ctl.signal });
+      return await res.json();
+    } finally { clearTimeout(t); }
+  }
+  async function pingEcho() {
+    if (!echoAddr) { echoState("Echo: off"); return false; }
+    echoState("Echo…");
+    try { const r = await echoFetch("/ping"); if (r && r.ok) { echoState("Echo ✓", "on"); return true; } } catch {}
+    echoState("Echo ✗", "bad"); return false;
+  }
+  async function sendToEcho(msg) {
+    if (!echoAddr || !msg.combatants.length) return;
+    try {
+      const r = await echoFetch("/message", msg);
+      if (!r || !r.ok) throw new Error(r && r.error);
+      echoState("Echo ✓", "on");
+      printToast(`On the Echo: ${(r.added || []).join(", ") || "already there"}`, "");
+    } catch (e) {
+      echoState("Echo ✗", "bad");
+      printToast(`Couldn't reach the Echo at ${echoAddr}. Is DM Companion open? Added on this tablet only.`, "");
+    }
+  }
+  $("#echoLink").addEventListener("click", async () => {
+    const v = prompt("Echo Show address (shown on its Init tab, e.g. 192.168.86.29). Leave empty to turn off.", echoAddr);
+    if (v === null) return;
+    echoAddr = v.trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+    store.set("lr-echo", echoAddr);
+    const ok = await pingEcho();
+    if (echoAddr) printToast(ok ? "Connected to the Echo. Roll & add now sends there too." : `Couldn't reach the Echo at ${echoAddr}. Check DM Companion is open, both are on the same Wi-Fi, and Chrome is allowed to reach local network devices.`, "");
+  });
+  pingEcho();
   // Bring the tracker into view (open the drawer or the hidden panel) and highlight new rows.
   function showTracker(ids) {
     if (wide.matches) { if (tableHidden) { tableHidden = false; store.set("lr-table-hidden", false); } }
