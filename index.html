@@ -1313,7 +1313,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     if (group) pushLog(`${base} ×${sheetCount} initiative`, groupRoll);
     sortInit(); changed(); renderInit();
     closeMon();
-    showTracker(ids);
+    // With the Echo connected, the fight is run there; leave the drawer closed.
+    if (!echoOk) showTracker(ids);
     sendToEcho({ type: "initiative.add", combatants: toEcho });
   });
   // ---------- DM Companion on the Echo Show ----------
@@ -1325,8 +1326,9 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   // Source: ~/Documents/Echo Show/dm-companion (assets/initiative.js, LinkServer.java).
   const ECHO_PORT = 8787;
   let echoAddr = store.get("lr-echo", "");
+  let echoOk = false; // last contact with the Echo succeeded
   const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
-  function echoState(t, cls) { const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
+  function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
   async function echoFetch(path, body) {
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
     try {
