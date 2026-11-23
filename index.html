@@ -632,7 +632,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     </section>
 
     <section class="sec">
-      <header><h2>Initiative</h2><button class="echo-link" type="button" id="echoLink" title="Send Roll &amp; add to the DM Companion on the Echo Show">Echo: off</button><span class="round" id="roundN">Round 1</span></header>
+      <header><h2>Initiative</h2><button class="echo-link" type="button" id="echoLink" title="Share this initiative tracker with the DM Companion on the Echo Show">Echo: off</button><span class="round" id="roundN">Round 1</span></header>
       <div class="body">
         <ul class="init" id="init"></ul>
         <form class="row" id="initForm">
@@ -1300,70 +1300,22 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     let next = mine.length + 1;
     const group = $("#sbGroup").checked && sheetCount > 1;
     const groupRoll = r(20) + dex;
-    const added = [], ids = [], toEcho = [];
+    const added = [], ids = [];
     for (let i = 0; i < sheetCount; i++) {
       const roll = group ? groupRoll : r(20) + dex;
       const name = sheetCount === 1 && !mine.length ? base : `${base} ${next++}`;
       const id = uid();
       S.init.push({ id, name, roll, hp, max: hp, ac: parseInt(m.ac, 10) || null, mon: m.n });
       ids.push(id); added.push(`${name} ${roll}`);
-      toEcho.push({ id, name, base, roll, hp, ac: parseInt(m.ac, 10) || null });
       if (!group) pushLog(`${name} initiative`, roll);
     }
     if (group) pushLog(`${base} ×${sheetCount} initiative`, groupRoll);
     sortInit(); changed(); renderInit();
     closeMon();
     // With the Echo connected, the fight is run there; leave the drawer closed.
-    if (!echoOk) showTracker(ids);
-    sendToEcho({ type: "initiative.add", combatants: toEcho });
+    if (echoOk) printToast(`On the Echo: ${added.map(a => a.replace(/ (-?\d+)$/, " · $1")).join(", ")}`, "");
+    else showTracker(ids);
   });
-  // ---------- DM Companion on the Echo Show ----------
-  // The Echo runs a small HTTP server on the Wi-Fi (DM Companion app, port 8787).
-  // Chrome lets this https page reach a private IP like 192.168.x.x once the
-  // "local network access" permission is allowed. Contract: POST /message with
-  // {type: "initiative.add", combatants: [{id, name, base, roll, hp, ac}]};
-  // the Echo numbers copies itself and answers {ok, added: ["Goblin 2 · 14"]}.
-  // Source: ~/Documents/Echo Show/dm-companion (assets/initiative.js, LinkServer.java).
-  const ECHO_PORT = 8787;
-  let echoAddr = store.get("lr-echo", "");
-  let echoOk = false; // last contact with the Echo succeeded
-  const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
-  function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
-  async function echoFetch(path, body) {
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
-    try {
-      // text/plain keeps it a "simple" request (no CORS preflight).
-      const res = await fetch(echoUrl(path), body ? { method: "POST", body: JSON.stringify(body), headers: { "Content-Type": "text/plain" }, signal: ctl.signal } : { signal: ctl.signal });
-      return await res.json();
-    } finally { clearTimeout(t); }
-  }
-  async function pingEcho() {
-    if (!echoAddr) { echoState("Echo: off"); return false; }
-    echoState("Echo…");
-    try { const r = await echoFetch("/ping"); if (r && r.ok) { echoState("Echo ✓", "on"); return true; } } catch {}
-    echoState("Echo ✗", "bad"); return false;
-  }
-  async function sendToEcho(msg) {
-    if (!echoAddr || !msg.combatants.length) return;
-    try {
-      const r = await echoFetch("/message", msg);
-      if (!r || !r.ok) throw new Error(r && r.error);
-      echoState("Echo ✓", "on");
-      printToast(`On the Echo: ${(r.added || []).join(", ") || "already there"}`, "");
-    } catch (e) {
-      echoState("Echo ✗", "bad");
-      printToast(`Couldn't reach the Echo at ${echoAddr}. Is DM Companion open? Added on this tablet only.`, "");
-    }
-  }
-  $("#echoLink").addEventListener("click", async () => {
-    const v = prompt("Echo Show address (shown on its Init tab, e.g. 192.168.86.29). Leave empty to turn off.", echoAddr);
-    if (v === null) return;
-    echoAddr = v.trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "");
-    store.set("lr-echo", echoAddr);
-    const ok = await pingEcho();
-    if (echoAddr) printToast(ok ? "Connected to the Echo. Roll & add now sends there too." : `Couldn't reach the Echo at ${echoAddr}. Check DM Companion is open, both are on the same Wi-Fi, and Chrome is allowed to reach local network devices.`, "");
-  });
-  pingEcho();
   // Bring the tracker into view (open the drawer or the hidden panel) and highlight new rows.
   function showTracker(ids) {
     if (wide.matches) { if (tableHidden) { tableHidden = false; store.set("lr-table-hidden", false); } }
@@ -1704,6 +1656,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   function changed() {
     dirty = true;
     store.set("lr-table", S);
+    if (typeof echoChanged === "function") echoChanged();
     if (!ref) return;
     setSave("Saving…");
     clearTimeout(saveTimer); saveTimer = setTimeout(flush, 700);
@@ -1892,6 +1845,191 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     }, err => { clearTimeout(t); ref = null; setSave("Saving is off for this visit. Changes stay on this tablet.", true); });
   }
   connect();
+
+  // ---------- Echo Show: shared initiative ----------
+  // While connected, the DM Companion app on the Echo Show holds the one true copy of
+  // the initiative tracker, and this drawer mirrors it both ways: a change here is sent
+  // as a patch, and the Echo's changes (Next turn, HP buttons) come back via a long poll.
+  // If the Echo drops out, this tablet keeps working on its own copy and sends what
+  // changed when it's back.
+  //
+  //   echoBase = the last Echo state merged here ({epoch, v, list, turnId, round, started}).
+  //   Pending changes = echoDiff(this tablet's view, echoBase), field by field, so edits on
+  //   both screens at once merge. A new Echo state is merged by replaying the pending
+  //   changes on top of it (echoApply), then adopting the result.
+  //
+  // Link: the Echo serves HTTP on port 8787. Chrome lets this https page reach a private
+  // IP literal (Local Network Access; it may ask once). Text/plain bodies avoid a CORS
+  // preflight. Echo side: ~/Documents/Echo Show/dm-companion (assets/initiative.js,
+  // LinkServer.java). Keep echoApply()/echoNormalize() in step with its applyOps()/normalize().
+  const ECHO_PORT = 8787;
+  const ECHO_FIELDS = ["name", "roll", "hp", "max", "ac", "mon", "pc"];
+  let echoAddr = store.get("lr-echo", "");
+  let echoOk = false; // last contact with the Echo succeeded
+  let echoBase = store.get("lr-echo-base", null);
+  if (echoBase && echoBase.addr !== echoAddr) echoBase = null;
+  let echoGen = 0, echoInflight = false, echoAgain = false, echoIncoming = null, echoTimer = null, echoWarned = false;
+  const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
+  const echoSame = (a, b) => (a ?? null) === (b ?? null);
+  const echoClone = o => JSON.parse(JSON.stringify(o));
+  function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
+  async function echoFetch(path, body, ms = 5000) {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
+    try {
+      const res = await fetch(echoUrl(path), body ? { method: "POST", body: JSON.stringify(body), headers: { "Content-Type": "text/plain" }, signal: ctl.signal } : { signal: ctl.signal, cache: "no-store" });
+      return await res.json();
+    } finally { clearTimeout(t); }
+  }
+  function echoLost() {
+    const was = echoOk;
+    echoState("Echo ✗", "bad");
+    if (was && !echoWarned) { echoWarned = true; printToast("Lost the Echo. Initiative keeps working here and catches up when it's back.", ""); }
+  }
+
+  // This tablet's tracker in the Echo's shape. PCs carry their party card's HP.
+  function echoView() {
+    const list = S.init.map(c => {
+      const p = c.pc ? S.party.find(x => x.id === c.pc) : null;
+      const who = p || c;
+      return { id: c.id, name: p ? (p.name || p.player || c.name) : c.name, roll: c.roll ?? null, hp: who.hp ?? null, max: who.max ?? null,
+        ac: p ? (p.ac ?? null) : (c.ac ?? null), mon: c.mon || null, pc: c.pc || null };
+    });
+    return { list, turnId: S.init[S.turn] ? S.init[S.turn].id : null, round: S.round };
+  }
+  function echoDiff(cur, base) {
+    const ops = [], old = new Map(base.list.map(r => [r.id, r]));
+    for (const r of cur.list) {
+      const o = old.get(r.id);
+      if (!o) { ops.push({ op: "upsert", c: r }); continue; }
+      const fields = {};
+      for (const f of ECHO_FIELDS) if (!echoSame(r[f], o[f])) fields[f] = r[f] ?? null;
+      if (Object.keys(fields).length) ops.push({ op: "set", id: r.id, fields });
+    }
+    const now = new Set(cur.list.map(r => r.id));
+    for (const o of base.list) if (!now.has(o.id)) ops.push({ op: "remove", id: o.id });
+    if (cur.list.length && (!echoSame(cur.turnId, base.turnId) || cur.round !== base.round)) ops.push({ op: "turn", id: cur.turnId, round: cur.round });
+    return ops;
+  }
+  // Same rules as the Echo: highest roll first, ties keep order; before the first
+  // Next turn the turn sits on the top roll; a removed current combatant passes the turn on.
+  function echoNormalize(st, oldIdx) {
+    st.list = st.list.map((c, i) => [c, i]).sort((a, b) => ((b[0].roll ?? -99) - (a[0].roll ?? -99)) || (a[1] - b[1])).map(x => x[0]);
+    if (!st.list.length) { st.turnId = null; st.round = 1; st.started = false; return st; }
+    if (!st.started) { st.turnId = st.list[0].id; return st; }
+    if (!st.list.some(c => c.id === st.turnId)) st.turnId = st.list[oldIdx == null || oldIdx < 0 || oldIdx >= st.list.length ? 0 : oldIdx].id;
+    return st;
+  }
+  function echoApply(state, ops) {
+    const st = echoClone(state);
+    const oldIdx = st.list.findIndex(c => c.id === st.turnId);
+    for (const o of ops) {
+      if (o.op === "upsert") { const i = st.list.findIndex(c => c.id === o.c.id); if (i >= 0) st.list[i] = echoClone(o.c); else st.list.push(echoClone(o.c)); }
+      else if (o.op === "set") { const c = st.list.find(x => x.id === o.id); if (c) Object.assign(c, o.fields); }
+      else if (o.op === "remove") st.list = st.list.filter(c => c.id !== o.id);
+      else if (o.op === "turn") { st.turnId = o.id; st.round = o.round; st.started = true; }
+    }
+    return echoNormalize(st, oldIdx);
+  }
+  // Make this tablet's tracker match a merged state. PC hit points go back to the party cards.
+  function echoAdopt(st) {
+    const prev = new Map(S.init.map(c => [c.id, c]));
+    let partyChanged = false;
+    S.init = st.list.map(r => {
+      const c = Object.assign({}, prev.get(r.id) || {}, { id: r.id, name: r.name, roll: r.roll ?? null });
+      if (r.pc) {
+        c.pc = r.pc;
+        const p = S.party.find(x => x.id === r.pc);
+        if (p && (!echoSame(p.hp, r.hp) || !echoSame(p.max, r.max))) { p.hp = r.hp; p.max = r.max; partyChanged = true; }
+        if (!p) { c.hp = r.hp ?? null; c.max = r.max ?? null; } // no card on this tablet: the row keeps it
+      } else {
+        c.hp = r.hp ?? null; c.max = r.max ?? null; c.ac = r.ac ?? null;
+        if (r.mon) c.mon = r.mon; else delete c.mon;
+      }
+      return c;
+    });
+    S.turn = Math.max(0, S.init.findIndex(c => c.id === st.turnId));
+    S.round = st.round || 1;
+    renderInit(); if (partyChanged) renderParty();
+    changed();
+  }
+  // Rebuilding the rows mid-edit would lose what's being typed: wait until the field is left.
+  const echoBusy = () => { const a = document.activeElement; return !!(a && a.closest && a.closest("#init input, #party input")); };
+  function echoReceive(E) {
+    if (!E || !Array.isArray(E.list)) return;
+    if (!echoIncoming || E.epoch !== echoIncoming.epoch || E.v > echoIncoming.v) echoIncoming = E;
+    echoMerge();
+  }
+  function echoMerge() {
+    const E = echoIncoming;
+    if (!E || echoBusy()) return;
+    echoIncoming = null;
+    const cur = echoView();
+    if (echoBase && E.epoch === echoBase.epoch) {
+      if (E.v <= echoBase.v) { echoSchedule(0); return; } // nothing new; send anything still pending
+      const next = echoApply(E, echoDiff(cur, echoBase));
+      echoBase = Object.assign(echoClone(E), { addr: echoAddr });
+      store.set("lr-echo-base", echoBase);
+      echoAdopt(next);
+    } else {
+      // First contact with this Echo's tracker: keep everyone from both sides.
+      const extra = cur.list.filter(r => !E.list.some(x => x.id === r.id));
+      echoBase = Object.assign(echoClone(E), { addr: echoAddr });
+      store.set("lr-echo-base", echoBase);
+      echoAdopt(echoApply(E, extra.map(c => ({ op: "upsert", c }))));
+    }
+  }
+  document.addEventListener("focusout", () => setTimeout(echoMerge, 0));
+  function echoChanged() { if (echoAddr && echoBase) echoSchedule(150); }
+  function echoSchedule(ms) { clearTimeout(echoTimer); echoTimer = setTimeout(echoFlush, ms); }
+  async function echoFlush() {
+    if (!echoAddr || !echoBase) return;
+    if (echoInflight) { echoAgain = true; return; }
+    const ops = echoDiff(echoView(), echoBase);
+    if (!ops.length) return;
+    echoInflight = true;
+    try {
+      const r = await echoFetch("/message", { type: "initiative.patch", ops });
+      if (!r || !r.ok || !r.state) throw new Error(r && r.error);
+      echoState("Echo ✓", "on"); echoWarned = false;
+      echoInflight = false;
+      echoReceive(r.state);
+    } catch (e) { echoInflight = false; echoAgain = false; echoLost(); return; }
+    if (echoAgain) { echoAgain = false; echoSchedule(0); }
+  }
+  async function echoLoop(gen) {
+    let first = true; // the first request answers at once, so the chip turns ✓ without waiting for a change
+    while (gen === echoGen && echoAddr) {
+      try {
+        const same = !first && echoBase && echoBase.epoch;
+        const r = await echoFetch(`/state?since=${same ? echoBase.v : -1}&epoch=${encodeURIComponent(same ? echoBase.epoch : "")}`, null, 30000);
+        if (gen !== echoGen) return;
+        if (!r || !r.ok || !r.state) throw new Error(r && r.error);
+        first = false;
+        echoState("Echo ✓", "on"); echoWarned = false;
+        echoReceive(r.state);
+      } catch (e) {
+        if (gen !== echoGen) return;
+        first = true;
+        echoLost();
+        await new Promise(res => setTimeout(res, 3000));
+      }
+    }
+  }
+  function echoStart() {
+    echoGen++; echoIncoming = null;
+    if (!echoAddr) { echoState("Echo: off"); return; }
+    echoState("Echo…");
+    echoLoop(echoGen);
+  }
+  $("#echoLink").addEventListener("click", () => {
+    const v = prompt("Echo Show address (shown on its Init tab, e.g. 192.168.86.29). Leave empty to turn off.", echoAddr);
+    if (v === null) return;
+    const addr = v.trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+    if (addr !== echoAddr) { echoBase = null; store.set("lr-echo-base", null); }
+    echoAddr = addr; store.set("lr-echo", echoAddr);
+    echoStart();
+  });
+  echoStart();
 
   // ---------- timer ----------
   let tLeft = 300, tTotal = 300, tRun = null;
