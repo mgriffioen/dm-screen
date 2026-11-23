@@ -1869,12 +1869,15 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   let echoBase = store.get("lr-echo-base", null);
   if (echoBase && echoBase.addr !== echoAddr) echoBase = null;
   let echoGen = 0, echoInflight = false, echoAgain = false, echoIncoming = null, echoTimer = null, echoWarned = false;
+  let echoLeader = false; // only one DM screen window per device talks to the Echo
+  let echoIgnored = "";   // last patch the Echo applied without any change; don't resend it in a loop
   const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
   const echoSame = (a, b) => (a ?? null) === (b ?? null);
   const echoClone = o => JSON.parse(JSON.stringify(o));
   function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
-  async function echoFetch(path, body, ms = 5000) {
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
+  let echoPollCtl = null; // the waiting long poll, cancelled when the address changes
+  async function echoFetch(path, body, ms = 5000, ctl = new AbortController()) {
+    const t = setTimeout(() => ctl.abort(), ms);
     try {
       const res = await fetch(echoUrl(path), body ? { method: "POST", body: JSON.stringify(body), headers: { "Content-Type": "text/plain" }, signal: ctl.signal } : { signal: ctl.signal, cache: "no-store" });
       return await res.json();
@@ -1939,8 +1942,12 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       if (r.pc) {
         c.pc = r.pc;
         const p = S.party.find(x => x.id === r.pc);
-        if (p && (!echoSame(p.hp, r.hp) || !echoSame(p.max, r.max))) { p.hp = r.hp; p.max = r.max; partyChanged = true; }
-        if (!p) { c.hp = r.hp ?? null; c.max = r.max ?? null; } // no card on this tablet: the row keeps it
+        // Write back everything echoView() reads, or two screens showing different
+        // values would keep correcting each other.
+        if (p) {
+          if (!echoSame(p.hp, r.hp) || !echoSame(p.max, r.max) || !echoSame(p.ac, r.ac)) { p.hp = r.hp; p.max = r.max; p.ac = r.ac; partyChanged = true; }
+          if ((p.name || p.player || c.name) !== r.name) { p.name = r.name; partyChanged = true; }
+        } else { c.hp = r.hp ?? null; c.max = r.max ?? null; c.ac = r.ac ?? null; } // no card on this tablet: the row keeps it
       } else {
         c.hp = r.hp ?? null; c.max = r.max ?? null; c.ac = r.ac ?? null;
         if (r.mon) c.mon = r.mon; else delete c.mon;
@@ -1979,17 +1986,21 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     }
   }
   document.addEventListener("focusout", () => setTimeout(echoMerge, 0));
-  function echoChanged() { if (echoAddr && echoBase) echoSchedule(150); }
+  function echoChanged() { if (echoLeader && echoAddr && echoBase) echoSchedule(150); }
   function echoSchedule(ms) { clearTimeout(echoTimer); echoTimer = setTimeout(echoFlush, ms); }
   async function echoFlush() {
-    if (!echoAddr || !echoBase) return;
+    if (!echoLeader || !echoAddr || !echoBase) return;
     if (echoInflight) { echoAgain = true; return; }
     const ops = echoDiff(echoView(), echoBase);
     if (!ops.length) return;
+    const key = JSON.stringify(ops);
+    if (key === echoIgnored) return;
     echoInflight = true;
     try {
+      const before = echoBase.epoch + ":" + echoBase.v;
       const r = await echoFetch("/message", { type: "initiative.patch", ops });
       if (!r || !r.ok || !r.state) throw new Error(r && r.error);
+      echoIgnored = r.state.epoch + ":" + r.state.v === before ? key : "";
       echoState("Echo ✓", "on"); echoWarned = false;
       echoInflight = false;
       echoReceive(r.state);
@@ -2001,7 +2012,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     while (gen === echoGen && echoAddr) {
       try {
         const same = !first && echoBase && echoBase.epoch;
-        const r = await echoFetch(`/state?since=${same ? echoBase.v : -1}&epoch=${encodeURIComponent(same ? echoBase.epoch : "")}`, null, 30000);
+        echoPollCtl = new AbortController();
+        const r = await echoFetch(`/state?since=${same ? echoBase.v : -1}&epoch=${encodeURIComponent(same ? echoBase.epoch : "")}`, null, 30000, echoPollCtl);
         if (gen !== echoGen) return;
         if (!r || !r.ok || !r.state) throw new Error(r && r.error);
         first = false;
@@ -2016,10 +2028,31 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     }
   }
   function echoStart() {
-    echoGen++; echoIncoming = null;
+    const gen = ++echoGen; echoIncoming = null; echoLeader = false;
+    if (echoPollCtl) echoPollCtl.abort();
     if (!echoAddr) { echoState("Echo: off"); return; }
+    if (!navigator.locks) { echoLead(gen); return; }
+    // Two windows of the DM screen (a browser tab and the installed app, say) would each
+    // hold their own copy in memory and fight over the Echo. Only the lock holder syncs.
+    navigator.locks.request("lr-echo-sync", { ifAvailable: true }, lock => {
+      if (lock) return echoLead(gen);
+      echoState("Echo: other window");
+      navigator.locks.request("lr-echo-sync", () => {
+        if (gen !== echoGen) return;
+        // The other window closed: pick up what it saved before taking over.
+        applyState(store.get("lr-table", null));
+        echoBase = store.get("lr-echo-base", null);
+        if (echoBase && echoBase.addr !== echoAddr) echoBase = null;
+        return echoLead(gen);
+      });
+    });
+  }
+  async function echoLead(gen) {
+    if (gen !== echoGen) return;
+    echoLeader = true;
     echoState("Echo…");
-    echoLoop(echoGen);
+    await echoLoop(gen); // holds the lock until the address changes
+    if (gen === echoGen) echoLeader = false;
   }
   $("#echoLink").addEventListener("click", () => {
     const v = prompt("Echo Show address (shown on its Init tab, e.g. 192.168.86.29). Leave empty to turn off.", echoAddr);
