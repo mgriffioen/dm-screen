@@ -621,7 +621,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     <section class="sec" id="echoMsgSec" style="display:none">
       <header><h2>Player screen</h2></header>
       <div class="body">
-        <textarea id="echoMsgText" placeholder="Message for the player screen… (Enter to send, Shift+Enter for a new line)"></textarea>
+        <textarea id="echoMsgText" placeholder="Message for the player screen…"></textarea>
         <div class="row">
           <button class="btn" id="echoMsgSend" title="Show this text on the player screen">💬 Send</button>
           <button class="btn" id="echoImgPick" title="Send a photo to the player screen">📷 Image</button>
@@ -2061,9 +2061,9 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       $("#echoMsgText").value = "";
     } catch (e) { printToast("Couldn't reach the Echo.", ""); }
   }
+  // Enter always inserts a newline here (no keyboard shortcut to send) — a tablet with
+  // no physical keyboard can't do Shift+Enter, so only the Send button sends.
   $("#echoMsgSend").addEventListener("click", echoSendMessage);
-  // Now a multi-line textarea: Shift+Enter still inserts a newline, plain Enter sends.
-  $("#echoMsgText").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); echoSendMessage(); } });
   $("#echoImgPick").addEventListener("click", () => $("#echoImgFile").click());
   $("#echoImgFile").addEventListener("change", async () => {
     const f = $("#echoImgFile").files[0];
