@@ -731,8 +731,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   // ---------- dice engine ----------
   // There's no more Dice section in the drawer: quick rolls and the custom-expression
   // form are gone (superseded by the Echo's own dice tab). What's left here backs two
-  // things — the dice-notation links woven into the story text (sent to the Echo as a
-  // spotlight, see "send dice links to the Echo" below) and incidental rolls elsewhere
+  // things — the dice-notation links woven into the story text (sent to the Echo's Dice
+  // tab, see the click handler below) and incidental rolls elsewhere
   // on the page (table rolls, loot, card draws, initiative) that show their result
   // inline where they're rolled, not in a dedicated panel — pushLog() below is just a
   // best-effort audit trail for those; it's a no-op once there's nowhere to render it.
@@ -766,7 +766,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     return { n, sides, mod };
   }
   // Rolls locally (so it works even without an Echo) and returns everything a caller
-  // needs either to show it inline or to hand it to the Echo as a spotlight.
+  // needs either to show it inline or to fall back to when the Echo can't roll it.
   function rollExpr(expr, label) {
     const p = parseExpr(expr);
     if (!p) { show("?", `Couldn't read "${expr}". Try 2d6+3 or d20.`); return null; }
@@ -1503,23 +1503,22 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     const el = els[Math.min(k, els.length - 1)];
     if (el) { el.scrollIntoView({ block: "center", behavior: "instant" }); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
   }
-  // Dice-notation links woven into the story text: roll locally, then show it on the
-  // Echo's player screen as a spotlight (same full-screen reveal as the Echo's own Dice
-  // tab) instead of opening a Dice panel here — there's no Echo-free fallback since this
-  // tablet is always paired with one at the table; without an address set, this just
-  // toasts the result so it's never silently a no-op.
+  // Dice-notation links woven into the story text: ask the Echo to roll the expression
+  // in its own Dice tab (the DM Companion's Dice section — same dice, sound, 3D tumble
+  // and history as rolling there by hand). Without an Echo address, or if the Echo can't
+  // take it (offline, or a die its Dice tab doesn't have, e.g. d3), roll locally and toast
+  // the result so a tap is never silently a no-op.
   document.addEventListener("click", e => {
     const b = e.target.closest("button.dice");
     if (!b) return;
     const label = b.dataset.label || sectionLabel(b.closest("p,li,td,blockquote") || b).replace(/^[^\w[]+/, "").slice(0, 40);
-    const result = rollExpr(b.dataset.expr, label);
-    if (!result) return;
-    if (echoAddr) {
-      echoFetch("/message", { type: "spotlight", expr: label ? `${label} · ${result.name}` : result.name, total: result.total, special: result.special })
-        .catch(() => printToast("Couldn't reach the Echo.", ""));
-    } else {
-      printToast(`${result.total} — ${result.detail}`, "");
-    }
+    const local = () => { const result = rollExpr(b.dataset.expr, label); if (result) printToast(`${result.total} — ${result.detail}`, ""); };
+    if (!echoAddr) { local(); return; }
+    const p = parseExpr(b.dataset.expr);
+    if (!p) { local(); return; }
+    echoFetch("/message", { type: "dice.roll", expr: b.dataset.expr, label })
+      .then(res => { if (res && res.ok) printToast(`Rolling ${p.n}d${p.sides}${p.mod ? (p.mod > 0 ? "+" : "") + p.mod : ""} on the Echo…`, ""); else local(); })
+      .catch(() => { printToast("Couldn't reach the Echo.", ""); local(); });
   });
 
   function route() {
