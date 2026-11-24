@@ -106,8 +106,8 @@ Everything in the story worth putting on the **Echo's player screen**, in the or
 > I · Serpent: "The way is Door II."
 > II · Flame: "I am not the way."
 > III · Lantern: "Door I is lying."
-> IV · Snowflake: "The way is an odd-numbered door."
-> V · Ship: "The way is not Door I nor Door V."
+> IV · Snowflake: "The way is odd."
+> V · Ship: "The way is neither I nor V."
 
 ### The Dead Adventurer's Journal
 - **When:** Room 8, behind the Serpent door.
