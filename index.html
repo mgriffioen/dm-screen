@@ -593,7 +593,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       <button class="iconbtn" id="viewerPrev" aria-label="Previous map" title="Previous map"><span class="ic">‹</span></button>
       <b id="viewerTitle"></b>
       <button class="iconbtn" id="viewerNext" aria-label="Next map" title="Next map"><span class="ic">›</span></button>
-      <button class="iconbtn" id="viewerSend" aria-label="Send to the player screen" title="Send to the Echo's player screen" hidden><span class="ic">📺 Send</span></button>
+      <button class="iconbtn" id="viewerSend" aria-label="Send to the player screen" title="Send to the Echo's player screen" hidden><span class="ic">Send</span></button>
       <button class="iconbtn" id="viewerClose" aria-label="Close map" title="Close map"><span class="ic">✕</span></button>
     </div>
     <div class="viewer-stage" id="viewerStage"><img id="viewerImg" alt="" draggable="false"></div>
@@ -2305,11 +2305,17 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   $("#viewerSend").addEventListener("click", async () => {
     const src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
     try {
-      const blob = await (await fetch(src)).blob();
+      let blob = null;
+      try { const res = await fetch(src); if (res.ok) blob = await res.blob(); } catch (e) { /* fall back to the loaded picture below */ }
+      if (!blob || !blob.size) { // re-encode the already-loaded picture instead of re-downloading it
+        const c = document.createElement("canvas"); c.width = vImg.naturalWidth; c.height = vImg.naturalHeight;
+        c.getContext("2d").drawImage(vImg, 0, 0);
+        blob = await new Promise(ok => c.toBlob(ok, "image/jpeg", 0.92));
+      }
       let name = decodeURIComponent((new URL(src, location.href).pathname.split("/").pop()) || "image");
       if (!/\.(jpe?g|png|webp|gif)$/i.test(name)) name += ({ "image/png": ".png", "image/webp": ".webp", "image/gif": ".gif" })[blob.type] || ".jpg";
       echoSendImage(blob, name);
-    } catch (e) { printToast("Couldn't load that image to send.", ""); }
+    } catch (e) { printToast("Couldn't load that image to send (" + (e && e.message || e) + ").", ""); }
   });
   // Any picture on a page (portraits, stat-block art) opens full screen; arrows step through the page's pictures.
   $("#doc").addEventListener("click", e => {
