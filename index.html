@@ -649,7 +649,13 @@ a.ho-link strong, a.ho-link em { color: inherit; }
           <button class="btn ghost" id="clearInit">Clear</button>
           <button class="btn print" type="button" id="printInit" title="Copy the initiative strip for SpellMaster">🖨 Print strip</button>
         </div>
-        <div class="row" id="echoMsgRow" style="display:none">
+      </div>
+    </section>
+
+    <section class="sec" id="echoMsgSec" style="display:none">
+      <header><h2>Player screen</h2></header>
+      <div class="body">
+        <div class="row" id="echoMsgRow">
           <input id="echoMsgText" class="field" placeholder="Message for the player screen…" style="flex:1;min-width:0">
           <button class="btn" id="echoMsgSend" title="Show this text on the player screen">💬 Send</button>
           <button class="btn" id="echoImgPick" title="Send a photo to the player screen">📷 Image</button>
@@ -1881,9 +1887,9 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   const echoSame = (a, b) => (a ?? null) === (b ?? null);
   const echoClone = o => JSON.parse(JSON.stringify(o));
   function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); echoMsgState(); }
-  // The message/image row only makes sense once an Echo address is set (it doesn't
+  // The message/image section only makes sense once an Echo address is set (it doesn't
   // need a live ✓ — the Echo queues nothing, but it's harmless to show while reconnecting).
-  function echoMsgState() { $("#echoMsgRow").style.display = echoAddr ? "flex" : "none"; }
+  function echoMsgState() { $("#echoMsgSec").style.display = echoAddr ? "" : "none"; }
   let echoPollCtl = null; // the waiting long poll, cancelled when the address changes
   async function echoFetch(path, body, ms = 5000, ctl = new AbortController()) {
     const t = setTimeout(() => ctl.abort(), ms);
