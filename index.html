@@ -2305,13 +2305,20 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   $("#viewerSend").addEventListener("click", async () => {
     const src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
     try {
-      let blob = null;
-      try { const res = await fetch(src); if (res.ok) blob = await res.blob(); } catch (e) { /* fall back to the loaded picture below */ }
-      if (!blob || !blob.size) { // re-encode the already-loaded picture instead of re-downloading it
-        const c = document.createElement("canvas"); c.width = vImg.naturalWidth; c.height = vImg.naturalHeight;
-        c.getContext("2d").drawImage(vImg, 0, 0);
-        blob = await new Promise(ok => c.toBlob(ok, "image/jpeg", 0.92));
+      // Try a plain fetch first, then a fresh CORS-enabled load drawn to a canvas. The
+      // picture already on screen can't be used for the canvas (it may be tainted).
+      let blob = null; const why = [];
+      try { const res = await fetch(src, { cache: "force-cache" }); if (res.ok) blob = await res.blob(); else why.push("fetch " + res.status); } catch (e) { why.push("fetch: " + (e && e.message || e)); }
+      if (!blob || !blob.size) {
+        try {
+          const im = new Image(); im.crossOrigin = "anonymous";
+          await new Promise((ok, no) => { im.onload = ok; im.onerror = () => no(new Error("image load failed")); im.src = src; });
+          const c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight;
+          c.getContext("2d").drawImage(im, 0, 0);
+          blob = await new Promise(ok => c.toBlob(ok, "image/jpeg", 0.92));
+        } catch (e) { why.push("canvas: " + (e && e.message || e)); }
       }
+      if (!blob || !blob.size) throw new Error(why.join("; ") + " [" + src + "]");
       let name = decodeURIComponent((new URL(src, location.href).pathname.split("/").pop()) || "image");
       if (!/\.(jpe?g|png|webp|gif)$/i.test(name)) name += ({ "image/png": ".png", "image/webp": ".webp", "image/gif": ".gif" })[blob.type] || ".jpg";
       echoSendImage(blob, name);
