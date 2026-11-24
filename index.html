@@ -649,6 +649,12 @@ a.ho-link strong, a.ho-link em { color: inherit; }
           <button class="btn ghost" id="clearInit">Clear</button>
           <button class="btn print" type="button" id="printInit" title="Copy the initiative strip for SpellMaster">🖨 Print strip</button>
         </div>
+        <div class="row" id="echoMsgRow" style="display:none">
+          <input id="echoMsgText" class="field" placeholder="Message for the player screen…" style="flex:1;min-width:0">
+          <button class="btn" id="echoMsgSend" title="Show this text on the player screen">💬 Send</button>
+          <button class="btn" id="echoImgPick" title="Send a photo to the player screen">📷 Image</button>
+          <input type="file" id="echoImgFile" accept="image/*" style="display:none">
+        </div>
       </div>
     </section>
 
@@ -1874,7 +1880,10 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   const echoUrl = path => `http://${echoAddr}${/:\d+$/.test(echoAddr) ? "" : ":" + ECHO_PORT}${path}`;
   const echoSame = (a, b) => (a ?? null) === (b ?? null);
   const echoClone = o => JSON.parse(JSON.stringify(o));
-  function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); }
+  function echoState(t, cls) { echoOk = cls === "on"; const b = $("#echoLink"); b.textContent = t; b.className = "echo-link" + (cls ? " " + cls : ""); echoMsgState(); }
+  // The message/image row only makes sense once an Echo address is set (it doesn't
+  // need a live ✓ — the Echo queues nothing, but it's harmless to show while reconnecting).
+  function echoMsgState() { $("#echoMsgRow").style.display = echoAddr ? "flex" : "none"; }
   let echoPollCtl = null; // the waiting long poll, cancelled when the address changes
   async function echoFetch(path, body, ms = 5000, ctl = new AbortController()) {
     const t = setTimeout(() => ctl.abort(), ms);
@@ -2063,6 +2072,40 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     echoStart();
   });
   echoStart();
+
+  // Free-form text and photos to the player screen — same Echo link, no initiative
+  // involved. echoFetch() JSON-stringifies its body (text/plain, no CORS preflight);
+  // the upload is raw bytes instead, since it can be several MB.
+  async function echoSendMessage() {
+    const text = $("#echoMsgText").value.trim();
+    if (!text || !echoAddr) return;
+    try {
+      const r = await echoFetch("/message", { type: "message", text });
+      if (!r || !r.ok) throw new Error();
+      $("#echoMsgText").value = "";
+    } catch (e) { printToast("Couldn't reach the Echo.", ""); }
+  }
+  $("#echoMsgSend").addEventListener("click", echoSendMessage);
+  $("#echoMsgText").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); echoSendMessage(); } });
+  $("#echoImgPick").addEventListener("click", () => $("#echoImgFile").click());
+  $("#echoImgFile").addEventListener("change", async () => {
+    const f = $("#echoImgFile").files[0];
+    $("#echoImgFile").value = "";
+    if (!f || !echoAddr) return;
+    printToast("Sending image…", "");
+    try {
+      const buf = await f.arrayBuffer();
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), 20000); // a photo can take longer than the usual 5s
+      let r;
+      try {
+        const res = await fetch(echoUrl(`/upload-image?name=${encodeURIComponent(f.name || "photo.jpg")}`), { method: "POST", body: buf, signal: ctl.signal });
+        r = await res.json();
+      } finally { clearTimeout(t); }
+      if (!r || !r.ok) throw new Error();
+      printToast("Sent to the player screen.", "");
+    } catch (e) { printToast("Couldn't send that image.", ""); }
+  });
 
   // ---------- timer ----------
   let tLeft = 300, tTotal = 300, tRun = null;
