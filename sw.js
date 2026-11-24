@@ -14,11 +14,11 @@
  * Bump VERSION when adding or renaming a campaign file so the new list is
  * precached; ordinary edits to existing files arrive on their own.
  */
-const VERSION = "last-resort-v19";
+const VERSION = "last-resort-v20";
 const CONTENT = [
   "00_README.md", "01_Story_Bible.md", "02_Session1_Millhaven.md", "03_Session2_Undercroft.md",
   "04_Session3_ShangriLa.md", "05_NPCs.md", "06_Monsters.md", "07_Puzzles.md", "08_Roll_Tables.md",
-  "09_Table_Guide.md", "10_Handouts.md", "11_Prep_Timeline.md",
+  "09_Table_Guide.md", "10_Handouts.md", "11_Prep_Timeline.md", "12_Player_Screen.md",
 ].map(f => "content/" + f);
 // Battlemaps and handout art for the Maps page (keep in step with MAPS and MAP_V in index.html).
 const MAP_V = 5;

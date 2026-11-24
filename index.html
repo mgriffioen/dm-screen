@@ -172,6 +172,8 @@ body.hide-slots .md code.slot { display: none; }
 .rollout { font-family: var(--font-mono); color: var(--muted); font-size: 0.9em; }
 .rollout b { color: var(--fg); font-size: 1.2em; }
 
+.screen-send { margin-left: 6px; padding: 1px 8px; min-height: 26px; border-radius: 999px; border: 1px solid var(--gold); background: none; color: inherit; font: inherit; font-style: normal; font-size: 0.78em; cursor: pointer; white-space: nowrap; vertical-align: middle; }
+blockquote > .screen-send { display: block; margin: 8px 0 0 auto; }
 button.dice { border: 0; padding: 0 4px; border-radius: 4px; background: var(--hit); color: var(--fg); font-family: var(--font-mono); font-size: 0.86em; text-decoration: underline dotted; text-underline-offset: 3px; }
 .flash { animation: flash 1.6s ease-out; }
 @keyframes flash { from { background: var(--hit); } to { background: transparent; } }
@@ -692,6 +694,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     { id: "npcs", file: "05_NPCs.md", label: "NPCs", group: "Reference" },
     { id: "monsters", file: "06_Monsters.md", label: "Monsters", group: "Reference" },
     { id: "handouts", file: "10_Handouts.md", label: "Items", group: "Reference" },
+    { id: "screen", file: "12_Player_Screen.md", label: "Player Screen", group: "Reference" },
     { id: "maps", label: "Maps", group: "Reference", maps: true },
     { id: "tables", file: "08_Roll_Tables.md", label: "Roll Tables", group: "Reference" },
     { id: "puzzles", file: "07_Puzzles.md", label: "Puzzles", group: "Reference" },
@@ -867,7 +870,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     const doc = $("#doc");
     if (d.maps) { renderMaps(doc); if (!focus) $("#main").scrollTop = 0; return; }
     if (text[d.file] == null) { doc.innerHTML = `<p class="loading">This page couldn't be loaded. Check your connection and reopen the screen.</p>`; return; }
-    doc.innerHTML = marked.parse(text[d.file], { gfm: true });
+    doc.innerHTML = marked.parse(text[d.file], { gfm: true, breaks: d.id === "screen" }); // Player Screen boxes keep their lines, as sent
     doc.querySelectorAll("code").forEach(c => { if (c.textContent.startsWith("{{")) c.classList.add("slot"); });
     doc.querySelectorAll("a[href]").forEach(a => {
       const f = a.getAttribute("href").split(/[#:]/)[0];
@@ -880,6 +883,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     heads.forEach(h => { let s = slug(h.textContent); used[s] = (used[s] || 0) + 1; if (used[s] > 1) s += "-" + used[s]; h.id = "h-" + s; });
     enhanceTables(doc);
     linkDice(doc);
+    addScreenButtons(doc, d.id);
     doc.querySelectorAll("img").forEach(i => { i.loading = "lazy"; i.decoding = "async"; });
     if (d.id === "handouts") addHandoutButtons(doc);
     // outline chips
@@ -2082,6 +2086,83 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       if (!r || !r.ok) throw new Error();
       printToast("Sent to the player screen.", "");
     } catch (e) { printToast("Couldn't send that image.", ""); }
+  });
+
+  // ---------- 📺 Player Screen index (12_Player_Screen.md) ----------
+  // Every blockquote under a heading there is a passage to show on the Echo. On that page
+  // each box gets a Show button; on every other page, a blockquote or an italic/bold quote
+  // whose words match a whole passage, or one of its lines, gets a small 📺 beside it that
+  // sends the whole passage. Matching ignores case, punctuation and markdown.
+  const scrNorm = s => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  let scrList = null, scrBy = null;
+  function screenIndex() {
+    if (scrList) return;
+    scrList = []; scrBy = new Map();
+    let cur = null, started = false, lines = null;
+    const flush = () => {
+      if (!lines) return;
+      const body = lines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+      if (body && cur) scrList.push({ title: cur, text: body, lines: lines.filter(l => l.trim()) });
+      lines = null;
+    };
+    for (const line of (text["12_Player_Screen.md"] || "").split("\n")) {
+      const q = line.match(/^>\s?(.*)$/);
+      if (q) { if (started && cur) (lines = lines || []).push(q[1].replace(/\*\*|\*|__|`/g, "").trim()); continue; }
+      flush();
+      if (/^##\s/.test(line)) { started = true; cur = null; }
+      const h = line.match(/^#{3,4}\s+(.*)/);
+      if (h) cur = h[1].trim();
+    }
+    flush();
+    scrList.forEach(e => {
+      const whole = scrNorm(e.text);
+      if (!scrBy.has(whole)) scrBy.set(whole, e);
+      if (/^Title card/.test(e.title)) return; // "MILLHAVEN" etc. would match every mention
+      e.lines.forEach(l => { const n = scrNorm(l); if (n.length >= 12 && !scrBy.has(n)) scrBy.set(n, e); });
+    });
+  }
+  function screenButton(e, label) {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "screen-send"; b.textContent = label;
+    b.dataset.scr = String(scrList.indexOf(e));
+    b.title = `Show "${e.title}" on the player screen`;
+    return b;
+  }
+  function addScreenButtons(root, id) {
+    screenIndex();
+    if (!scrList.length) return;
+    if (id === "screen") {
+      root.querySelectorAll("blockquote").forEach(bq => {
+        const e = scrBy.get(scrNorm(bq.textContent));
+        if (e) bq.appendChild(screenButton(e, "📺 Show"));
+      });
+      return;
+    }
+    // Sections only one player (or only the DM) sees never get a player-screen button.
+    const SECRET = /dusty|erik|secret|dm only/i;
+    let head = "";
+    root.querySelectorAll("h1, h2, h3, h4, blockquote, em, strong").forEach(el => {
+      if (/^H\d$/.test(el.tagName)) { head = el.textContent; return; }
+      if (SECRET.test(head)) return;
+      if (el.parentElement.closest("[data-scr-done]")) return; // already covered by an outer match
+      const e = scrBy.get(scrNorm(el.textContent));
+      if (!e) return;
+      el.dataset.scrDone = "1";
+      if (el.tagName === "BLOCKQUOTE") el.appendChild(screenButton(e, "📺 Show"));
+      else el.after(screenButton(e, "📺"));
+    });
+  }
+  document.addEventListener("click", async ev => {
+    const b = ev.target.closest("button.screen-send");
+    if (!b) return;
+    const e = scrList && scrList[+b.dataset.scr];
+    if (!e) return;
+    if (!echoAddr) { printToast("Set the Echo address first (the Echo button on Initiative).", ""); return; }
+    try {
+      const r = await echoFetch("/message", { type: "message", text: e.text });
+      if (!r || !r.ok) throw new Error();
+      printToast(`On the player screen: ${e.title}`, "");
+    } catch (err) { printToast("Couldn't reach the Echo.", ""); }
   });
 
   // ---------- timer ----------
