@@ -593,6 +593,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
       <button class="iconbtn" id="viewerPrev" aria-label="Previous map" title="Previous map"><span class="ic">‹</span></button>
       <b id="viewerTitle"></b>
       <button class="iconbtn" id="viewerNext" aria-label="Next map" title="Next map"><span class="ic">›</span></button>
+      <button class="iconbtn" id="viewerSend" aria-label="Send to the player screen" title="Send to the Echo's player screen" hidden><span class="ic">📺 Send</span></button>
       <button class="iconbtn" id="viewerClose" aria-label="Close map" title="Close map"><span class="ic">✕</span></button>
     </div>
     <div class="viewer-stage" id="viewerStage"><img id="viewerImg" alt="" draggable="false"></div>
@@ -2072,21 +2073,26 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   $("#echoImgFile").addEventListener("change", async () => {
     const f = $("#echoImgFile").files[0];
     $("#echoImgFile").value = "";
+    if (f) echoSendImage(f, f.name);
+  });
+  // Uploads an image (File/Blob) to the Echo, which shows it on the player screen.
+  async function echoSendImage(f, name) {
     if (!f || !echoAddr) return;
     printToast("Sending image…", "");
     try {
+      name = name || "photo.jpg";
       const buf = await f.arrayBuffer();
       const ctl = new AbortController();
       const t = setTimeout(() => ctl.abort(), 20000); // a photo can take longer than the usual 5s
       let r;
       try {
-        const res = await fetch(echoUrl(`/upload-image?name=${encodeURIComponent(f.name || "photo.jpg")}`), { method: "POST", body: buf, signal: ctl.signal });
+        const res = await fetch(echoUrl(`/upload-image?name=${encodeURIComponent(name)}`), { method: "POST", body: buf, signal: ctl.signal });
         r = await res.json();
       } finally { clearTimeout(t); }
       if (!r || !r.ok) throw new Error();
       printToast("Sent to the player screen.", "");
     } catch (e) { printToast("Couldn't send that image.", ""); }
-  });
+  }
 
   // ---------- 📺 Player Screen index (12_Player_Screen.md) ----------
   // Every blockquote under a heading there is a passage to show on the Echo. On that page
@@ -2292,8 +2298,19 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   function openViewer(n, list) {
     vList = list || mapList; lastFocus = document.activeElement; viewer.hidden = false;
     const single = vList.length < 2; $("#viewerPrev").hidden = single; $("#viewerNext").hidden = single;
+    $("#viewerSend").hidden = !echoAddr;
     showMap(n); $("#viewerClose").focus();
   }
+  // Send the picture on screen to the Echo's player screen.
+  $("#viewerSend").addEventListener("click", async () => {
+    const src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
+    try {
+      const blob = await (await fetch(src)).blob();
+      let name = decodeURIComponent((new URL(src, location.href).pathname.split("/").pop()) || "image");
+      if (!/\.(jpe?g|png|webp|gif)$/i.test(name)) name += ({ "image/png": ".png", "image/webp": ".webp", "image/gif": ".gif" })[blob.type] || ".jpg";
+      echoSendImage(blob, name);
+    } catch (e) { printToast("Couldn't load that image to send.", ""); }
+  });
   // Any picture on a page (portraits, stat-block art) opens full screen; arrows step through the page's pictures.
   $("#doc").addEventListener("click", e => {
     const img = e.target.closest("img"); if (!img || img.closest("button")) return;
