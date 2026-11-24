@@ -192,22 +192,7 @@ button.dice { border: 0; padding: 0 4px; border-radius: 4px; background: var(--h
 .btn.ghost { background: transparent; }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 
-.dicegrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-.dicegrid button { min-height: 46px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); font-family: var(--font-mono); font-weight: 600; }
-.dicegrid button.d20 { grid-column: span 2; border-color: var(--gold); color: var(--gold); }
-.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.seg button { border: 0; padding: 6px 10px; background: transparent; font-size: 0.82em; }
-.seg button[aria-pressed="true"] { background: var(--gold); color: var(--gold-ink); }
-.result { display: flex; align-items: baseline; gap: 12px; min-height: 56px; padding: 6px 10px; border-radius: 8px; background: var(--raise); }
-.result .big { font-family: var(--font-mono); font-size: 2.2em; font-weight: 600; line-height: 1; }
-.result .big.crit { color: var(--gold); }
-.result .big.fumble { color: var(--ember); }
-.result .detail { font-family: var(--font-mono); font-size: 0.8em; color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
-.custom { display: flex; gap: 6px; }
 .field { padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); }
-.custom input { flex: 1; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); font-family: var(--font-mono); }
-.log { list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 0.76em; color: var(--muted); display: flex; flex-direction: column; gap: 2px; max-height: 8.5em; overflow: auto; }
-.log b { color: var(--fg); }
 
 .pc { border: 1px solid var(--line); border-radius: 10px; padding: 10px; display: grid; gap: 8px; background: var(--panel); }
 .pc .top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; }
@@ -612,25 +597,6 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   </div>
 
   <aside class="table" id="table" aria-label="Table tools">
-    <section class="sec" id="diceSec">
-      <header><h2>Dice</h2>
-        <div class="seg" role="group" aria-label="d20 mode">
-          <button data-mode="dis" aria-pressed="false">Dis</button>
-          <button data-mode="norm" aria-pressed="true">Normal</button>
-          <button data-mode="adv" aria-pressed="false">Adv</button>
-        </div>
-      </header>
-      <div class="body">
-        <div class="result" aria-live="polite"><span class="big" id="dieBig">—</span><span class="detail" id="dieDetail">Tap a die, a table, or any dice notation in the text.</span></div>
-        <div class="dicegrid">
-          <button data-die="4">d4</button><button data-die="6">d6</button><button data-die="8">d8</button><button data-die="10">d10</button>
-          <button data-die="12">d12</button><button data-die="100">d100</button><button data-die="20" class="d20">d20</button>
-        </div>
-        <form class="custom" id="customForm"><input id="customExpr" placeholder="2d6+3" aria-label="Dice expression"><button class="btn primary" type="submit">Roll</button></form>
-        <ul class="log" id="log"></ul>
-      </div>
-    </section>
-
     <section class="sec">
       <header><h2>Initiative</h2><button class="echo-link" type="button" id="echoLink" title="Share this initiative tracker with the DM Companion on the Echo Show">Echo: off</button><span class="round" id="roundN">Round 1</span></header>
       <div class="body">
@@ -759,23 +725,33 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   }
 
   // ---------- dice engine ----------
+  // There's no more Dice section in the drawer: quick rolls and the custom-expression
+  // form are gone (superseded by the Echo's own dice tab). What's left here backs two
+  // things — the dice-notation links woven into the story text (sent to the Echo as a
+  // spotlight, see "send dice links to the Echo" below) and incidental rolls elsewhere
+  // on the page (table rolls, loot, card draws, initiative) that show their result
+  // inline where they're rolled, not in a dedicated panel — pushLog() below is just a
+  // best-effort audit trail for those; it's a no-op once there's nowhere to render it.
   const r = n => 1 + Math.floor(Math.random() * n);
-  let mode = "norm";
   const log = [];
   function pushLog(label, total) {
     log.unshift({ label, total });
     log.length = Math.min(log.length, 30);
-    $("#log").innerHTML = "";
+    const list = $("#log");
+    if (!list) return;
+    list.innerHTML = "";
     for (const l of log) {
       const li = document.createElement("li");
       li.innerHTML = `<b></b> · <span></span>`;
       li.firstChild.textContent = l.total;
       li.lastChild.textContent = l.label;
-      $("#log").appendChild(li);
+      list.appendChild(li);
     }
   }
   function show(total, detail, cls = "") {
-    const big = $("#dieBig"); big.textContent = total; big.className = "big " + cls;
+    const big = $("#dieBig");
+    if (!big) return;
+    big.textContent = total; big.className = "big " + cls;
     $("#dieDetail").textContent = detail;
   }
   function parseExpr(s) {
@@ -785,30 +761,20 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     if (!n || !sides) return null;
     return { n, sides, mod };
   }
+  // Rolls locally (so it works even without an Echo) and returns everything a caller
+  // needs either to show it inline or to hand it to the Echo as a spotlight.
   function rollExpr(expr, label) {
     const p = parseExpr(expr);
     if (!p) { show("?", `Couldn't read "${expr}". Try 2d6+3 or d20.`); return null; }
     const name = `${p.n}d${p.sides}${p.mod ? (p.mod > 0 ? "+" : "") + p.mod : ""}`;
-    if (p.n === 1 && p.sides === 20 && mode !== "norm") {
-      const a = r(20), b = r(20), pick = mode === "adv" ? Math.max(a, b) : Math.min(a, b);
-      const total = pick + p.mod;
-      show(total, `${mode === "adv" ? "Advantage" : "Disadvantage"}: ${a} and ${b}${p.mod ? ` ${p.mod > 0 ? "+" : "−"} ${Math.abs(p.mod)}` : ""}`, pick === 20 ? "crit" : pick === 1 ? "fumble" : "");
-      pushLog(`${label ? label + " · " : ""}${name} (${mode})`, total);
-      return total;
-    }
     const rolls = Array.from({ length: p.n }, () => r(p.sides));
     const total = rolls.reduce((a, b) => a + b, 0) + p.mod;
-    const cls = p.n === 1 && p.sides === 20 ? (rolls[0] === 20 ? "crit" : rolls[0] === 1 ? "fumble" : "") : "";
-    show(total, `${name}: ${rolls.join(" + ")}${p.mod ? ` ${p.mod > 0 ? "+" : "−"} ${Math.abs(p.mod)}` : ""}`, cls);
+    const special = p.n === 1 && p.sides === 20 ? (rolls[0] === 20 ? "crit" : rolls[0] === 1 ? "fumble" : null) : null;
+    const detail = `${name}: ${rolls.join(" + ")}${p.mod ? ` ${p.mod > 0 ? "+" : "−"} ${Math.abs(p.mod)}` : ""}`;
+    show(total, detail, special || "");
     pushLog(label ? `${label} · ${name}` : name, total);
-    return total;
+    return { total, special, name, detail };
   }
-  document.querySelectorAll("[data-die]").forEach(b => b.addEventListener("click", () => rollExpr("1d" + b.dataset.die)));
-  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
-    mode = b.dataset.mode;
-    document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-  }));
-  $("#customForm").addEventListener("submit", e => { e.preventDefault(); const v = $("#customExpr").value.trim(); if (v) rollExpr(v); });
 
   // ---------- markdown rendering ----------
   const slug = s => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").slice(0, 60) || "section";
@@ -1532,20 +1498,24 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     const el = els[Math.min(k, els.length - 1)];
     if (el) { el.scrollIntoView({ block: "center", behavior: "instant" }); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
   }
+  // Dice-notation links woven into the story text: roll locally, then show it on the
+  // Echo's player screen as a spotlight (same full-screen reveal as the Echo's own Dice
+  // tab) instead of opening a Dice panel here — there's no Echo-free fallback since this
+  // tablet is always paired with one at the table; without an address set, this just
+  // toasts the result so it's never silently a no-op.
   document.addEventListener("click", e => {
     const b = e.target.closest("button.dice");
     if (!b) return;
-    rollExpr(b.dataset.expr, b.dataset.label || sectionLabel(b.closest("p,li,td,blockquote") || b).replace(/^[^\w[]+/, "").slice(0, 40));
-    if (!b.closest("#statSheet")) showDice();
+    const label = b.dataset.label || sectionLabel(b.closest("p,li,td,blockquote") || b).replace(/^[^\w[]+/, "").slice(0, 40);
+    const result = rollExpr(b.dataset.expr, label);
+    if (!result) return;
+    if (echoAddr) {
+      echoFetch("/message", { type: "spotlight", expr: label ? `${label} · ${result.name}` : result.name, total: result.total, special: result.special })
+        .catch(() => printToast("Couldn't reach the Echo.", ""));
+    } else {
+      printToast(`${result.total} — ${result.detail}`, "");
+    }
   });
-  // Slide the table out (or un-hide the panel) and bring the Dice result into view.
-  function showDice() {
-    if (wide.matches) { if (tableHidden) { tableHidden = false; store.set("lr-table-hidden", false); } }
-    else document.body.classList.add("table-open");
-    applyPanels();
-    $("#table").scrollTop = 0;
-    const res = $("#diceSec .result"); res.classList.remove("flash"); void res.offsetWidth; res.classList.add("flash");
-  }
 
   function route() {
     const id = location.hash.slice(1);
