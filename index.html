@@ -2318,7 +2318,18 @@ a.ho-link strong, a.ho-link em { color: inherit; }
           blob = await new Promise(ok => c.toBlob(ok, "image/jpeg", 0.92));
         } catch (e) { why.push("canvas: " + (e && e.message || e)); }
       }
-      if (!blob || !blob.size) throw new Error(why.join("; ") + " [" + src + "]");
+      if (!blob || !blob.size) {
+        // A picture hosted elsewhere can't be read by this page (no CORS), so hand the Echo
+        // its address and let the player screen load it itself.
+        const abs = new URL(src, location.href);
+        if (abs.origin !== location.origin && /^https?:$/.test(abs.protocol)) {
+          const r = await echoFetch("/message", { type: "image.url", url: abs.href });
+          if (!r || !r.ok) throw new Error("the Echo app needs updating to show web images");
+          printToast("Sent to the player screen.", "");
+          return;
+        }
+        throw new Error(why.join("; ") + " [" + src + "]");
+      }
       let name = decodeURIComponent((new URL(src, location.href).pathname.split("/").pop()) || "image");
       if (!/\.(jpe?g|png|webp|gif)$/i.test(name)) name += ({ "image/png": ".png", "image/webp": ".webp", "image/gif": ".gif" })[blob.type] || ".jpg";
       echoSendImage(blob, name);
