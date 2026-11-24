@@ -244,7 +244,7 @@ button.dice { border: 0; padding: 0 4px; border-radius: 4px; background: var(--h
 .timer { font-family: var(--font-mono); font-size: 2em; font-weight: 600; font-variant-numeric: tabular-nums; }
 .timer.done { color: var(--ember); animation: pulse 1s infinite; }
 @keyframes pulse { 50% { opacity: 0.35; } }
-textarea#notes { width: 100%; min-height: 7em; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); resize: vertical; }
+.sec textarea { width: 100%; min-height: 7em; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); resize: vertical; }
 .sap { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 8px; background: var(--raise); }
 .sap b { color: var(--ember); }
 
@@ -621,8 +621,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     <section class="sec" id="echoMsgSec" style="display:none">
       <header><h2>Player screen</h2></header>
       <div class="body">
-        <div class="row" id="echoMsgRow">
-          <input id="echoMsgText" class="field" placeholder="Message for the player screen…" style="flex:1;min-width:0">
+        <textarea id="echoMsgText" placeholder="Message for the player screen… (Enter to send, Shift+Enter for a new line)"></textarea>
+        <div class="row">
           <button class="btn" id="echoMsgSend" title="Show this text on the player screen">💬 Send</button>
           <button class="btn" id="echoImgPick" title="Send a photo to the player screen">📷 Image</button>
           <input type="file" id="echoImgFile" accept="image/*" style="display:none">
@@ -2062,7 +2062,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     } catch (e) { printToast("Couldn't reach the Echo.", ""); }
   }
   $("#echoMsgSend").addEventListener("click", echoSendMessage);
-  $("#echoMsgText").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); echoSendMessage(); } });
+  // Now a multi-line textarea: Shift+Enter still inserts a newline, plain Enter sends.
+  $("#echoMsgText").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); echoSendMessage(); } });
   $("#echoImgPick").addEventListener("click", () => $("#echoImgFile").click());
   $("#echoImgFile").addEventListener("change", async () => {
     const f = $("#echoImgFile").files[0];
