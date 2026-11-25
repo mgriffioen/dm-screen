@@ -287,6 +287,12 @@ a.ho-link strong, a.ho-link em { color: inherit; }
 .print-toast { padding-right: 46px; }
 #ptClose { position: absolute; top: 6px; right: 6px; }
 .print-toast .pt-alt { flex-basis: 100%; font-size: 0.82em; color: var(--muted); }
+/* Dice link → Echo: choose a DM-only roll or a spotlight roll (both Echo screens). */
+.dice-pick { position: fixed; z-index: 85; display: flex; gap: 6px; padding: 6px; border-radius: 12px; border: 1px solid var(--gold); background: var(--panel); box-shadow: 0 12px 40px rgba(0,0,0,.4); }
+.dice-pick[hidden] { display: none; }
+.dice-pick button { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 96px; min-height: 52px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); color: var(--fg); font: 600 0.92em var(--font-body); }
+.dice-pick button small { font-weight: 400; font-size: 0.76em; color: var(--muted); }
+.dice-pick button:active { border-color: var(--gold); }
 .loot-roll { margin-top: 8px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .loot-roll p { margin: 0; }
 .sb-init { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--line); background: var(--raise); }
@@ -742,6 +748,10 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     </section>
   </aside>
   <div class="scrim" id="scrim"></div>
+  <div class="dice-pick" id="dicePick" role="menu" hidden>
+    <button type="button" role="menuitem" data-spot="0">🎲 Roll<small>DM screen</small></button>
+    <button type="button" role="menuitem" data-spot="1">📣 Spotlight<small>both screens</small></button>
+  </div>
   <div class="print-toast" id="printToast" role="status" aria-live="polite" hidden>
     <span id="ptMsg"></span>
     <a id="ptOpen" class="pt-alt" href="https://spellmaster.mgriffioen.com/" target="spellmaster" rel="noopener">Or open a new SpellMaster here (printer must reconnect)</a>
@@ -1602,18 +1612,41 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   // and history as rolling there by hand). Without an Echo address, or if the Echo can't
   // take it (offline, or a die its Dice tab doesn't have, e.g. d3), roll locally and toast
   // the result so a tap is never silently a no-op.
-  document.addEventListener("click", e => {
-    const b = e.target.closest("button.dice");
-    if (!b) return;
-    const label = b.dataset.label || sectionLabel(b.closest("p,li,td,blockquote") || b).replace(/^[^\w[]+/, "").slice(0, 40);
+  // With an Echo linked, a tap first asks how to roll it: plain (DM screen only) or
+  // spotlight (the Echo rolls it on the player screen too, at the same moment).
+  const dicePick = $("#dicePick");
+  let pickFor = null;
+  function closeDicePick() { dicePick.hidden = true; pickFor = null; }
+  function openDicePick(b) {
+    pickFor = b;
+    dicePick.hidden = false;
+    const r = b.getBoundingClientRect(), w = dicePick.offsetWidth, h = dicePick.offsetHeight;
+    const below = r.bottom + 6 + h <= window.innerHeight - 8;
+    dicePick.style.left = Math.max(8, Math.min(r.left + r.width / 2 - w / 2, window.innerWidth - w - 8)) + "px";
+    dicePick.style.top = (below ? r.bottom + 6 : Math.max(8, r.top - 6 - h)) + "px";
+  }
+  function diceLabel(b) { return b.dataset.label || sectionLabel(b.closest("p,li,td,blockquote") || b).replace(/^[^\w[]+/, "").slice(0, 40); }
+  function rollDiceLink(b, spotlight) {
+    const label = diceLabel(b);
     const local = () => { const result = rollExpr(b.dataset.expr, label); if (result) printToast(`${result.total} — ${result.detail}`, ""); };
-    if (!echoAddr) { local(); return; }
     const p = parseExpr(b.dataset.expr);
-    if (!p) { local(); return; }
-    echoFetch("/message", { type: "dice.roll", expr: b.dataset.expr, label })
-      .then(res => { if (res && res.ok) printToast(`Rolling ${p.n}d${p.sides}${p.mod ? (p.mod > 0 ? "+" : "") + p.mod : ""} on the Echo…`, ""); else local(); })
+    if (!echoAddr || !p) { local(); return; }
+    echoFetch("/message", { type: "dice.roll", expr: b.dataset.expr, label, ...(spotlight ? { spotlight: true } : {}) })
+      .then(res => { if (res && res.ok) printToast(`Rolling ${p.n}d${p.sides}${p.mod ? (p.mod > 0 ? "+" : "") + p.mod : ""} on the Echo${spotlight ? " — spotlight on both screens" : ""}…`, ""); else local(); })
       .catch(() => { printToast("Couldn't reach the Echo.", ""); local(); });
+  }
+  document.addEventListener("click", e => {
+    const pick = e.target.closest("#dicePick button");
+    if (pick) { const b = pickFor; closeDicePick(); if (b) rollDiceLink(b, pick.dataset.spot === "1"); return; }
+    const b = e.target.closest("button.dice");
+    if (!b) { if (!dicePick.hidden && !e.target.closest("#dicePick")) closeDicePick(); return; }
+    // Nothing to choose without an Echo, or for an expression only the tablet can roll (e.g. d3).
+    if (!echoAddr || !parseExpr(b.dataset.expr)) { closeDicePick(); rollDiceLink(b, false); return; }
+    if (pickFor === b) { closeDicePick(); return; }
+    openDicePick(b);
   });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !dicePick.hidden) closeDicePick(); });
+  document.addEventListener("scroll", () => { if (!dicePick.hidden) closeDicePick(); }, true);
 
   function route() {
     const id = location.hash.slice(1);
