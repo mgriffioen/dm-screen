@@ -13,11 +13,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Spline+Sans+Mono:wght@400;600&display=swap">
 <!-- Fonts for the alternative skins. Browsers only download the faces a skin actually uses. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@600;700&family=Limelight&family=Work+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@600;700&family=Limelight&family=Grenze+Gotisch:wght@500;600;700&family=Grenze:wght@500;600&family=Work+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <script>
 /* Apply the chosen skin before first paint (?skin=tome in the URL overrides the saved one for a quick look). */
 (function () {
-  var skins = { night: "#0e1317", tome: "#3a2715", grimoire: "#140d0a", lido: "#0f4f50" }, s = "night";
+  var skins = { night: "#0e1317", tome: "#3a2715", grimoire: "#140d0a", lido: "#0f4f50", hollow: "#0d1210" }, s = "night";
   try { s = new URLSearchParams(location.search).get("skin") || JSON.parse(localStorage.getItem("lr-skin") || '"night"'); } catch (e) {}
   if (!skins[s]) s = "night";
   document.documentElement.dataset.skin = s;
@@ -553,6 +553,89 @@ a.ho-link strong, a.ho-link em { color: inherit; }
 [data-skin="lido"] .statblock hr { border-top: 3px solid var(--mustard); opacity: 1; }
 [data-skin="lido"] .map-card { border: 2px solid var(--line); box-shadow: 4px 4px 0 var(--line); }
 @media (max-width: 1099px) { [data-skin="lido"] .sec { margin-right: 6px; } }
+
+/* ==========================================================================
+   HOLLOW: the Undercroft. A lantern-lit cavern: wet black stone, moss and
+   pond-water greens, glowing fungus for links and slots, lantern amber for
+   anything you press. Stalactites drip from the top bar.
+   ========================================================================== */
+:root[data-skin="hollow"] {
+  --bg: #0d1210; --panel: #141b17; --raise: #1c2620; --line: #2e3c33;
+  --fg: #dfe6d6; --muted: #8d9c8c; --gold: #e8a84a; --gold-ink: #1a1006;
+  --frost: #7fe3be; --ember: #e0663a; --ok: #9fcf6a; --hit: rgba(127, 227, 190, 0.14);
+  --moss: #4f6b3a; --murk: #0a0f0d; --glow: rgba(127, 227, 190, 0.35); --lamp: rgba(232, 168, 74, 0.28);
+  --font-display: "Grenze Gotisch", "Iowan Old Style", Georgia, serif;
+  --font-label: "Grenze", "Alegreya Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+[data-skin="hollow"] body {
+  font-size: calc(17.5px * var(--scale));
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,168,74,.07), transparent 70%),
+    radial-gradient(ellipse 90% 35% at 50% 100%, rgba(79,107,58,.16), transparent 70%),
+    var(--bg) fixed;
+}
+[data-skin="hollow"] .app * { border-radius: 4px 7px 5px 8px; }
+[data-skin="hollow"] :is(.pip) { border-radius: 50%; }
+[data-skin="hollow"] .chip { border-radius: 999px; }
+/* the cave mouth: dark rock with stalactites along the bottom edge */
+[data-skin="hollow"] .bar { border-bottom: 0; padding-bottom: 22px;
+  background:
+    linear-gradient(to bottom right, #1a231d 49%, transparent 51%) 0 calc(100% - 2px) / 9px 13px repeat-x,
+    linear-gradient(to bottom left, #1a231d 49%, transparent 51%) 9px calc(100% - 2px) / 9px 13px repeat-x,
+    linear-gradient(to bottom right, #1a231d 49%, transparent 51%) 5px calc(100% - 7px) / 6px 8px repeat-x,
+    linear-gradient(to bottom left, #1a231d 49%, transparent 51%) 11px calc(100% - 7px) / 6px 8px repeat-x,
+    linear-gradient(#212c25, #1a231d) 0 0 / 100% calc(100% - 12px) no-repeat,
+    var(--bg); }
+[data-skin="hollow"] .brand svg path { stroke: var(--frost); }
+[data-skin="hollow"] .brand b { font-family: var(--font-display); font-weight: 600; font-size: 1.5em; color: var(--gold); letter-spacing: 0.02em; text-shadow: 0 0 14px var(--lamp); }
+[data-skin="hollow"] .bar .iconbtn { background: rgba(0,0,0,.25); border-color: var(--line); }
+[data-skin="hollow"] .bar .iconbtn[aria-pressed="true"] { border-color: var(--frost); color: var(--frost); box-shadow: 0 0 10px var(--glow); }
+[data-skin="hollow"] .search input { background: var(--murk); border-color: var(--line); }
+[data-skin="hollow"] .rail { background: linear-gradient(90deg, rgba(0,0,0,.25), transparent); border-right: 1px solid var(--line); }
+[data-skin="hollow"] .rail h3 { font-family: var(--font-label); font-weight: 600; color: #7d9a62; letter-spacing: 0.22em; }
+[data-skin="hollow"] .rail a[aria-current="page"] { background: linear-gradient(90deg, rgba(127,227,190,.12), transparent 80%); box-shadow: inset 3px 0 0 var(--frost), -4px 0 12px -4px var(--glow); color: var(--frost); }
+[data-skin="hollow"] .outline { background: rgba(13,18,16,.92); backdrop-filter: blur(4px); border-bottom-color: var(--line); }
+[data-skin="hollow"] .outline button { background: var(--panel); border-color: var(--line); font-family: var(--font-label); font-weight: 500; letter-spacing: 0.04em; }
+[data-skin="hollow"] .outline button:hover { border-color: var(--frost); box-shadow: 0 0 8px var(--glow); }
+[data-skin="hollow"] .md h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.4em; color: var(--gold); text-shadow: 0 2px 0 #000, 0 0 24px var(--lamp); }
+/* a drip line under the title */
+[data-skin="hollow"] .md h1::after { content: ""; display: block; height: 14px; margin-top: 0.2em; max-width: 260px;
+  background:
+    radial-gradient(3px 6px at 50% 0, var(--moss) 98%, transparent) 0 2px / 26px 8px repeat-x,
+    radial-gradient(2px 10px at 50% 0, var(--moss) 98%, transparent) 13px 2px / 52px 12px repeat-x,
+    linear-gradient(var(--moss), var(--moss)) 0 0 / 100% 3px no-repeat; }
+[data-skin="hollow"] .md h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.65em; color: var(--fg); border-top: 0; padding-top: 0.9em;
+  background: linear-gradient(90deg, var(--moss), rgba(79,107,58,.35) 60%, transparent) top / 100% 2px no-repeat; }
+[data-skin="hollow"] .md h3 { font-family: var(--font-label); font-weight: 600; font-size: 1.1em; letter-spacing: 0.03em; }
+[data-skin="hollow"] .md a { color: var(--frost); text-shadow: 0 0 8px rgba(127,227,190,.25); }
+/* read-aloud: a damp stone tablet, lit from the lantern side */
+[data-skin="hollow"] .md blockquote { font-style: italic; background: linear-gradient(100deg, rgba(232,168,74,.08), transparent 40%), var(--raise);
+  border-left: 3px solid var(--gold); border-radius: 2px 10px 6px 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 6px 16px rgba(0,0,0,.4); padding: 14px 18px; }
+[data-skin="hollow"] .md pre { background: var(--murk); }
+[data-skin="hollow"] .md code { background: var(--murk); }
+[data-skin="hollow"] .md code.slot { background: transparent; box-shadow: 0 0 6px rgba(127,227,190,.2); }
+[data-skin="hollow"] .md hr { border-top: 2px dotted var(--moss); }
+[data-skin="hollow"] .tw { border-color: var(--line); background: rgba(0,0,0,.18); }
+[data-skin="hollow"] .md th { background: linear-gradient(#24331f, #1b2618); color: #c4d6a8; font-family: var(--font-label); font-weight: 600; letter-spacing: 0.06em; font-size: 0.8em; }
+[data-skin="hollow"] .md td { border-bottom-color: rgba(79,107,58,.3); }
+[data-skin="hollow"] .md tr.hit td:first-child, [data-skin="hollow"] .md td.hit { box-shadow: inset 3px 0 0 var(--frost); }
+/* the right-hand table: a pool of lantern light */
+[data-skin="hollow"] .table { background: radial-gradient(ellipse at 50% 0, rgba(232,168,74,.06), transparent 60%), var(--murk); border-left: 1px solid var(--line); }
+[data-skin="hollow"] .sec { background: linear-gradient(#18211c, var(--panel)); border: 1px solid var(--line); border-top-color: #3d4f43; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 8px 18px rgba(0,0,0,.45); }
+[data-skin="hollow"] .sec > header { border-bottom: 1px solid rgba(79,107,58,.5); }
+[data-skin="hollow"] .sec > header h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.3em; color: var(--gold); }
+[data-skin="hollow"] :is(.btn, .dicegrid button, .field, .custom input, .stat input, .init input, .sec textarea) { background: var(--raise); border-color: var(--line); }
+[data-skin="hollow"] :is(.btn.primary, .rollbtn, .seg button[aria-pressed="true"]) { background: linear-gradient(#f2bb62, #c9852f); color: var(--gold-ink); border-color: #8f5c1e; box-shadow: 0 0 12px var(--lamp); }
+[data-skin="hollow"] .dicegrid button.d20 { border-color: var(--frost); color: var(--frost); box-shadow: inset 0 0 10px rgba(127,227,190,.12); }
+[data-skin="hollow"] .result { background: var(--murk); }
+[data-skin="hollow"] .result .big { font-family: var(--font-display); font-weight: 700; color: var(--gold); text-shadow: 0 0 16px var(--lamp); }
+[data-skin="hollow"] .pc, [data-skin="hollow"] .sap { background: var(--raise); }
+[data-skin="hollow"] .sheet-card { background: linear-gradient(#18211c, var(--panel) 120px); border: 1px solid var(--line); border-top: 4px solid var(--moss); box-shadow: 0 0 0 1px #000, 0 20px 60px rgba(0,0,0,.7); }
+[data-skin="hollow"] .statblock h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.8em; }
+[data-skin="hollow"] .statblock h4 { font-family: var(--font-label); font-weight: 600; color: #a9c48a; border-bottom-color: var(--moss); }
+[data-skin="hollow"] .statblock hr { border-top: 2px solid var(--moss); opacity: 1; }
+[data-skin="hollow"] .map-card:hover, [data-skin="hollow"] .map-card:focus-visible { border-color: var(--frost); box-shadow: 0 0 10px var(--glow); }
 </style>
 </head>
 <body>
@@ -690,7 +773,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   // ---------- campaign files ----------
   const DOCS = [
     { id: "s1", file: "02_Session1_Millhaven.md", label: "Millhaven", group: "Story", skin: "tome" },
-    { id: "s2", file: "03_Session2_Undercroft.md", label: "The Undercroft", group: "Story", skin: "grimoire" },
+    { id: "s2", file: "03_Session2_Undercroft.md", label: "The Undercroft", group: "Story", skin: "hollow" },
     { id: "s3", file: "04_Session3_ShangriLa.md", label: "Shangri-La", group: "Story", skin: "lido" },
     { id: "npcs", file: "05_NPCs.md", label: "NPCs", group: "Reference" },
     { id: "monsters", file: "06_Monsters.md", label: "Monsters", group: "Reference" },
@@ -1600,6 +1683,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     { id: "night", name: "Night", note: "Slate, gold and frost. The original.", color: "#0e1317", sw: ["#0e1317", "#1c252d", "#d8b25a", "#8cc2d5"] },
     { id: "tome", name: "Tome", note: "Parchment rulebook, red rubrics, classic stat blocks.", color: "#3a2715", sw: ["#efe3c8", "#3a2715", "#8c2a14", "#c9a34e"] },
     { id: "grimoire", name: "Grimoire", note: "Leather-bound spellbook with gilt frames.", color: "#140d0a", sw: ["#160e0b", "#4a1513", "#d8ae55", "#9cc4a8"] },
+    { id: "hollow", name: "Hollow", note: "Lantern-lit cavern: wet stone, moss and glowing fungus.", color: "#0d1210", sw: ["#0d1210", "#4f6b3a", "#e8a84a", "#7fe3be"] },
     { id: "lido", name: "Lido", note: "1930s resort poster: awnings, teal and coral.", color: "#0f4f50", sw: ["#f3ead7", "#0f4f50", "#d4532f", "#e8b034"] },
   ];
   const skinBtn = $("#skinBtn"), skinMenu = $("#skinMenu");
