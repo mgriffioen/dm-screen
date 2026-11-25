@@ -123,7 +123,8 @@ Every NPC has a **voice/mannerism hook** (something easy to perform), a **want**
 ![Gorm the Garbage Oracle](https://www.dndbeyond.com/avatars/47139/136/638741964493568072.jpeg)
 - **Art:** the official Otyugh, from [D&D Beyond](https://www.dndbeyond.com/monsters/5195151-otyugh).
 - An *Otyugh* with a telepathic voice like a kindly grandmother. Knows everything that has ever floated past it. Payment: interesting garbage.
-- **Stats:** *Otyugh* (AC 14, 114 HP). Fighting Gorm is optional and dangerous; halve its HP (57) if the party gets into it.
+- **Look:** A bloated, three-legged sack of a creature, mottled grey-green and crusted with barnacles, squatting in a mound of river garbage. A long eyestalk with three mild, curious eyes wears a pair of cracked brass spectacles; a moth-eaten knitted shawl is draped over its back. Two ropy tentacles with leafy, spiked tips sort through its treasures, and its huge toothy mouth hangs open in what might be a smile.
+- **Stats:** a rebuilt *Otyugh* for level 3 (CR 2: AC 13, 60 HP; bite and one tentacle, no disease or stun). Fighting Gorm is optional, and at 30 HP it begs to make a deal. The full stat block is in the DM screen.
 - **Loot:** Buried in Gorm's midden (DC 13 Investigation, and a DC 12 CON save against the smell): a waterlogged but readable *Spell Scroll of Misty Step*, 2d10 gp, and a single golden invitation, half-digested.
 
 ### Snik — *Leader of the kobold sappers*

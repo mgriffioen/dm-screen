@@ -1147,7 +1147,11 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     { n: "Old Bogwhistle Mossback", base: "Troll", aka: ["Old Bogwhistle Mossback", "Bogwhistle", "Mossback"], t: "Large giant, lawful neutral · keeper of the Toll Bridge", note: "Too strong for this party. He only fights people who refuse the toll, and he'd rather shake the bridge." },
     { n: "King Chudley the Magnificent", base: "Bullywug", aka: ["King Chudley the Magnificent", "King Chudley", "Chudley"], t: "Medium humanoid (bullywug), neutral evil · king of the Hollow", hp: "33 (6d8+6)",
       re: [["Royal Croak", "When an enemy hits him, up to two bullywugs within 30 ft. move up to half their speed toward that enemy."]] },
-    { n: "Gorm the Garbage Oracle", base: "Otyugh", aka: ["Gorm the Garbage Oracle", "Gorm"], t: "Large aberration, neutral · the Fishfolk Camp's oracle", note: "Fighting Gorm is optional and dangerous. Halve its HP (57) if the party gets into it." },
+    { n: "Gorm the Garbage Oracle", base: "Otyugh", aka: ["Gorm the Garbage Oracle", "Gorm"], t: "Large aberration, neutral · the Fishfolk Camp's oracle", ac: "13 (natural armor)", hp: "60 (8d10+16)", ab: [16, 8, 14, 10, 14, 8],
+      x: [["Saving Throws", "Con +4"], ["Senses", "darkvision 120 ft., passive Perception 12"], ["Languages", "understands Common but can't speak, telepathy 120 ft."], ["Challenge", "2 (450 XP)"]],
+      ac2: [["Multiattack", "Two attacks: one bite and one tentacle."], ["Bite", "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8+3) piercing damage, and the target makes a DC 12 Constitution save or is poisoned until the end of its next turn."], ["Tentacle", "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 7 (1d8+3) bludgeoning damage. A Medium or smaller target is grappled (escape DC 13). Gorm can grapple only one creature at a time."], ["Garbage Slam (Recharge 5–6)", "Gorm slams the creature it's grappling into the midden. It makes a DC 13 Constitution save, taking 10 (2d6+3) bludgeoning damage and landing prone on a failure, or half damage on a success. Either way, the grapple ends."]],
+      tr: [["Let's Talk About This", "When Gorm drops to 30 HP or fewer, it stops attacking and begs telepathically: it offers its best secret and the midden's treasure if the party stops."]],
+      note: "Rebuilt for level 3 (was a CR 5 Otyugh). A medium fight for four or five PCs. Fighting is still optional; Gorm would much rather trade." },
     { n: "Mister Grady", base: "Doppelganger", aka: ["Mister Grady", "Grady"], t: "Medium monstrosity (puppet of the Host) · the Welcome Hall" },
     { n: "Oldmin Paulus, the Keeper", base: "Doppelganger", aka: ["Oldmin Paulus"], t: "Medium monstrosity (puppet of the Host) · Phase 2 of the boss fight", hp: "40",
       ac2: [["Multiattack", "Two attacks: a slam and a golden cart ram, or two slams."], ["Slam", "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6+4) bludgeoning damage."], ["Golden Cart Ram", "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6+2) bludgeoning damage, and the target is pushed 10 ft."], ["“Stay a While”", "One creature that can hear him makes a DC 14 Wisdom save or gains +1 Contentment."]],
@@ -1160,6 +1164,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     const b = M.find(x => x.n === p.base);
     const o = JSON.parse(JSON.stringify(b));
     o.n = p.n; o.t = p.t; o.npc = true; o.aka = p.aka;
+    if (p.ac) o.ac = p.ac;
     if (p.hp) o.hp = p.hp;
     if (p.ab) o.ab = p.ab;
     if (p.x) o.x = p.x;
