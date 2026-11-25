@@ -54,7 +54,7 @@ A humid cavern of lily pads and croaking. A tribe of *Bullywugs* lives around a 
 Through the Mudlark sewers lies a busy underground fishing camp of **fishfolk** (*Kuo-toa*), netting pale fish from a warm underground stream. This is where Millhaven's Fisherman's Luck stall buys its catch.
 - The fishfolk are friendly traders and will cook you a meal. 🎲 It's delicious. DC 12 CON or poisoned for 1 hour. (They never get sick. They've adapted.)
 - 💥 **Clue:** the stream flows *up* from below. It's warm and smells faintly of roasting meat. They call their catch "the Keeper's fish" and leave offerings for "the Old Man of the Lake."
-- **Gorm the Garbage Oracle:** in a side chamber lives an *Otyugh*. It's telepathic and *chatty*, and it trades information for interesting garbage. Fighting it is optional and dangerous (CR 5; make that clear, or halve its HP).
+- **Gorm the Garbage Oracle:** in a side chamber lives an *Otyugh*. It's telepathic and *chatty*, and it trades information for interesting garbage. Fighting it is optional; it's rebuilt as a CR 2 Otyugh for this party, and it begs for a deal once it's hurt.
 - 💥 **Twist #2 clue: the Mayor's letter.** Whichever way the party came, they find the Gilded Hand's abandoned camp here: a cold fire, a dead scout, and in his coat, the Mayor's letter 📜 (if they didn't already take it off Captain Belloque). Signed only *"C.V."* Let the players make the connection.
 
 ## [4] The Three Oaks

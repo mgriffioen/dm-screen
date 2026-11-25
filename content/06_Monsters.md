@@ -19,7 +19,7 @@ Party: 4–5 PCs, level 3 for the whole weekend. Encounters are tuned for that; 
 |---|---|---|
 | **Bullywugs of the Hollow** | *Bullywug* ×4–6, *Giant Frog* ×2 | Vain, flatterable; roasting mystery skewers |
 | **Fishfolk** | *Kuo-toa* (usually friendly) | Fish the Keeper's lake. Their cooking will wreck you. |
-| **Gorm the Garbage Oracle** | *Otyugh* (halve HP if fought) | Telepathic, chatty, eats anything, trades for garbage |
+| **Gorm the Garbage Oracle** | *Otyugh*, rebuilt to CR 2 (60 HP) | Telepathic, chatty, eats anything, trades for garbage |
 | **Kobold Sappers** | **Custom, below** | Dug in across the chasm at the Toll Bridge with fire-pots |
 | **The Mourners** | *Specter* ×2 (only if disturbed) | Ghosts of old guests, humming at the Mother's Grave |
 | **The Gibbering Mouther of Old Voices** | *Gibbering Mouther* | A blob of mouths babbling in the voices of guests the Host has swallowed: pleading, laughing, calling out names. Creepy, and full of hints if anyone listens (Insight DC 13). |
@@ -70,7 +70,7 @@ A picture of each creature to show the table, with a **Look** to read out where 
 
 ### The Gilded Hand crew
 ![The Gilded Hand crew](portraits/gilded-hand-crew.jpg)
-- **Look:** A cocky rival adventuring company in matching uniforms: navy cloaks with bright gold trim and a golden open hand on the shoulder, studded leather, scimitars and crossbows. They pose in the smokehouse yard like a sports team having its picture taken.
+- **Look:** A cocky rival adventuring company in matching uniforms: navy cloaks with bright gold trim and a golden open hand on the shoulder, studded leather, scimitars and crossbows. They lounge at the rail of The Two Decks' upper deck, a tavern built inside an old ship's hull, posing like a sports team having its picture taken, while the crowded lower deck roars below. The Captain turns a golden invitation over in his fingers.
 - **Stat block:** *Bandit* · *Thug* · *Scout*
 
 **Session 2 — The Undercroft**

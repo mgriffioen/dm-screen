@@ -14,7 +14,7 @@
  * Bump VERSION when adding or renaming a campaign file so the new list is
  * precached; ordinary edits to existing files arrive on their own.
  */
-const VERSION = "last-resort-v23";
+const VERSION = "last-resort-v24";
 const CONTENT = [
   "00_README.md", "01_Story_Bible.md", "02_Session1_Millhaven.md", "03_Session2_Undercroft.md",
   "04_Session3_ShangriLa.md", "05_NPCs.md", "06_Monsters.md", "07_Puzzles.md", "08_Roll_Tables.md",
@@ -36,7 +36,7 @@ const MAPS = [
 const PORTRAIT_NAMES = [
   "gorian-dray", "auntie-fratelli", "baby-mimic", "truck", "brother-emmerick",
   "bullywugs", "content-guests", "lorrin-vaughn", "feast-mimics", "fishfolk",
-  "gilded-hand-crew", "groundskeepers", "heart-of-shangri-la", "ilsabet-quill", "king-chudley",
+  "gilded-hand-crew", "gorm", "groundskeepers", "heart-of-shangri-la", "ilsabet-quill", "king-chudley",
   "lantern-imps", "little-fessrik", "mira-fratelli", "old-bogwhistle-mossback", "oldmin-paulus",
   "renard-belloque", "snik", "the-luggage", "mister-grady", "tidy-hands",
   "ferris-vaughn", "towel-golems", "wren",
