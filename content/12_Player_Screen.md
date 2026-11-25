@@ -25,7 +25,7 @@ Everything in the story worth putting on the **Echo's player screen**, in the or
 
 ### The Mayor's Offer
 - **When:** Scene 3, once the Mayor names his price.
-> Find Tobias Vell. Bring him home.
+> Find Ferris Vaughn. Bring him home.
 > The Lantern Council will pay 500 gold.
 
 ### Festival Contests on Bell Square
@@ -52,7 +52,7 @@ Everything in the story worth putting on the **Echo's player screen**, in the or
 > *"Only one door lies. Find the liar and you've found the way."*
 
 ### The Mayor's Letter
-- **When:** Scene 5 (on Captain Saye) or Session 2, room 3 (on the dead scout).
+- **When:** Scene 5 (on Captain Belloque) or Session 2, room 3 (on the dead scout).
 > *Captain —*
 > *The rest of your fee on delivery. See that they reach the Gate. The Keeper grows hungry, and the harbor ice must break on time.*
 > *— C.V.*
@@ -86,7 +86,7 @@ Everything in the story worth putting on the **Echo's player screen**, in the or
 > Left Oak: 7 rings · Door Oak: 12 rings · Right Oak: 3 rings
 
 ### The Toll
-- **When:** Room 5, once Old Mossback states his terms.
+- **When:** Room 5, once Old Bogwhistle Mossback states his terms.
 > "Toll's one each. Rules is rules."
 >
 > A Joke · A Secret · A Song · A True Tale · 25 Gold

@@ -28,7 +28,7 @@ Keep the dungeon as a **flowchart** of rooms. Draw it on a big sheet or whiteboa
                 │
           [8] The Hall of Doors
                 │
-          [9] The Welcome Hall (the Seer's Floor, the Luggage, the Steward)
+          [9] The Welcome Hall (the Seer's Floor, the Luggage, Mister Grady)
                 │
           [10] The Golden Gate
 ```
@@ -45,7 +45,7 @@ A mound of broken cobblestones, chunks of harbor ice, smoldering bonfire logs an
 - If the baby mimic is with the party, it gets excited and tugs toward the warmth.
 
 ## [2] Bullywug Hollow
-A humid cavern of lily pads and croaking. A tribe of *Bullywugs* lives around a dark pond, ruled by the bloated **King Bulgrot the Magnificent**, who lounges on a throne of moldering cushions.
+A humid cavern of lily pads and croaking. A tribe of *Bullywugs* lives around a dark pond, ruled by the bloated **King Chudley the Magnificent**, who lounges on a throne of moldering cushions.
 - **The Leaping Pad:** to cross the pond, climb a rock platform and leap onto a giant springy lily pad, then bound onward. Acrobatics DC 12; on a failure you land in the pond and a *Giant Frog* grabs you.
 - 🔀 **The King's court:** the bullywugs are vain and easily flattered. Persuasion or Performance earns passage *and* a gift. They're roasting something on skewers. (Don't ask what.)
 - They own a **flat two-hulled barge**, salvaged from the Mudlark sewers, and will trade it for something shiny. It's useful at the Glass Mere.
@@ -55,7 +55,7 @@ Through the Mudlark sewers lies a busy underground fishing camp of **fishfolk** 
 - The fishfolk are friendly traders and will cook you a meal. 🎲 It's delicious. DC 12 CON or poisoned for 1 hour. (They never get sick. They've adapted.)
 - 💥 **Clue:** the stream flows *up* from below. It's warm and smells faintly of roasting meat. They call their catch "the Keeper's fish" and leave offerings for "the Old Man of the Lake."
 - **Gorm the Garbage Oracle:** in a side chamber lives an *Otyugh*. It's telepathic and *chatty*, and it trades information for interesting garbage. Fighting it is optional and dangerous (CR 5; make that clear, or halve its HP).
-- 💥 **Twist #2 clue: the Mayor's letter.** Whichever way the party came, they find the Gilded Hand's abandoned camp here: a cold fire, a dead scout, and in his coat, the Mayor's letter 📜 (if they didn't already take it off Captain Saye). Signed only *"C.V."* Let the players make the connection.
+- 💥 **Twist #2 clue: the Mayor's letter.** Whichever way the party came, they find the Gilded Hand's abandoned camp here: a cold fire, a dead scout, and in his coat, the Mayor's letter 📜 (if they didn't already take it off Captain Belloque). Signed only *"C.V."* Let the players make the connection.
 
 ## [4] The Three Oaks
 Three enormous **petrified oaks** grow from the cavern floor, their roots wrapped around an ancient stone **steam hall** built by a forgotten people. Steam pours out. It's *too hot.*
@@ -64,9 +64,9 @@ Three enormous **petrified oaks** grow from the cavern floor, their roots wrappe
 - Reward: **Emberoak Sap** (3 doses) and the **Oakheart Mace**: a *+1 mace* that can cast *bless* once per day.
 
 ## [5] The Toll Bridge
-A rickety rope bridge over a deep chasm. Under it lives **Old Mossback**, a troll who collects tolls.
+A rickety rope bridge over a deep chasm. Under it lives **Old Bogwhistle Mossback**, a troll who collects tolls.
 - **Puzzle: The Toll** ([07_Puzzles.md](07_Puzzles.md)). Pay in jokes, secrets, songs, or gold.
-- If the Gilded Hand teamed up with the party, Captain Saye betrays them here: he cuts the rope after crossing (🎲 DEX saves).
+- If the Gilded Hand teamed up with the party, Captain Belloque betrays them here: he cuts the rope after crossing (🎲 DEX saves).
 - 🔀 **The Kobold Sappers:** across the chasm, a band of kobolds has dug in on the far ledge, hoarding salvage from lost adventurers. They start lobbing clay fire-pots the moment anyone sets foot on the bridge. Run it as a **ranged duel** across the gap ([06_Monsters.md](06_Monsters.md)). The troll considers this "not his department."
 
 ## [6] The Mother's Grave
@@ -94,8 +94,8 @@ A wide underground lake, perfectly still, ringed with pale sand. The reflections
 A pine-paneled hall, impossibly cozy for this deep underground. It smells of woodsmoke and summer. A fire crackles. A brass bell sits on a polished counter beside an open guest ledger.
 - **The Seer's Floor** ([07_Puzzles.md](07_Puzzles.md)): the floor is a grid of rune-carved tiles. Only the Seer (Erik) can see which are safe.
 - **The Luggage:** a heap of fine leather trunks by the door. *"Please, leave your burdens here."* One of them is a *Mimic*. Whoever touches it is stuck fast (grappled, escape DC 13).
-- **The Steward:** a polite attendant with a straw hat, a pressed apron, and the same smile as every other worker in the vale. A reskinned *Doppelganger* that shapeshifts into people the party knows.
-- 🔀 Present the invitations calmly and the Steward signs them into the ledger with no fight, handing each guest a **lodge key** carved with a sigil (see Session 3). Refuse or attack and it's a fight.
+- **Mister Grady:** a polite attendant with a straw hat, a pressed apron, and the same smile as every other worker in the vale. A reskinned *Doppelganger* that shapeshifts into people the party knows.
+- 🔀 Present the invitations calmly and Mister Grady signs them into the ledger with no fight, handing each guest a **lodge key** carved with a sigil (see Session 3). Refuse or attack and it's a fight.
 - **The ledger:** hundreds of names going back centuries. One recent entry is in Dusty's character's handwriting.
 - Anyone without an invitation (the 5th player? the Gilded Hand?) gets a smile: *"Not on the list. But there's always room for one more… at the feast."*
 

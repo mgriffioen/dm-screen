@@ -59,9 +59,9 @@ Track each PC's Contentment on a card in front of them (0–5). Players can SEE 
 - **Memory Tokens** (the Gate Gifts handed out at dinner): spend one to drop Contentment by 2, or to gain advantage on one save against the Keeper.
 
 ### Finding the Missing
-The party finds **Tobias Vell** lounging in a hot spring with a drink, deliriously happy, his skin a little… translucent. He's been here "a long weekend" (actually three weeks; some guests have been here eighty years).
+The party finds **Ferris Vaughn** lounging in a hot spring with a drink, deliriously happy, his skin a little… translucent. He's been here "a long weekend" (actually three weeks; some guests have been here eighty years).
 - 🔀 *(Saved twist #4, not chosen; skip by default.)* He refuses to leave and argues convincingly. 🎲 Persuasion DC 15, or roleplay it out. Reminding him of home gives advantage.
-- Auntie Grell's sister, Mira, is here too: twenty years old, sixty years after she arrived.
+- Auntie Fratelli's sister, Mira, is here too: twenty years old, sixty years after she arrived.
 
 ### Clues that something's wrong (drop 1–2 every 10 minutes)
 - The Keeper has no shadow. His cart leaves no tracks.
@@ -80,10 +80,10 @@ Triggers when someone forces the Hound's Hearth, tries to leave with the missing
 
 > The music slows… and slows… until the bright tune is a long, low groan. Every guest, every groundskeeper, every smiling face turns toward you at once. The Keeper sighs and takes off his hat. "Leaving early? Ah, that's a shame." Then the hill beneath you **breathes.** The lake drains in a great gurgling swirl. The yellow chute on the raft *uncurls*, wet and pink, and tastes the air. The seven lodges creak and lean inward like teeth. You are not in a valley. You are in a *mouth.*
 
-💥 **Twist #2: the Mayor is here.** As the lake drains, the party spots **Mayor Vell** on a lounger at the water's edge in a white robe with a gold spiral, a drink in his hand. He came down by his own road to "renew the bargain" and deliver them in person. Play him tragic (horrified: *"It was supposed to be painless!"*) or slimy (*"Nothing personal, friends. Millhaven needs its luck."*), whichever you picked in [05_NPCs.md](05_NPCs.md). In the fight, **The Bargain** protects him from the Heart; he flees for the Gate when it starts to go badly. If the party catches him, his ledger and signet ring set up the epilogue.
+💥 **Twist #2: the Mayor is here.** As the lake drains, the party spots **Mayor Vaughn** on a lounger at the water's edge in a white robe with a gold spiral, a drink in his hand. He came down by his own road to "renew the bargain" and deliver them in person. Play him tragic (horrified: *"It was supposed to be painless!"*) or slimy (*"Nothing personal, friends. Millhaven needs its luck."*), whichever you picked in [05_NPCs.md](05_NPCs.md). In the fight, **The Bargain** protects him from the Heart; he flees for the Gate when it starts to go badly. If the party catches him, his ledger and signet ring set up the epilogue.
 
 💥 Saved twists (not chosen; use only if the table needs a jolt):
-- **Twist #5:** Captain Saye is in a hot spring, half-dissolved and smiling: *"I got out once. I came back. You will too."*
+- **Twist #5:** Captain Belloque is in a hot spring, half-dissolved and smiling: *"I got out once. I came back. You will too."*
 - **Twist #7:** The Keeper offers a deal: *"Leave one behind, and the rest of you can go. I'll even let you take the boy."*
 - **Twist #8:** The Keeper, quietly: *"Mother always said a place is only a home if somebody stays."*
 
@@ -125,9 +125,9 @@ When the Heart drops, the vale convulses, gags, and starts to **spit everything 
 ## Epilogue
 
 They burst out into the Undercroft and climb up into Millhaven just as the festival ends. The harbor ice, broken by the hammer, is drifting out to sea. For the first time in three hundred years, the city will have to make its own luck.
-- What happens to Mayor Vell and the Lantern Council? They saw him in the vale, so this is the big question. (Justice, a mob, a trial, or the Mayor flees.)
+- What happens to Mayor Vaughn and the Lantern Council? They saw him in the vale, so this is the big question. (Justice, a mob, a trial, or the Mayor flees.)
 - Millhaven's luck starts to run out. Did they doom the city or free it?
-- Auntie Grell meets her sister again, if they brought Mira home.
+- Auntie Fratelli meets her sister again, if they brought Mira home.
 - 🔮 If Erik's character burns his invitation, the link closes: the visions stop and the cut on his thumb finally heals. (If he keeps it… something on the other side may still be watching.)
 - Each player gets a closing moment: *"What does your character do the next morning?"*
 - 🔀 If they took the peaceful route (saved Twist #8, only if you used it), the vale might still send invitations: just a long weekend, once a year.

@@ -40,7 +40,7 @@ It's the dead of winter. Millhaven's harbor is frozen solid, and the city is cel
 
 - Let each player introduce their character by describing what they look like and what they're doing at The Two Decks.
 - 🎲 Each player rolls on **Tavern Rumors** ([08_Roll_Tables.md](08_Roll_Tables.md)) by buying a drink or eavesdropping.
-- The Gilded Hand look down from the upper deck, notice the party's invitations, and sneer. Their leader, **Captain Roderic Saye**, introduces himself and calls them "the lower deck."
+- The Gilded Hand look down from the upper deck, notice the party's invitations, and sneer. Their leader, **Captain Renard Belloque**, introduces himself and calls them "the lower deck."
 
 ## Scene 2 — The Fish Toss Goes Wrong
 
@@ -59,9 +59,9 @@ The city watch arrives, escorting the Mayor.
 
 ## Scene 3 — The Mayor's Request
 
-**Mayor Corwin Vell**, head of the Lantern Council, is delighted by the party. Very warm. Too warm.
+**Mayor Lorrin Vaughn**, head of the Lantern Council, is delighted by the party. Very warm. Too warm.
 
-> "Invitations! Then the old stories are true. Listen. My nephew, Tobias, received one of those cards three weeks ago. He went looking for Shangri-La and never came back. Find him. Bring him home. The Council will pay you 500 gold, and Millhaven will owe you its thanks."
+> "Invitations! Then the old stories are true. Listen. My nephew, Ferris, received one of those cards three weeks ago. He went looking for Shangri-La and never came back. Find him. Bring him home. The Council will pay you 500 gold, and Millhaven will owe you its thanks."
 
 💥 *Secret:* The Mayor sent the invitations and wants the party to go in, so he'll make the path *easy*, suspiciously easy. Plant one tiny clue: his signet ring bears the same **spiral** as the invitations. (🎲 DC 15 Perception; reward the first player who notices. Confirm nothing.)
 - 🔮 **The Seer's first vision:** when the Mayor shakes hands, pass Erik a note: *"His spiral ring is warm. For a heartbeat you hear something huge breathing, far below the city."*
@@ -96,14 +96,14 @@ The party needs to learn: **(A)** Shangri-La lies below the city, through the Un
 - At midnight the party is waiting at their chosen entrance with a careful plan… and the Undercroft takes them first (Scene 6).
 
 ### Thread 1 — Ham Point & the Brotherhood of the Returned
-**Ham Point** is a rocky headland at the north end of the harbor, crowded with **smokehouses**. The whole point smells of curing ham, hence the name. Its oldest building is a squat stone smokehouse, now home to the **Brotherhood of the Returned**: a handful of hollow-eyed, oddly sunburned people who went to Shangri-La and came back. Leader: **Brother Ansel**.
+**Ham Point** is a rocky headland at the north end of the harbor, crowded with **smokehouses**. The whole point smells of curing ham, hence the name. Its oldest building is a squat stone smokehouse, now home to the **Brotherhood of the Returned**: a handful of hollow-eyed, oddly sunburned people who went to Shangri-La and came back. Leader: **Brother Emmerick**.
 - They live among the smell of roasting meat on purpose: it disgusts them, and that reminds them what happened.
 - They remember fragments: *"A hill. Lodges in a row."* *"There's a raft. Don't go down the yellow chute."* *"The old man's cart never leaves tracks."*
 - One of them stares at **Dusty's character** as if he's seen a ghost (Twist #3 setup).
-- Brother Ansel gives them his last, nearly empty **vial of Emberoak Sap**: *"This is how I got out. Don't ask me how; I don't remember. I just know it burns, and it hated that."* (One use. See Session 3.)
+- Brother Emmerick gives them his last, nearly empty **vial of Emberoak Sap**: *"This is how I got out. Don't ask me how; I don't remember. I just know it burns, and it hated that."* (One use. See Session 3.)
 - **The sea-stair:** beneath their smokehouse, a sealed stone stair leads down into the Undercroft. They guard it. They will open it only if the party convinces them they're going down to *end* this, not to enjoy it.
-- 🧊 **Not tonight, not yet.** The stair ends at a sea-cave, and the cave mouth is frozen solid; the stair dead-ends at a wall of black ice. Ansel: *"We sealed it from above. Winter sealed it from below. When the ice breaks at midnight, the tide comes back and the way opens. Come back then."*
-- 🗺️ **The map push.** Ansel: *"We got in easy. Getting out cost us everything. Don't go down there without a map."* If they ask, he's heard the mapmaker by the Old Gate has one.
+- 🧊 **Not tonight, not yet.** The stair ends at a sea-cave, and the cave mouth is frozen solid; the stair dead-ends at a wall of black ice. Emmerick: *"We sealed it from above. Winter sealed it from below. When the ice breaks at midnight, the tide comes back and the way opens. Come back then."*
+- 🗺️ **The map push.** Emmerick: *"We got in easy. Getting out cost us everything. Don't go down there without a map."* If they ask, he's heard the mapmaker by the Old Gate has one.
 - **Gives:** A, B, C, and the warning: *"Don't eat the feast. Don't bathe in the springs. And whatever the Keeper offers you, say no."*
 
 ### Thread 2 — The Cartographers' Guild (by the Old Gate)
@@ -115,9 +115,9 @@ A cramped tower of maps by the old city gate, run by **Ilsabet Quill**, a pedant
 - 🛟 **If they skip her:** she comes to them. Word gets around that invitation-holders are in town, and she corners the party at a food stall, map case under her arm, because she wants someone to map Shangri-La for her. Run it as a Festival Event whenever the party is heading toward their entrance without a map. That way the half-map and her Session 2 translations still happen.
 
 ### Thread 3 — The Mudlarks (the Frost Docks)
-Out on the frozen harbor, **Auntie Grell** runs the river thieves from a houseboat locked in the ice.
+Out on the frozen harbor, **Auntie Fratelli** runs the river thieves from a houseboat locked in the ice.
 - She controls the old sewer grate into the Undercroft. Passage costs coin (50 gp), a favor, or **beating her at cards** (team Insight + Sleight of Hand, best of 3; she cheats, and a DC 14 Perception catches it).
-- 🧊 **Not tonight, not yet.** The grate sits under the frozen harbor beside her houseboat, iced shut. Grell: *"Pay me now and the grate's yours, duckling, soon as His Worship cracks the ice. Not a minute before, unless you fancy chipping through ten feet of harbor with a spoon."*
+- 🧊 **Not tonight, not yet.** The grate sits under the frozen harbor beside her houseboat, iced shut. Fratelli: *"Pay me now and the grate's yours, duckling, soon as His Worship cracks the ice. Not a minute before, unless you fancy chipping through ten feet of harbor with a spoon."*
 - 🗺️ **The map push.** *"My grate gets you in. It doesn't tell you where you are. Go see the fussy one with the maps."*
 - **Gives:** B, and a **Mudlark whistle** (once, it calls a swarm of river rats to help).
 

@@ -1130,31 +1130,31 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   ];
   // ---------- named NPCs, each built on a base stat block ----------
   const NPCS = [
-    { n: "Captain Roderic Saye", base: "Bandit Captain", aka: ["Captain Roderic Saye", "Captain Saye", "Roderic Saye"], t: "Medium humanoid (human), neutral evil · leader of the Gilded Hand",
-      tr: [["Glory Hound", "When an enemy he can see is reduced to 0 HP, Saye shouts a boast and has advantage on his next attack roll."], ["Former Guest (Twist #5)", "Advantage on saves against the Keeper's charms. He knows the vale; he just wants back in."]] },
-    { n: "Wren", base: "Spy", aka: ["Wren"], t: "Medium humanoid (half-elf), chaotic neutral · Gilded Hand scout", note: "Quick knives. Flees if Saye falls." },
-    { n: "Bastian", base: "Thug", aka: ["Bastian"], t: "Medium humanoid (human), neutral · Gilded Hand sellsword", note: "Slow-witted and loyal. Fights until Saye says stop." },
-    { n: "Little Holm", base: "Thug", aka: ["Little Holm", "Holm"], t: "Large humanoid (half-ogre), neutral good · Gilded Hand muscle", hp: "52 (7d10+14)", ab: [19, 9, 15, 7, 10, 9],
-      ac2: [["Multiattack", "Two maul attacks."], ["Maul", "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6+4) bludgeoning damage."]], tr: [["Gentle Giant", "Holm hates the Captain. If Saye is down or a PC is kind to him (Persuasion DC 12), he surrenders or switches sides."]] },
-    { n: "Mayor Corwin Vell", base: "Noble", aka: ["Mayor Corwin Vell", "Mayor Vell", "Corwin Vell"], t: "Medium humanoid (human), lawful evil · head of the Lantern Council",
-      tr: [["The Bargain", "In the vale, the Keeper protects him: the Heart's pseudopods never target Vell unless he's the last one left."]], note: "A coward in a fight. Calls for the watch and runs." },
-    { n: "Tobias Vell", base: "Commoner", aka: ["Tobias Vell", "Tobias"], t: "Medium humanoid (human), chaotic good · the Mayor's nephew", note: "In the vale he's at Contentment 5 and fights to stay (unarmed: +2 to hit, 1 bludgeoning)." },
-    { n: "Auntie Grell", base: "Spy", aka: ["Auntie Grell", "Auntie"], t: "Small humanoid (halfling), neutral · boss of the Mudlarks", hp: "22 (5d6+5)",
+    { n: "Captain Renard Belloque", base: "Bandit Captain", aka: ["Captain Renard Belloque", "Captain Belloque", "Renard Belloque"], t: "Medium humanoid (human), neutral evil · leader of the Gilded Hand",
+      tr: [["Glory Hound", "When an enemy he can see is reduced to 0 HP, Belloque shouts a boast and has advantage on his next attack roll."], ["Former Guest (Twist #5)", "Advantage on saves against the Keeper's charms. He knows the vale; he just wants back in."]] },
+    { n: "Wren", base: "Spy", aka: ["Wren"], t: "Medium humanoid (half-elf), chaotic neutral · Gilded Hand scout", note: "Quick knives. Flees if Belloque falls." },
+    { n: "Truck", base: "Thug", aka: ["Truck"], t: "Medium humanoid (human), neutral · Gilded Hand sellsword", note: "Slow-witted and loyal. Fights until Belloque says stop." },
+    { n: "Little Fessrik", base: "Thug", aka: ["Little Fessrik", "Fessrik"], t: "Large humanoid (half-ogre), neutral good · Gilded Hand muscle", hp: "52 (7d10+14)", ab: [19, 9, 15, 7, 10, 9],
+      ac2: [["Multiattack", "Two maul attacks."], ["Maul", "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6+4) bludgeoning damage."]], tr: [["Gentle Giant", "Fessrik hates the Captain. If Belloque is down or a PC is kind to him (Persuasion DC 12), he surrenders or switches sides."]] },
+    { n: "Mayor Lorrin Vaughn", base: "Noble", aka: ["Mayor Lorrin Vaughn", "Mayor Vaughn", "Lorrin Vaughn"], t: "Medium humanoid (human), lawful evil · head of the Lantern Council",
+      tr: [["The Bargain", "In the vale, the Keeper protects him: the Heart's pseudopods never target Vaughn unless he's the last one left."]], note: "A coward in a fight. Calls for the watch and runs." },
+    { n: "Ferris Vaughn", base: "Commoner", aka: ["Ferris Vaughn", "Ferris"], t: "Medium humanoid (human), chaotic good · the Mayor's nephew", note: "In the vale he's at Contentment 5 and fights to stay (unarmed: +2 to hit, 1 bludgeoning)." },
+    { n: "Auntie Fratelli", base: "Spy", aka: ["Auntie Fratelli", "Auntie"], t: "Small humanoid (halfling), neutral · boss of the Mudlarks", hp: "22 (5d6+5)",
       tr: [["Mudlark Whistle", "Once per day as a bonus action, she calls a swarm of river rats (use Swarm of Rats) that arrives at the start of her next turn."], ["Card Sharp", "Advantage on Sleight of Hand checks to cheat at cards."]] },
-    { n: "Brother Ansel", base: "Acolyte", aka: ["Brother Ansel"], t: "Medium humanoid (human), lawful good · leader of the Returned",
+    { n: "Brother Emmerick", base: "Acolyte", aka: ["Brother Emmerick"], t: "Medium humanoid (human), lawful good · leader of the Returned",
       tr: [["Returned", "Immune to being charmed by the Keeper. He still can't stand the smell of roasting meat."]], note: "Carries the last vial of Emberoak Sap and gives it away." },
     { n: "Ilsabet Quill", base: "Commoner", aka: ["Ilsabet Quill", "Ilsabet"], t: "Medium humanoid (gnome), lawful neutral · cartographer", x: [["Skills", "History +4, Investigation +4"], ["Languages", "Common, Gnomish, the old Undercroft script"], ["Challenge", "0 (10 XP)"]], note: "Not a fighter. She'd rather correct your grammar." },
-    { n: "Old Mossback", base: "Troll", aka: ["Old Mossback", "Mossback"], t: "Large giant, lawful neutral · keeper of the Toll Bridge", note: "Too strong for this party. He only fights people who refuse the toll, and he'd rather shake the bridge." },
-    { n: "King Bulgrot the Magnificent", base: "Bullywug", aka: ["King Bulgrot the Magnificent", "King Bulgrot", "Bulgrot"], t: "Medium humanoid (bullywug), neutral evil · king of the Hollow", hp: "33 (6d8+6)",
+    { n: "Old Bogwhistle Mossback", base: "Troll", aka: ["Old Bogwhistle Mossback", "Bogwhistle", "Mossback"], t: "Large giant, lawful neutral · keeper of the Toll Bridge", note: "Too strong for this party. He only fights people who refuse the toll, and he'd rather shake the bridge." },
+    { n: "King Chudley the Magnificent", base: "Bullywug", aka: ["King Chudley the Magnificent", "King Chudley", "Chudley"], t: "Medium humanoid (bullywug), neutral evil · king of the Hollow", hp: "33 (6d8+6)",
       re: [["Royal Croak", "When an enemy hits him, up to two bullywugs within 30 ft. move up to half their speed toward that enemy."]] },
     { n: "Gorm the Garbage Oracle", base: "Otyugh", aka: ["Gorm the Garbage Oracle", "Gorm"], t: "Large aberration, neutral · the Fishfolk Camp's oracle", note: "Fighting Gorm is optional and dangerous. Halve its HP (57) if the party gets into it." },
-    { n: "The Steward", base: "Doppelganger", aka: ["The Steward", "the Steward"], t: "Medium monstrosity (puppet of the Host) · the Welcome Hall" },
+    { n: "Mister Grady", base: "Doppelganger", aka: ["Mister Grady", "Grady"], t: "Medium monstrosity (puppet of the Host) · the Welcome Hall" },
     { n: "Oldmin Paulus, the Keeper", base: "Doppelganger", aka: ["Oldmin Paulus"], t: "Medium monstrosity (puppet of the Host) · Phase 2 of the boss fight", hp: "40",
       ac2: [["Multiattack", "Two attacks: a slam and a golden cart ram, or two slams."], ["Slam", "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6+4) bludgeoning damage."], ["Golden Cart Ram", "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6+2) bludgeoning damage, and the target is pushed 10 ft."], ["“Stay a While”", "One creature that can hear him makes a DC 14 Wisdom save or gains +1 Contentment."]],
       note: "Before Phase 2 he's harmless and charming. Cutting his cord ends the puppet." },
     { n: "Snik", base: "Kobold", aka: ["Snik"], t: "Small humanoid (kobold), chaotic neutral · leader of the kobold sappers", hp: "12 (5d6-5)",
       ac2: [["Dagger", "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4+2) piercing damage."], ["Fire-Pot", "A clay pot bursts at a point within 120 ft. (with his sling). Each creature within 5 ft. makes a DC 12 Dexterity save, taking 7 (2d6) fire damage on a failure or half on a success."], ["Snik's Big Pot (1/Day)", "Each creature within 15 ft. of a point within 120 ft. makes a DC 12 Dexterity save, taking 14 (4d6) fire damage on a failure or half on a success. The kobolds cheer for a full round first."]] },
-    { n: "Mira Grell", base: "Commoner", aka: ["Mira Grell", "Mira"], t: "Medium humanoid (halfling), neutral good · Auntie's sister, a guest for sixty years", note: "At Contentment 5. Still twenty years old." },
+    { n: "Mira Fratelli", base: "Commoner", aka: ["Mira Fratelli", "Mira"], t: "Medium humanoid (halfling), neutral good · Auntie's sister, a guest for sixty years", note: "At Contentment 5. Still twenty years old." },
   ];
   NPCS.forEach(p => {
     const b = M.find(x => x.n === p.base);
@@ -1437,7 +1437,7 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   }
   // Mentions of a handout on any other page link to its card on the Items page.
   // Aliases that also name a place, a puzzle or a spell are left out so they don't link by mistake.
-  const HO_SKIP = new Set(["glass mere", "five doors", "misty step", "magic missiles", "greater healing", "coral", "bracelet", "gilding", "chestnuts", "festival prize", "+1 weapon", "glows without fuel", "crude map", "house thane", "sewer grate", "lodge keys"]);
+  const HO_SKIP = new Set(["glass mere", "five doors", "misty step", "magic missiles", "greater healing", "coral", "bracelet", "gilding", "chestnuts", "festival prize", "+1 weapon", "glows without fuel", "crude map", "house dray", "sewer grate", "lodge keys"]);
   let hoRe = null, hoBy = null;
   function handoutIndex() {
     if (hoRe) return;
@@ -2386,8 +2386,15 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   }
   // Send the picture on screen to the Echo's player screen.
   $("#viewerSend").addEventListener("click", async () => {
-    const src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
+    let src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
     try {
+      // A portrait has a wide 960x480 cut for the Echo's screen in portraits/wide/; send that
+      // when there is one. The tablet keeps showing the tall portrait.
+      const pm = new URL(src, location.href).pathname.match(/\/portraits\/([^/]+\.jpg)$/i);
+      if (pm) {
+        const wide = new URL("portraits/wide/" + pm[1], location.href).href;
+        try { if ((await fetch(wide, { cache: "force-cache" })).ok) src = wide; } catch (e) { /* none: send the tall one */ }
+      }
       // Try a plain fetch first, then a fresh CORS-enabled load drawn to a canvas. The
       // picture already on screen can't be used for the canvas (it may be tainted).
       let blob = null; const why = [];

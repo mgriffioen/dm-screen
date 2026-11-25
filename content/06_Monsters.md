@@ -25,7 +25,7 @@ Party: 4–5 PCs, level 3 for the whole weekend. Encounters are tuned for that; 
 | **The Gibbering Mouther of Old Voices** | *Gibbering Mouther* | A blob of mouths babbling in the voices of guests the Host has swallowed: pleading, laughing, calling out names. Creepy, and full of hints if anyone listens (Insight DC 13). |
 | **Darkmantles** | *Darkmantle* ×2 | Disguised as stalactites |
 | **The Tidy Hands** | *Crawling Claw* ×6 | White-gloved hands of long-gone vale staff. They try to tidy the party (steal & fold items). **They target the Emberoak Sap.** |
-| **The Steward** | *Doppelganger* | Straw hat, apron, the vale smile. Shapeshifts into people the party has met. |
+| **Mister Grady** | *Doppelganger* | Straw hat, apron, the vale smile. Shapeshifts into people the party has met. |
 | **The Luggage** | *Mimic* (adhesive) | A trunk in the Welcome Hall. *"Please, leave your burdens here."* |
 | **Rust Monster** | *Rust Monster* | Prowling near the Hall of Doors |
 
@@ -55,7 +55,7 @@ Five kobolds dug into foxholes on the far ledge of the chasm at the Toll Bridge,
 
 ## 🖼️ What they look like
 
-A picture of each creature to show the table, with a **Look** to read out where we made our own art. Named NPCs (Snik, the Steward, Gorm, the Baby Mimic and the rest) are in [05_NPCs.md](05_NPCs.md). **Official art** is linked from D&D Beyond at full size; it belongs to Wizards of the Coast and needs an internet connection.
+A picture of each creature to show the table, with a **Look** to read out where we made our own art. Named NPCs (Snik, Mister Grady, Gorm, the Baby Mimic and the rest) are in [05_NPCs.md](05_NPCs.md). **Official art** is linked from D&D Beyond at full size; it belongs to Wizards of the Coast and needs an internet connection.
 
 **Session 1 — Millhaven**
 
@@ -172,7 +172,7 @@ What the party finds when they search a defeated monster. Mindless or bodiless c
 | Kobold Sappers (*Kobold*) | 1d4 unused **fire-pots** (thrown 20/60 ft.; each creature within 5 ft. makes a DC 12 DEX save, 2d6 fire, half on a success). |
 | The Mourners (*Specter*) | No body. At the grave: a silver locket holding a tiny portrait of a long-lost guest (25 gp). |
 | Mirror Doubles (*Shadow*) | No body. A shard of the Glass Mere that shows your face as it was a year ago (a trinket). |
-| The Gibbering Mouther of Old Voices (*Gibbering Mouther*) | Absorbed into its mass: 3d10 gp, a *Potion of Healing*, and a signet ring of House Thane (Lord Alric Thane in the vale will give anything for it). |
+| The Gibbering Mouther of Old Voices (*Gibbering Mouther*) | Absorbed into its mass: 3d10 gp, a *Potion of Healing*, and a signet ring of House Dray (Lord Gorian Dray in the vale will give anything for it). |
 | The Tidy Hands (*Crawling Claw*) | Whatever they stole, neatly folded. One wears a gold ring (50 gp). |
 | Towel Golems (*Animated Armor*) | The softest towel you've ever touched. Wrapped in it during a short rest, you regain 1 extra HP per Hit Die spent. |
 | Pool Horrors (*Grick*) | Caught in a tentacle: a bather's lost bracelet (25 gp). |
