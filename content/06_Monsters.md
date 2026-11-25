@@ -8,26 +8,26 @@ Party: 4–5 PCs, level 3 for the whole weekend. Encounters are tuned for that; 
 
 | Monster | Use stat block | Flavor / twist |
 |---|---|---|
-| **Baby Mimic** (frozen fish) | *Mimic* (half HP: 29) | Flies through the window during the fish toss. The Host's offspring. Can be spared. |
-| **Lantern Imps** | *Sprite* ×4 or *Flying Snake* ×4 | Living festival lanterns that steal shiny things |
-| **Half-grown Owlbear** | *Brown Bear* (34 HP) | Won in a card game. Wants hugs. Hugs are crushing. |
-| **The Gilded Hand** | *Bandit Captain* (65 HP) + *Thug* ×1 + *Bandit* ×2 | Rival company. Matching colors. Fights dirty among the Ham Point smoke racks. |
+| [**Baby Mimic**](05_NPCs.md#the-baby-mimic) (frozen fish) | *Mimic* (half HP: 29) | Flies through the window during the fish toss. The Host's offspring. Can be spared. |
+| [**Lantern Imps**](06_Monsters.md#lantern-imps) | *Sprite* ×4 or *Flying Snake* ×4 | Living festival lanterns that steal shiny things |
+| [**Half-grown Owlbear**](06_Monsters.md#half-grown-owlbear) | *Brown Bear* (34 HP) | Won in a card game. Wants hugs. Hugs are crushing. |
+| [**The Gilded Hand**](06_Monsters.md#the-gilded-hand-crew) | *Bandit Captain* (65 HP) + *Thug* ×1 + *Bandit* ×2 | Rival company. Matching colors. Fights dirty among the Ham Point smoke racks. |
 
 ## Session 2 — The Undercroft
 
 | Monster | Use stat block | Flavor / twist |
 |---|---|---|
-| **Bullywugs of the Hollow** | *Bullywug* ×4–6, *Giant Frog* ×2 | Vain, flatterable; roasting mystery skewers |
-| **Fishfolk** | *Kuo-toa* (usually friendly) | Fish the Keeper's lake. Their cooking will wreck you. |
-| **Gorm the Garbage Oracle** | *Otyugh*, rebuilt to CR 2 (60 HP) | Telepathic, chatty, eats anything, trades for garbage |
-| **Kobold Sappers** | **Custom, below** | Dug in across the chasm at the Toll Bridge with fire-pots |
-| **The Mourners** | *Specter* ×2 (only if disturbed) | Ghosts of old guests, humming at the Mother's Grave |
-| **The Gibbering Mouther of Old Voices** | *Gibbering Mouther* | A blob of mouths babbling in the voices of guests the Host has swallowed: pleading, laughing, calling out names. Creepy, and full of hints if anyone listens (Insight DC 13). |
-| **Darkmantles** | *Darkmantle* ×2 | Disguised as stalactites |
-| **The Tidy Hands** | *Crawling Claw* ×6 | White-gloved hands of long-gone vale staff. They try to tidy the party (steal & fold items). **They target the Emberoak Sap.** |
-| **Mister Grady** | *Doppelganger* | Straw hat, apron, the vale smile. Shapeshifts into people the party has met. |
-| **The Luggage** | *Mimic* (adhesive) | A trunk in the Welcome Hall. *"Please, leave your burdens here."* |
-| **Rust Monster** | *Rust Monster* | Prowling near the Hall of Doors |
+| [**Bullywugs of the Hollow**](06_Monsters.md#bullywugs-of-the-hollow) | *Bullywug* ×4–6, *Giant Frog* ×2 | Vain, flatterable; roasting mystery skewers |
+| [**Fishfolk**](06_Monsters.md#fishfolk) | *Kuo-toa* (usually friendly) | Fish the Keeper's lake. Their cooking will wreck you. |
+| [**Gorm the Garbage Oracle**](05_NPCs.md#gorm-the-garbage-oracle--fishfolk-camp) | *Otyugh*, rebuilt to CR 2 (60 HP) | Telepathic, chatty, eats anything, trades for garbage |
+| [**Kobold Sappers**](06_Monsters.md#kobold-sappers) | **Custom, below** | Dug in across the chasm at the Toll Bridge with fire-pots |
+| [**The Mourners**](06_Monsters.md#the-mourners) | *Specter* ×2 (only if disturbed) | Ghosts of old guests, humming at the Mother's Grave |
+| [**The Gibbering Mouther of Old Voices**](06_Monsters.md#the-gibbering-mouther-of-old-voices) | *Gibbering Mouther* | A blob of mouths babbling in the voices of guests the Host has swallowed: pleading, laughing, calling out names. Creepy, and full of hints if anyone listens (Insight DC 13). |
+| [**Darkmantles**](06_Monsters.md#darkmantles) | *Darkmantle* ×2 | Disguised as stalactites |
+| [**The Tidy Hands**](06_Monsters.md#the-tidy-hands) | *Crawling Claw* ×6 | White-gloved hands of long-gone vale staff. They try to tidy the party (steal & fold items). **They target the Emberoak Sap.** |
+| [**Mister Grady**](05_NPCs.md#mister-grady--welcome-hall-mini-boss) | *Doppelganger* | Straw hat, apron, the vale smile. Shapeshifts into people the party has met. |
+| [**The Luggage**](06_Monsters.md#the-luggage) | *Mimic* (adhesive) | A trunk in the Welcome Hall. *"Please, leave your burdens here."* |
+| [**Rust Monster**](06_Monsters.md#rust-monster) | *Rust Monster* | Prowling near the Hall of Doors |
 
 ### 🔥 The Kobold Sappers (ranged duel)
 Five kobolds dug into foxholes on the far ledge of the chasm at the Toll Bridge, 120 ft away, behind a wall of salvaged shields. Their leader, **Snik**, wears a dented helmet three sizes too big.
@@ -43,12 +43,12 @@ Five kobolds dug into foxholes on the far ledge of the chasm at the Toll Bridge,
 
 | Monster | Use stat block | Flavor |
 |---|---|---|
-| **Groundskeepers** | *Thug* | Straw hats, aprons, heavy rakes. The same face, every one. |
-| **Feast Mimics** | *Mimic* (HP 35) | Platters of roast become jaws |
-| **Towel Golems** | *Animated Armor* (as wet towels: resist bludgeoning, vulnerable to fire) | Fold themselves around you (grapple) |
-| **Pool Horrors** | *Grick* | Brightly striped tentacles rising from the hot springs |
+| [**Groundskeepers**](06_Monsters.md#groundskeepers) | *Thug* | Straw hats, aprons, heavy rakes. The same face, every one. |
+| [**Feast Mimics**](06_Monsters.md#feast-mimics) | *Mimic* (HP 35) | Platters of roast become jaws |
+| [**Towel Golems**](06_Monsters.md#towel-golems) | *Animated Armor* (as wet towels: resist bludgeoning, vulnerable to fire) | Fold themselves around you (grapple) |
+| [**Pool Horrors**](06_Monsters.md#pool-horrors) | *Grick* | Brightly striped tentacles rising from the hot springs |
 | **The Yellow Chute** | (lair action) | The tongue. |
-| **Content Guests** | *Commoner* ×any | Guests who defend the Keeper because they're happy. A moral problem: don't hurt them! |
+| [**Content Guests**](06_Monsters.md#content-guests) | *Commoner* ×any | Guests who defend the Keeper because they're happy. A moral problem: don't hurt them! |
 | **The Heart of Shangri-La** | **Custom, below** | The boss, beneath the Hound's Hearth |
 
 ---
