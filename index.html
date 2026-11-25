@@ -2386,8 +2386,15 @@ a.ho-link strong, a.ho-link em { color: inherit; }
   }
   // Send the picture on screen to the Echo's player screen.
   $("#viewerSend").addEventListener("click", async () => {
-    const src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
+    let src = vImg.currentSrc || vImg.src; if (!src || !echoAddr) return;
     try {
+      // A portrait has a wide 960x480 cut for the Echo's screen in portraits/wide/; send that
+      // when there is one. The tablet keeps showing the tall portrait.
+      const pm = new URL(src, location.href).pathname.match(/\/portraits\/([^/]+\.jpg)$/i);
+      if (pm) {
+        const wide = new URL("portraits/wide/" + pm[1], location.href).href;
+        try { if ((await fetch(wide, { cache: "force-cache" })).ok) src = wide; } catch (e) { /* none: send the tall one */ }
+      }
       // Try a plain fetch first, then a fresh CORS-enabled load drawn to a canvas. The
       // picture already on screen can't be used for the canvas (it may be tainted).
       let blob = null; const why = [];

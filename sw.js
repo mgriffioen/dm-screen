@@ -39,12 +39,21 @@ const PORTRAITS = [
   "renard-belloque", "snik", "the-luggage", "mister-grady", "tidy-hands",
   "ferris-vaughn", "towel-golems", "wren",
 ].map(f => "portraits/" + f + ".jpg");
+// Wide 960x480 cuts sent to the Echo's player screen in place of the tall portraits
+// (index.html uses portraits/wide/<name>.jpg whenever it exists).
+const WIDE = [
+  "auntie-fratelli", "baby-mimic", "brother-emmerick", "ferris-vaughn", "fishfolk",
+  "gorian-dray", "ilsabet-quill", "king-chudley", "little-fessrik", "lorrin-vaughn",
+  "mira-fratelli", "mister-grady", "old-bogwhistle-mossback", "oldmin-paulus", "renard-belloque",
+  "snik", "the-luggage", "towel-golems", "truck", "wren",
+].map(f => "portraits/wide/" + f + ".jpg");
 const SHELL = [
   "./", "index.html", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png",
   ...CONTENT,
   ...MAPS,
   ...PORTRAITS,
+  ...WIDE,
 ];
 
 self.addEventListener("install", event => {
