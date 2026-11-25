@@ -39,7 +39,7 @@ Three petrified oaks surround an ancient stone steam hall. Inside are a sealed c
 
 ## 2. The Toll (Troll Bridge — Session 2, room 5)
 
-Old Mossback sits under the bridge with a ledger and a rubber stamp. *"Toll's one each. Rules is rules."* Each person must pay **one toll**. He accepts only these:
+Old Bogwhistle Mossback sits under the bridge with a ledger and a rubber stamp. *"Toll's one each. Rules is rules."* Each person must pay **one toll**. He accepts only these:
 
 | Toll | What the PLAYER does | Outcome |
 |---|---|---|
@@ -121,7 +121,7 @@ The Welcome Hall floor is a 5×5 grid of stone tiles, each carved with a rune. T
 **Key (Erik only):**
 - 🟦 **Safe path (6):** HORSESHOE → STAG → HOURGLASS → HAMMERS → ANVIL → MOUNTAIN *(D5 → D4 → D3 → D2 → C2 → C1)*
 - 🟥 **Traps:** BOOK, WHEAT, EYE, SUN, WAVES. Each deals 1d6 damage (steam or acid) and a groundskeeper (*Thug*) appears.
-- ⬛ **The worst tile:** SPIRAL, the Keeper's own mark. The floor tips the stepper down a chute into **the Luggage** mimic, and the Steward is alerted (no peaceful check-in).
+- ⬛ **The worst tile:** SPIRAL, the Keeper's own mark. The floor tips the stepper down a chute into **the Luggage** mimic, and Mister Grady is alerted (no peaceful check-in).
 - ⬜ **Everything else:** the tile cracks under you. Nothing happens, but you step back and lose your turn.
 
 **The logic (for you, or for a sharp player who asks):** the safe runes are things **Shangri-La doesn't have**: the road away (horseshoe), the wild (stag), time passing (hourglass), honest work (hammers, anvil), and the cold mountains of home. The traps are the vale's lures: the open book, the eye, the sun and the waves are four of the seven **lodge sigils** (players will recognize them in Session 3), and the wheat is the feast. The **Key** tile is a deliberate temptation: it's harmless, but stepping up the right-hand column from it leads through Scales to the Spiral.
@@ -130,7 +130,7 @@ The Welcome Hall floor is a 5×5 grid of stone tiles, each carved with a rune. T
 |---|---|
 | Clean crossing | ✅ The bell rings by itself: *"Honored guests!"* Everyone starts Session 3 with a free pleasure. |
 | Crossing with some traps | ✅ A normal check-in. |
-| The Spiral tile | ❌ Luggage fight and Steward fight together. |
+| The Spiral tile | ❌ Luggage and Mister Grady fight together. |
 
 ⏱️ Five minutes max. After that, the safe tiles start glowing for everyone.
 

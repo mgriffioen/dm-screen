@@ -15,7 +15,7 @@ Player-facing cards for everything the party can find, win or be given. On the D
 - **Type:** Potion, common
 - **Value:** 50 gp
 - **Weight:** 1/2 lb
-- **Found:** The Luggage, the Gibbering Mouther, Captain Saye, the Healer's Satchel Morning Boon (two)
+- **Found:** The Luggage, the Gibbering Mouther, Captain Belloque, the Healer's Satchel Morning Boon (two)
 - **Also called:** potions of healing
 > A small flask of red liquid that glimmers when shaken. When you drink it (an action), you regain **2d4 + 2** hit points.
 
@@ -30,13 +30,13 @@ Player-facing cards for everything the party can find, win or be given. On the D
 - **Type:** Potion, uncommon
 - **Value:** 100 gp
 - **Weight:** 1/2 lb
-- **Found:** Hidden in King Bulgrot's cushion throne
+- **Found:** Hidden in King Chudley's cushion throne
 > A cloudy green flask that smells of the sea, with a tiny fish floating inside. When you drink it, you can breathe underwater for **1 hour**.
 
 ### Emberoak Sap
 - **Type:** Alchemical resin, rare
 - **Charges:** 1 dose per vial
-- **Found:** Brother Ansel (1 dose), the Three Oaks steam hall (3 doses)
+- **Found:** Brother Emmerick (1 dose), the Three Oaks steam hall (3 doses)
 > A stoppered vial of thick red resin that's warm to the touch, even in winter. Tapped from the petrified oaks of a forgotten people. A drop on the tongue burns like a live coal.
 >
 > **Drink:** take 1d4 fire damage; your head clears of any charm or comfort.
@@ -98,9 +98,9 @@ Player-facing cards for everything the party can find, win or be given. On the D
 - **Attack:** +1 + Str or Dex mod + proficiency, melee, reach 5 ft. (finesse, light)
 - **Damage:** 1d6 + 1 + Str or Dex mod slashing
 - **Weight:** 3 lb
-- **Found:** Captain Saye
+- **Found:** Captain Belloque
 - **Also called:** +1 scimitar
-> Captain Saye's blade, with a gilded basket hilt and a tiny engraved hand on the pommel. **+1 to attack and damage rolls.**
+> Captain Belloque's blade, with a gilded basket hilt and a tiny engraved hand on the pommel. **+1 to attack and damage rolls.**
 
 ### Salvaged Shield
 - **Type:** Armor (shield), uncommon
@@ -361,7 +361,7 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 - **Type:** Treasure
 - **Value:** 30 gp
 - **Weight:** 1 lb
-- **Found:** King Bulgrot
+- **Found:** King Chudley
 > A crown of silver forks and spoons bent into points and wired together. Undignified, but solid silver.
 
 ### Coral-and-Bone Amulet
@@ -390,13 +390,13 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 - **Also called:** bracelet
 > A silver bracelet hung with tiny seashells. Someone lost it in the hot spring a long time ago.
 
-### Signet Ring of House Thane
+### Signet Ring of House Dray
 - **Type:** Treasure, heirloom
 - **Value:** 75 gp
 - **Found:** The Gibbering Mouther
-- **Also called:** house thane
-> A heavy gold signet ring bearing a stag and a crescent moon. The inside of the band is engraved: *"Alric, return to us."*
-- **DM:** Lord Alric Thane, a guest in the vale for 112 years, will give anything for it. Showing it to him lowers his Contentment to 0.
+- **Also called:** house dray
+> A heavy gold signet ring bearing a stag and a crescent moon. The inside of the band is engraved: *"Gorian, return to us."*
+- **DM:** Lord Gorian Dray, a guest in the vale for 112 years, will give anything for it. Showing it to him lowers his Contentment to 0.
 
 ### Spyglass
 - **Type:** Gear
@@ -464,25 +464,25 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 
 ### Iron Key to the Sewer Grate
 - **Type:** Key item
-- **Found:** Auntie Grell
+- **Found:** Auntie Fratelli
 - **Also called:** sewer grate
 > A heavy iron key, rusted orange, tied to a cork float so it won't sink if dropped in the harbor. It opens the old sewer grate on the Frost Docks.
 
 ### Spiral Signet Ring
 - **Type:** Key item
 - **Value:** 100 gp
-- **Found:** Mayor Corwin Vell
+- **Found:** Mayor Lorrin Vaughn
 > A gold signet ring bearing a perfect spiral, the same spiral as on your invitations. Pressed into the wax of the Lantern Council vault's door, it opens.
 
 ### Brass Service Bell
 - **Type:** Curious item
-- **Found:** The Steward
+- **Found:** Mister Grady
 - **Also called:** service bell
 > A small brass desk bell, polished to a mirror shine. When you ring it in the vale, every groundskeeper within earshot **stops and waits for instructions** for 1 round.
 
 ### Marked Deck of Cards
 - **Type:** Gear
-- **Found:** Auntie Grell
+- **Found:** Auntie Fratelli
 - **Also called:** marked deck
 > A worn deck of cards with tiny pinpricks in the corners. You have **advantage** on checks to cheat at cards with it.
 
@@ -494,7 +494,7 @@ Eighteen more official **uncommon** items from the *Dungeon Master's Guide* that
 
 ### Mudlark Whistle
 - **Type:** Gear, single use
-- **Found:** Auntie Grell's gift (Session 1)
+- **Found:** Auntie Fratelli's gift (Session 1)
 > A whistle carved from a gull's leg bone. Blow it once and a **swarm of river rats** answers, fighting at your side for 1 minute. It cracks after one use.
 
 ## Lodge Comforts
@@ -559,7 +559,7 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 
 ### Golden Invitation
 - **Type:** Invitation
-- **Found:** Every PC; Captain Saye; Tobias Vell; Gorm's midden
+- **Found:** Every PC; Captain Belloque; Ferris Vaughn; Gorm's midden
 > *By the hand of the Keeper,*
 > *you are bidden to Shangri-La,*
 > *where summer never ends and no heart is heavy.*
@@ -568,7 +568,7 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 
 ### The Mayor's Letter
 - **Type:** Letter
-- **Found:** Captain Saye, or the Gilded Hand camp in the Fishfolk Camp
+- **Found:** Captain Belloque, or the Gilded Hand camp in the Fishfolk Camp
 > *Captain —*
 > *The rest of your fee on delivery. See that they reach the Gate. The Keeper grows hungry, and the harbor ice must break on time.*
 > *— C.V.*
@@ -578,7 +578,7 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 - **Found:** The Banner Run contest; a dropped Gilded Hand pack in the Undercroft
 - **Also called:** map scrap, crude map
 > A torn corner of a hand-copied map, smudged with tallow. An arrow points down from a grate marked **"FROST DOCKS"** to a scrawl of tunnels, and someone has circled a spot near the bottom and written ***"GATE?? — ask C.V."***
-- **DM:** "C.V." is Mayor Corwin Vell. A clue that the Gilded Hand and the Mayor are working together.
+- **DM:** "C.V." is Mayor Lorrin Vaughn. A clue that the Gilded Hand and the Mayor are working together.
 
 ### Hall of Five Doors
 - **Type:** Puzzle handout
@@ -600,20 +600,20 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 
 ### The Council Ledger
 - **Type:** Document
-- **Found:** Mayor Corwin Vell
+- **Found:** Mayor Lorrin Vaughn
 - **Also called:** council ledger
 > A leather-bound ledger stamped with a gold spiral. Thirty years of names in the Mayor's neat hand, each beside a date and one word: *"Delivered."*
 
 ### The Book of Names
 - **Type:** Document
-- **Found:** Brother Ansel
+- **Found:** Brother Emmerick
 - **Also called:** book of names
 > A battered prayer book whose pages are filled, margin to margin, with the names of everyone who went looking for paradise and didn't come back.
 - **DM:** Dusty's character's name is in it, crossed out with the word "Returned."
 
 ### The Troll's Toll Ledger
 - **Type:** Document
-- **Found:** Old Mossback
+- **Found:** Old Bogwhistle Mossback
 - **Also called:** toll ledger
 > A huge damp ledger. Every page is a column of names, the toll each traveler paid, and a stamp: **APPROVED**. A century of secrets, jokes and terrible songs.
 
@@ -628,7 +628,7 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 - **Found:** The Welcome Hall counter
 - **Also called:** guest ledger
 > A heavy leather register on a polished counter, open to a fresh page. Hundreds of signatures run back through the years, every one in a different hand, every one followed by the same word in the *Length of stay* column: ***Forever.***
-- **DM:** One of the signatures is in Dusty's character's handwriting. Further back: Mira Grell, sixty years ago.
+- **DM:** One of the signatures is in Dusty's character's handwriting. Further back: Mira Fratelli, sixty years ago.
 
 ### A Letter from Home
 - **Type:** Letter
@@ -657,16 +657,16 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 > You have never told anyone. Don't tell the others — yet.
 - **DM:** Seal it in an envelope. See the Table Guide for his flashbacks and how he escaped.
 
-### Bastian's Letter
+### Truck's Letter
 - **Type:** Letter
-- **Found:** Bastian
+- **Found:** Truck
 - **Also called:** letter to his mother
-> *Ma — Don't worry. The Captain says this job sets us up for life. I'll be home rich by spring, and I'll fix the roof. Your son, Bastian.*
+> *Ma — Don't worry. The Captain says this job sets us up for life. I'll be home rich by spring, and I'll fix the roof. Your son, Truck.*
 > (It was never sent.)
 
 ### Half of the Undercroft Map
 - **Type:** Map
-- **Found:** Ilsabet Quill; Captain Saye (the stolen half)
+- **Found:** Ilsabet Quill; Captain Belloque (the stolen half)
 - **Also called:** half of the undercroft map
 > A torn half of an old map of the tunnels beneath Millhaven, inked in brown with tiny, precise notes. At the bottom, in the margin: *"Only one door lies. Find the liar and you've found the way."*
 
@@ -681,21 +681,21 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 ### Silver Pocket Watch
 - **Type:** Keepsake
 - **Value:** 25 gp
-- **Found:** Tobias Vell
+- **Found:** Ferris Vaughn
 - **Also called:** pocket watch
-> An engraved silver pocket watch, stopped at a quarter past four. The inside of the lid reads: *"For Tobias. Come home for supper. — Mum."*
-- **DM:** Showing it to Tobias gives advantage on the check to bring him home.
+> An engraved silver pocket watch, stopped at a quarter past four. The inside of the lid reads: *"For Ferris. Come home for supper. — Mum."*
+- **DM:** Showing it to Ferris gives advantage on the check to bring him home.
 
-### Grell Music Box
+### Fratelli Music Box
 - **Type:** Keepsake
-- **Found:** Mira Grell
+- **Found:** Mira Fratelli
 - **Also called:** music box
 > A tiny painted music box of two little girls holding hands. Wound up, it plays a slow lullaby.
-- **DM:** Playing it for Mira gives advantage on the check to bring her home. Auntie Grell will pay any price for it.
+- **DM:** Playing it for Mira gives advantage on the check to bring her home. Auntie Fratelli will pay any price for it.
 
 ### Carved Wooden Bird
 - **Type:** Keepsake
-- **Found:** Little Holm
+- **Found:** Little Fessrik
 - **Also called:** carved wooden bird
 > A small wren, carefully whittled from pale wood. Every feather is there. It must have taken weeks.
 
@@ -723,11 +723,11 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 - **Found:** The "What did you do last night?" table
 > A small tin cup on a wooden base, engraved ***WINTER FESTIVAL SLED RACE — CHAMPION***. You were the only entrant. It still counts.
 
-### Captain Saye's Boots
+### Captain Belloque's Boots
 - **Type:** Clothing
 - **Found:** The "What did you do last night?" table
-> You woke up wearing someone else's boots. They're nicer than yours: polished black leather with gilded buckles. They belong to **Captain Roderic Saye** of the Gilded Hand.
-- **DM:** Saye wants them back, and he'll be insufferable about it.
+> You woke up wearing someone else's boots. They're nicer than yours: polished black leather with gilded buckles. They belong to **Captain Renard Belloque** of the Gilded Hand.
+- **DM:** Belloque wants them back, and he'll be insufferable about it.
 
 ### Engagement Ring
 - **Type:** Ring
@@ -769,7 +769,7 @@ One card per lodge, handed over when a PC takes its bait in Session 3. Each one 
 ### Troll Token
 - **Type:** Token (one use)
 - **Found:** The Toll Bridge (a great joke)
-> A smooth river stone stamped **APPROVED**. Call Old Mossback once, and he'll come help, for exactly one minute. Rules are rules.
+> A smooth river stone stamped **APPROVED**. Call Old Bogwhistle Mossback once, and he'll come help, for exactly one minute. Rules are rules.
 
 ### Pebble of Pity
 - **Type:** Token (one use)
@@ -824,7 +824,7 @@ This is Ilsabet Quill's map, so write the notes in a small, precise, slightly fu
 | Lines by the door sketch | *"Rest here, and be content."* |
 | Bottom-right scroll | *Only one door lies. Find the liar and you've found the way.* |
 
-**Tearing it in half:** tear across the map just below the rope bridge. Captain Saye's stolen half is the **top** (the Landing, the three caves, the bridge). Ilsabet's half is the **bottom** (the Mother's Grave to the Golden Gate), with her riddle on the bottom scroll, as in *Half of the Undercroft Map*.
+**Tearing it in half:** tear across the map just below the rope bridge. Captain Belloque's stolen half is the **top** (the Landing, the three caves, the bridge). Ilsabet's half is the **bottom** (the Mother's Grave to the Golden Gate), with her riddle on the bottom scroll, as in *Half of the Undercroft Map*.
 
 **Shangri-La** (`handouts/03-Shangri-La.png`)
 

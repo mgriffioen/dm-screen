@@ -13,7 +13,7 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | d12 | Rumor |
 |---|---|
 | 1 | ✅ "Folk who go looking for Shangri-La don't come back. Except a few who did. They live out on Ham Point and they're not right." |
-| 2 | ✅ "The Mudlarks hold a sewer grate on the Frost Docks nobody's opened in fifty years. Auntie Grell will play you cards for it. Not that it's any use till the ice breaks." |
+| 2 | ✅ "The Mudlarks hold a sewer grate on the Frost Docks nobody's opened in fifty years. Auntie Fratelli will play you cards for it. Not that it's any use till the ice breaks." |
 | 3 | ⚠️ "Shangri-La's a treasure vault. The Gilded Hand are going after it tonight." |
 | 4 | ❌ "Shangri-La is up in the mountains. Everyone knows that." |
 | 5 | ✅ "The Mayor's nephew vanished three weeks back. Mayor doesn't seem *that* upset." |
@@ -23,7 +23,7 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 9 | ⚠️ "The old ones under the city fought something with fire. Not torches. Something from the trees." |
 | 10 | ✅ "The Cartographers' Guild got robbed yesterday. Something about a map." |
 | 11 | ❌ "The Keeper of Shangri-La is a dragon in an old man's skin." (Close, actually.) |
-| 12 | ✅ "Auntie Grell had a sister who went looking for paradise. Sixty years ago. Never came back." |
+| 12 | ✅ "Auntie Fratelli had a sister who went looking for paradise. Sixty years ago. Never came back." |
 
 ## 🎩 Winter Festival Events (d10) — Session 1
 *Roll every 20–30 min of real time.*
@@ -46,12 +46,12 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 
 | d20 | You discover… |
 |---|---|
-| 1 | You're wearing someone else's boots. They're nicer. They're Captain Saye's. |
+| 1 | You're wearing someone else's boots. They're nicer. They're Captain Belloque's. |
 | 2 | A crude tattoo on your forearm of a fish. You don't remember getting it. |
 | 3 | You're engaged. To Dagny Hale, the fish-toss champion. There's a ring. |
 | 4 | You won a goat. It's here. It's fine. |
 | 5 | Pockets full of chestnuts (10 rations; one is not a chestnut). |
-| 6 | You owe Auntie Grell a favor and don't know why. |
+| 6 | You owe Auntie Fratelli a favor and don't know why. |
 | 7 | You have a trophy for the sled race. You were the only entrant. |
 | 8 | Your eyebrows are gone. (The Bonfire Leap.) |
 | 9 | A tune is stuck in your head. You can't stop humming it. (Advantage on Performance, disadvantage on Stealth.) |
@@ -88,7 +88,7 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 15 | Everyone hears their name whispered in the voice of someone they love. |
 | 16 | A natural hot spring. A short rest here gives max Hit Dice healing and +1 Contentment. |
 | 17 | Cart tracks in the mud, which stop dead in the middle of the tunnel. |
-| 18 | A guest ledger on a stand. Hundreds of signatures. One is Mira Grell, sixty years ago. |
+| 18 | A guest ledger on a stand. Hundreds of signatures. One is Mira Fratelli, sixty years ago. |
 | 19 | Silence. Total silence. Spells with verbal components fail for 1 minute. |
 | 20 | A lost **Returned** wanders by, babbling, and gives one useful hint before fleeing. |
 
@@ -170,7 +170,7 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 4 | A lodge collapses inward like a closing jaw: DC 13 DEX or 2d6 bludgeoning. |
 | 5 | The Keeper's golden cart pulls up beside a PC: one last offer. |
 | 6 | Acid rain from the "sky": 1d6 acid to everyone, DC 12 CON for half. |
-| 7 | Captain Saye, half-digested, begs for help. Save him? |
+| 7 | Captain Belloque, half-digested, begs for help. Save him? |
 | 8 | The air-bladder raft springs a leak! Someone must hold it shut (STR DC 12) or everyone swims the last stretch. |
 
 ## 🧑 Fumble Table (d10) — *optional, friendly* — roll on a natural 1 in combat

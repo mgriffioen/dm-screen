@@ -14,7 +14,7 @@
  * Bump VERSION when adding or renaming a campaign file so the new list is
  * precached; ordinary edits to existing files arrive on their own.
  */
-const VERSION = "last-resort-v21";
+const VERSION = "last-resort-v22";
 const CONTENT = [
   "00_README.md", "01_Story_Bible.md", "02_Session1_Millhaven.md", "03_Session2_Undercroft.md",
   "04_Session3_ShangriLa.md", "05_NPCs.md", "06_Monsters.md", "07_Puzzles.md", "08_Roll_Tables.md",
@@ -32,12 +32,12 @@ const MAPS = [
 ].flatMap(f => ["maps/" + f + ".jpg?v=" + MAP_V, "maps/thumbs/" + f + ".jpg?v=" + MAP_V]);
 // Generated NPC and monster portraits (keep in step with the image lines in content/05_NPCs.md and 06_Monsters.md).
 const PORTRAITS = [
-  "alric-thane", "auntie-grell", "baby-mimic", "bastian", "brother-ansel",
-  "bullywugs", "content-guests", "corwin-vell", "feast-mimics", "fishfolk",
-  "gilded-hand-crew", "groundskeepers", "heart-of-shangri-la", "ilsabet-quill", "king-bulgrot",
-  "lantern-imps", "little-holm", "mira-grell", "old-mossback", "oldmin-paulus",
-  "roderic-saye", "snik", "the-luggage", "the-steward", "tidy-hands",
-  "tobias-vell", "towel-golems", "wren",
+  "gorian-dray", "auntie-fratelli", "baby-mimic", "truck", "brother-emmerick",
+  "bullywugs", "content-guests", "lorrin-vaughn", "feast-mimics", "fishfolk",
+  "gilded-hand-crew", "groundskeepers", "heart-of-shangri-la", "ilsabet-quill", "king-chudley",
+  "lantern-imps", "little-fessrik", "mira-fratelli", "old-bogwhistle-mossback", "oldmin-paulus",
+  "renard-belloque", "snik", "the-luggage", "mister-grady", "tidy-hands",
+  "ferris-vaughn", "towel-golems", "wren",
 ].map(f => "portraits/" + f + ".jpg");
 const SHELL = [
   "./", "index.html", "manifest.webmanifest",

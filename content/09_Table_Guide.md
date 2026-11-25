@@ -111,7 +111,7 @@ Let him decide how his character feels about it (a blessing, a curse, a secret h
 - [ ] **Seer vision notes**: folded index cards, numbered by scene, plus a few blanks
 - [ ] Seven **lodge keys** with carved or drawn sigils (open book, spiral, eye, wave, heart, sun, hound)
 - [ ] Six **Comfort cards**, one per usable lodge, each naming its benefit (handed over when a PC takes the bait; see Session 3)
-- [ ] **7 small glass vials** (corked or screw-cap) for **Emberoak Sap**: 5 filled with red liquid (Three Oaks ×3, Gate Gift backup ×1, spare ×1), 1 with just a little (Brother Ansel's "nearly empty" vial), 1 left **empty** for Dusty's character
+- [ ] **7 small glass vials** (corked or screw-cap) for **Emberoak Sap**: 5 filled with red liquid (Three Oaks ×3, Gate Gift backup ×1, spare ×1), 1 with just a little (Brother Emmerick's "nearly empty" vial), 1 left **empty** for Dusty's character
 - [ ] **6 poker chips** for **Memory Tokens**: one per player (up to 5) + 1 spare
 - [ ] A rubber fish or a tiny treasure chest for the baby mimic
 - [ ] The troll's toll ledger (a real notebook: write down the secrets players tell!)

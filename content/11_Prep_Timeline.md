@@ -28,7 +28,7 @@
 ## Phase 4 — Props & Production (Jan 11 – Jan 22)
 - [ ] Make the golden invitations, one per player (Erik's gets a tiny rust-red smudge on one corner)
 - [ ] Write the Seer's vision notes (folded cards numbered by scene) and print Erik's Seer's Floor key card
-- [ ] Make the seven lodge keys and the **7 Emberoak Sap vials** (5 full, 1 with just a little for Ansel, 1 empty for Dusty) (Erik's Seer's Floor key is done: `handouts/04-Seer's Floor key (Erik only).png`)
+- [ ] Make the seven lodge keys and the **7 Emberoak Sap vials** (5 full, 1 with just a little for Emmerick, 1 empty for Dusty) (Erik's Seer's Floor key is done: `handouts/04-Seer's Floor key (Erik only).png`)
 - [ ] Prepare the Morning Boon cards and the Gate Gift items; get **6 poker chips** for Memory Tokens (one per player + 1 spare)
 - [ ] Print: map halves, Hall of Doors handout, player cheat sheets, roll-table cards
 - [ ] Build playlists (festival / cave / summer); hide one real-weekend song in the summer playlist; make a slowed-down track for the reveal

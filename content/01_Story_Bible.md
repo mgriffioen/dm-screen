@@ -46,14 +46,14 @@ Every invitation is a shed scale of the Host. Most are just gold leaf. **Erik's 
 
 ## The deal with Millhaven
 
-Three hundred years ago, the city's founders struck a bargain. The Host gives Millhaven luck: the harbor ice always breaks on time, the fishing never fails, the plague passes it by. In return, the city sends it *guests*. The golden invitations are sent by the city's **Lantern Council**, whose current head, **Mayor Corwin Vell**, is the party's quest-giver.
+Three hundred years ago, the city's founders struck a bargain. The Host gives Millhaven luck: the harbor ice always breaks on time, the fishing never fails, the plague passes it by. In return, the city sends it *guests*. The golden invitations are sent by the city's **Lantern Council**, whose current head, **Mayor Lorrin Vaughn**, is the party's quest-giver.
 
 ## The villain stack
 
 | Layer | Who | What they want | When players learn it |
 |---|---|---|---|
 | Visible threat | **The Gilded Hand**, a rival adventuring company racing the party to Shangri-La | Treasure and glory | Session 1 |
-| Hidden threat | **The Lantern Council**, led by Mayor Corwin Vell | Keep the city lucky; keep the bargain | Session 2–3 💥 |
+| Hidden threat | **The Lantern Council**, led by Mayor Lorrin Vaughn | Keep the city lucky; keep the bargain | Session 2–3 💥 |
 | True villain | **The Host** (speaking as Oldmin Paulus), Shangri-La itself | To keep its guests. Forever. | Session 3 💥 |
 
 ## Themes
@@ -67,10 +67,10 @@ Three hundred years ago, the city's founders struck a bargain. The Host gives Mi
 
 | Faction | Leader | Base | Attitude | What they know |
 |---|---|---|---|---|
-| **The Lantern Council** (city government) | Mayor Corwin Vell | Council Hall on Bell Square | Warm, helpful, secretly steering them in | Everything. They send the invitations. |
-| **The Gilded Hand** (rival adventurers) | Captain Roderic Saye | The upper deck of The Two Decks | Smug rivals, possible allies later | Stole half a map; think Shangri-La is a treasure vault |
-| **The Mudlarks** (river thieves' guild) | Auntie Grell | A houseboat frozen into the Frost Docks | Transactional; everything costs a favor | Control the old sewer grate into the Undercroft |
-| **The Brotherhood of the Returned** | Brother Ansel | An old smokehouse on **Ham Point** | Paranoid, desperate | Escaped Shangri-La. Remember fragments. Guard the sea-stair. |
+| **The Lantern Council** (city government) | Mayor Lorrin Vaughn | Council Hall on Bell Square | Warm, helpful, secretly steering them in | Everything. They send the invitations. |
+| **The Gilded Hand** (rival adventurers) | Captain Renard Belloque | The upper deck of The Two Decks | Smug rivals, possible allies later | Stole half a map; think Shangri-La is a treasure vault |
+| **The Mudlarks** (river thieves' guild) | Auntie Fratelli | A houseboat frozen into the Frost Docks | Transactional; everything costs a favor | Control the old sewer grate into the Undercroft |
+| **The Brotherhood of the Returned** | Brother Emmerick | An old smokehouse on **Ham Point** | Paranoid, desperate | Escaped Shangri-La. Remember fragments. Guard the sea-stair. |
 | **The Cartographers' Guild** | Ilsabet Quill | A map tower by the Old Gate | Pedantic, curious | Old maps of the Undercroft; can read the old carvings |
 
 ## 💥 Twist Menu — pick 2–3, save the rest
@@ -78,10 +78,10 @@ Three hundred years ago, the city's founders struck a bargain. The Host gives Mi
 **Chosen: 1, 2 and 3** (Nov 19). Everything below #3 is saved for a sequel or an emergency.
 
 1. ✅ **Paradise is the monster.** *(Core.)* Mid-Session 3 the lake drains, the yellow chute uncurls into a tongue, and the lodges lean inward like teeth.
-2. ✅ **The quest-giver is in on it.** Mayor Vell sent the invitations. Do both halves: the party finds **the Mayor's letter** in the Undercroft (Session 2, the Fishfolk Camp), and then **the Mayor himself** is in the vale at the Reveal, lounging by the water.
+2. ✅ **The quest-giver is in on it.** Mayor Vaughn sent the invitations. Do both halves: the party finds **the Mayor's letter** in the Undercroft (Session 2, the Fishfolk Camp), and then **the Mayor himself** is in the vale at the Reveal, lounging by the water.
 3. ✅ **Dusty's character has been here before.** (See his secret envelope in [09_Table_Guide.md](09_Table_Guide.md).) The Keeper greets him: *"Welcome back. Your old lodge is just as you left it."*
-4. **The missing person doesn't want to be rescued.** Tobias Vell is blissfully happy and fights to stay.
-5. **The rival captain is a former guest.** Captain Saye escaped years ago and is desperate to get *back in*.
+4. **The missing person doesn't want to be rescued.** Ferris Vaughn is blissfully happy and fights to stay.
+5. **The rival captain is a former guest.** Captain Belloque escaped years ago and is desperate to get *back in*.
 6. **Time ran differently.** In the epilogue, roll 1d10 in front of them for the years that have passed outside. Or it was five minutes.
 7. **The Host offers a deal.** Leave one behind and the rest go free.
 8. **The Host is lonely, not evil.** If the party offers it something besides guests (a promise to return, a companion, its mother's memory), it lets everyone go. A peaceful ending is possible.
