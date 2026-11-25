@@ -957,8 +957,8 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     doc.innerHTML = marked.parse(text[d.file], { gfm: true, breaks: d.id === "screen" }); // Player Screen boxes keep their lines, as sent
     doc.querySelectorAll("code").forEach(c => { if (c.textContent.startsWith("{{")) c.classList.add("slot"); });
     doc.querySelectorAll("a[href]").forEach(a => {
-      const f = a.getAttribute("href").split(/[#:]/)[0];
-      if (byFile[f]) { a.setAttribute("href", "#" + byFile[f].id); a.dataset.doc = byFile[f].id; a.dataset.file = f; }
+      const href = a.getAttribute("href"), f = href.split(/[#:]/)[0], frag = href.split("#")[1];
+      if (byFile[f]) { a.setAttribute("href", "#" + byFile[f].id); a.dataset.doc = byFile[f].id; a.dataset.file = f; if (frag) a.dataset.frag = frag; }
     });
     linkHandouts(doc);
     linkMonsters(doc);
@@ -1004,9 +1004,15 @@ a.ho-link strong, a.ho-link em { color: inherit; }
     }
     return out;
   }
+  // GitHub-style heading anchors (file.md#some-heading), compared loosely so emoji and dashes don't matter.
+  const anchor = s => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
   function pickHeading(a, file) {
     const md = text[file]; if (!md) return null;
     const heads = mdHeadings(md);
+    if (a.dataset.frag) {
+      const want = anchor(decodeURIComponent(a.dataset.frag)), i = heads.findIndex(h => anchor(h) === want);
+      if (i > 0) return { h: i };
+    }
     const block = a.closest("p, li, td, blockquote") || a.parentElement;
     const before = [...block.querySelectorAll("strong, em")].filter(s => s.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_FOLLOWING);
     const phrase = before.length ? before[before.length - 1].textContent : "";
