@@ -14,7 +14,7 @@
  * Bump VERSION when adding or renaming a campaign file so the new list is
  * precached; ordinary edits to existing files arrive on their own.
  */
-const VERSION = "last-resort-v22";
+const VERSION = "last-resort-v23";
 const CONTENT = [
   "00_README.md", "01_Story_Bible.md", "02_Session1_Millhaven.md", "03_Session2_Undercroft.md",
   "04_Session3_ShangriLa.md", "05_NPCs.md", "06_Monsters.md", "07_Puzzles.md", "08_Roll_Tables.md",
@@ -31,22 +31,18 @@ const MAPS = [
   "lodge-book", "lodge-spiral", "lodge-eye", "lodge-wave", "lodge-heart", "lodge-sun",
 ].flatMap(f => ["maps/" + f + ".jpg?v=" + MAP_V, "maps/thumbs/" + f + ".jpg?v=" + MAP_V]);
 // Generated NPC and monster portraits (keep in step with the image lines in content/05_NPCs.md and 06_Monsters.md).
-const PORTRAITS = [
+// Each has a wide 960x480 cut in portraits/wide/ that is sent to the Echo's player screen
+// in place of the tall one (index.html sends portraits/wide/<name>.jpg whenever it exists).
+const PORTRAIT_NAMES = [
   "gorian-dray", "auntie-fratelli", "baby-mimic", "truck", "brother-emmerick",
   "bullywugs", "content-guests", "lorrin-vaughn", "feast-mimics", "fishfolk",
   "gilded-hand-crew", "groundskeepers", "heart-of-shangri-la", "ilsabet-quill", "king-chudley",
   "lantern-imps", "little-fessrik", "mira-fratelli", "old-bogwhistle-mossback", "oldmin-paulus",
   "renard-belloque", "snik", "the-luggage", "mister-grady", "tidy-hands",
   "ferris-vaughn", "towel-golems", "wren",
-].map(f => "portraits/" + f + ".jpg");
-// Wide 960x480 cuts sent to the Echo's player screen in place of the tall portraits
-// (index.html uses portraits/wide/<name>.jpg whenever it exists).
-const WIDE = [
-  "auntie-fratelli", "baby-mimic", "brother-emmerick", "ferris-vaughn", "fishfolk",
-  "gorian-dray", "ilsabet-quill", "king-chudley", "little-fessrik", "lorrin-vaughn",
-  "mira-fratelli", "mister-grady", "old-bogwhistle-mossback", "oldmin-paulus", "renard-belloque",
-  "snik", "the-luggage", "towel-golems", "truck", "wren",
-].map(f => "portraits/wide/" + f + ".jpg");
+];
+const PORTRAITS = PORTRAIT_NAMES.map(f => "portraits/" + f + ".jpg");
+const WIDE = PORTRAIT_NAMES.map(f => "portraits/wide/" + f + ".jpg");
 const SHELL = [
   "./", "index.html", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png",
