@@ -73,10 +73,10 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | d20 | Weirdness |
 |---|---|
 | 1–2 | Echoes repeat what you said 10 minutes ago, louder. |
-| 3 | A trail of sand leads downward, warm underfoot. |
-| 4 | Gravity is 10% lighter. Jump distances are doubled. |
-| 5 | A little drinks cart rolls past on its own, offering a cool cordial. (+1 Contentment if you take one.) |
-| 6 | Old carvings in the Undercroft script: a warning about "the Hungry Vale." |
+| 3 | Gravity is 10% lighter. Jump distances are doubled. |
+| 4 | A little drinks cart rolls past on its own, offering a cool cordial. (+1 Contentment if you take one.) |
+| 5 | Old carvings in the Undercroft script: a warning about "the Hungry Vale." |
+| 6 | **Wandering Monster**: roll below. |
 | 7 | Torches burn blue. Faint, cheerful music from below. |
 | 8 | A **door** in the rock opens onto a single cabin bedroom. Perfectly made bed. Do not sleep in it. |
 | 9 | Stalactites drip warm water that smells like roasting meat. |
@@ -85,8 +85,8 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 12 | A friendly cave frog. It follows the party and vanishes when looked at directly. |
 | 13 | The walls are faintly warm and *pulse*, like a heartbeat. |
 | 14 | A dropped Gilded Hand pack: 1d6 × 10 gp and a crude map. |
-| 15 | Everyone hears their name whispered in the voice of someone they love. |
-| 16 | A natural hot spring. A short rest here gives max Hit Dice healing and +1 Contentment. |
+| 15 | A natural hot spring. A short rest here gives max Hit Dice healing and +1 Contentment. |
+| 16 | **Wandering Monster**: roll below. |
 | 17 | Cart tracks in the mud, which stop dead in the middle of the tunnel. |
 | 18 | A guest ledger on a stand. Hundreds of signatures. One is Mira Fratelli, sixty years ago. |
 | 19 | Silence. Total silence. Spells with verbal components fail for 1 minute. |
