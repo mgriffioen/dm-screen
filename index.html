@@ -945,20 +945,22 @@ html:not(.locked) #lock { display: none; }
       tbl.parentNode.insertBefore(wrap, tbl); wrap.appendChild(tbl);
       const ths = [...tbl.querySelectorAll("thead th")].map(t => t.textContent.trim());
       const label = sectionLabel(wrap).replace(/^[^\w]+/, "").replace(/\s*\(.*$/, "");
-      const dm = (ths[0] || "").match(/^d(\d+)$/i);
+      const dm = (ths[0] || "").match(/^(\d*)d(\d+)$/i);
       const bar = document.createElement("div"); bar.className = "rollbar";
       const out = document.createElement("span"); out.className = "rollout";
       if (dm) {
-        const sides = +dm[1];
-        const btn = document.createElement("button"); btn.className = "rollbtn"; btn.textContent = `Roll d${sides}`;
+        const count = +(dm[1] || 1), sides = +dm[2], die = `${count > 1 ? count : ""}d${sides}`;
+        const btn = document.createElement("button"); btn.className = "rollbtn"; btn.textContent = `Roll ${die}`;
         btn.addEventListener("click", () => {
-          const v = r(sides);
+          const rolls = Array.from({ length: count }, () => r(sides));
+          const v = rolls.reduce((a, b) => a + b, 0);
           tbl.querySelectorAll(".hit").forEach(x => x.classList.remove("hit"));
           const row = [...tbl.querySelectorAll("tbody tr")].find(tr => tr.cells[0] && rangeMatch(tr.cells[0].textContent, v));
           if (row) { row.classList.add("hit"); row.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
           out.innerHTML = `rolled <b></b>`; out.querySelector("b").textContent = v;
-          show(v, `${label} (d${sides})`);
-          pushLog(`${label} d${sides}`, v);
+          if (count > 1) out.append(` (${rolls.join(" + ")})`);
+          show(v, `${label} (${die})`);
+          pushLog(`${label} ${die}`, v);
         });
         bar.append(btn, out); wrap.parentNode.insertBefore(bar, wrap);
       } else if (ths.some(t => t.includes("♥"))) {
