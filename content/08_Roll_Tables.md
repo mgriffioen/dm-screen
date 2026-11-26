@@ -81,10 +81,10 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 8 | Stalactites drip warm water that smells like roasting meat. |
 | 9 | Echoes repeat what you said 10 minutes ago, louder. |
 | 10–12 | **Wandering Monster**: roll below. |
-| 13 | The walls are faintly warm and *pulse*, like a heartbeat. |
+| 13 | A lost **Returned** wanders by, babbling, and gives one useful hint before fleeing. |
 | 14 | A friendly cave frog. It follows the party and vanishes when looked at directly. |
 | 15 | Cart tracks in the mud, which stop dead in the middle of the tunnel. |
-| 16 | A lost **Returned** wanders by, babbling, and gives one useful hint before fleeing. |
+| 16 | The walls are faintly warm and *pulse*, like a heartbeat. |
 | 17 | A skeleton in summer clothes, holding a "Do Not Disturb" sign. |
 | 18 | A dropped Gilded Hand pack: 1d6 × 10 gp and a crude map. |
 | 19 | A **door** in the rock opens onto a single cabin bedroom. Perfectly made bed. Do not sleep in it. |
