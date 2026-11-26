@@ -25,6 +25,10 @@ Open it once while online so the campaign is cached for offline play. After an u
 
 - **Skins**: 🎨 in the top bar switches the look: *Night* (the original), *Tome* (parchment rulebook), *Grimoire* (leather and gilt), *Lido* (1930s resort poster) or *Hollow* (lantern-lit cavern). Opening a story part switches the look to match it (Millhaven: Tome, The Undercroft: Hollow, Shangri-La: Lido); Reference and Prep pages keep whatever look is on. Add `?skin=tome` to the URL to preview one without saving it. Skins are the `[data-skin=…]` rules in `index.html`.
 
+## Password
+
+The site opens on a password screen. Each device asks once, then remembers it. To change the password, run `printf %s 'new password' | shasum -a 256` and paste the result into `LOCK_HASH` near the top of `index.html`; every device then asks again. This keeps casual visitors out, but it isn't real security: the campaign files in `content/`, `maps/` and `portraits/` can still be opened by anyone who knows their address, and the repo is public. The archived Wild Sheep Chase site has no lock.
+
 Party, initiative and notes are saved in the browser on the tablet (`localStorage`).
 
 ## Files

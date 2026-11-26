@@ -643,8 +643,56 @@ a.ho-link strong, a.ho-link em { color: inherit; }
 [data-skin="hollow"] .statblock hr { border-top: 2px solid var(--moss); opacity: 1; }
 [data-skin="hollow"] .map-card:hover, [data-skin="hollow"] .map-card:focus-visible { border-color: var(--frost); box-shadow: 0 0 10px var(--glow); }
 </style>
+<script>
+/* Password lock. LOCK_HASH is the SHA-256 of the password, in hex. To change the password:
+   printf %s 'new password' | shasum -a 256   and paste the result here. Devices that unlocked
+   with the old password are asked again. This only keeps casual visitors out: the campaign
+   files in content/ are still public to anyone who knows their address. */
+var LOCK_HASH = "206f4f93a8750dadba1003ea68622cd486c5b8ab17bcea098d51d648cfe03907";
+(function () {
+  var ok = false;
+  try { ok = localStorage.getItem("lr-unlock") === LOCK_HASH; } catch (e) {}
+  if (!ok) document.documentElement.classList.add("locked");
+})();
+</script>
+<style>
+html.locked body > :not(#lock) { display: none !important; }
+html:not(.locked) #lock { display: none; }
+#lock { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--fg); font-family: var(--font-body); z-index: 9999; }
+#lock form { display: grid; gap: 12px; width: min(320px, 100%); text-align: center; }
+#lock h1 { margin: 0; font: 400 28px var(--font-display); color: var(--gold); }
+#lock input, #lock button { font: inherit; font-size: 17px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); }
+#lock input { background: var(--raise); color: var(--fg); }
+#lock button { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); font-weight: 700; cursor: pointer; }
+#lock .err { margin: 0; min-height: 1.4em; color: var(--ember); }
+</style>
 </head>
 <body>
+
+<div id="lock">
+  <form id="lockForm" autocomplete="on">
+    <h1>The Last Resort</h1>
+    <input id="lockPw" type="password" name="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
+    <button type="submit">Unlock</button>
+    <p class="err" id="lockErr" role="alert"></p>
+  </form>
+</div>
+<script>
+(function () {
+  var form = document.getElementById("lockForm"), pw = document.getElementById("lockPw"), err = document.getElementById("lockErr");
+  if (document.documentElement.classList.contains("locked")) pw.focus();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw.value)).then(function (buf) {
+      var hex = Array.from(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+      if (hex !== LOCK_HASH) { err.textContent = "Wrong password."; pw.select(); return; }
+      try { localStorage.setItem("lr-unlock", hex); } catch (e) {}
+      document.documentElement.classList.remove("locked");
+      pw.value = ""; err.textContent = "";
+    });
+  });
+})();
+</script>
 
 <div class="app">
   <header class="bar">
