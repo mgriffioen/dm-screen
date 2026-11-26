@@ -192,6 +192,7 @@ button.dice { border: 0; padding: 0 4px; border-radius: 4px; background: var(--h
 .btn { min-height: 38px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); font-size: 0.88em; }
 .btn.primary { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); font-weight: 700; }
 .btn.ghost { background: transparent; }
+#echoClear.live { border-color: var(--gold); color: var(--gold); }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 
 .field { padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--raise); }
@@ -765,6 +766,7 @@ html:not(.locked) #lock { display: none; }
         <div class="row">
           <button class="btn" id="echoMsgSend" title="Show this text on the player screen">💬 Send</button>
           <button class="btn" id="echoImgPick" title="Send a photo to the player screen">📷 Image</button>
+          <button class="btn ghost" id="echoClear" title="Take the message or image off the player screen">✕ Clear screen</button>
           <input type="file" id="echoImgFile" accept="image/*" style="display:none">
         </div>
       </div>
@@ -2128,6 +2130,7 @@ html:not(.locked) #lock { display: none; }
   const echoBusy = () => { const a = document.activeElement; return !!(a && a.closest && a.closest("#init input, #party input")); };
   function echoReceive(E) {
     if (!E || !Array.isArray(E.list)) return;
+    echoShowing(E.message);
     if (!echoIncoming || E.epoch !== echoIncoming.epoch || E.v > echoIncoming.v) echoIncoming = E;
     echoMerge();
   }
@@ -2244,6 +2247,21 @@ html:not(.locked) #lock { display: none; }
   // Enter always inserts a newline here (no keyboard shortcut to send) — a tablet with
   // no physical keyboard can't do Shift+Enter, so only the Send button sends.
   $("#echoMsgSend").addEventListener("click", echoSendMessage);
+  // Takes the full-screen message or image (and a spotlighted roll) off the player screen.
+  // An Echo build from before "screen.clear" still clears the message via an empty one.
+  async function echoClearScreen() {
+    if (!echoAddr) return;
+    try {
+      let r = await echoFetch("/message", { type: "screen.clear" });
+      if (!r || !r.ok) r = await echoFetch("/message", { type: "message", text: null });
+      if (!r || !r.ok) throw new Error();
+      echoShowing(null);
+      printToast("Cleared the player screen.", "");
+    } catch (e) { printToast("Couldn't reach the Echo.", ""); }
+  }
+  $("#echoClear").addEventListener("click", echoClearScreen);
+  // The Clear button lights up while the Echo says something is on the player screen.
+  function echoShowing(msg) { $("#echoClear").classList.toggle("live", !!(msg && (msg.text || msg.imageUrl))); }
   $("#echoImgPick").addEventListener("click", () => $("#echoImgFile").click());
   $("#echoImgFile").addEventListener("change", async () => {
     const f = $("#echoImgFile").files[0];
