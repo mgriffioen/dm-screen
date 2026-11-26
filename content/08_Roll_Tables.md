@@ -67,30 +67,28 @@ Feel free to *rig* a roll if a better story is obvious. The dice are there to in
 | 19 | You ate at Fisherman's Luck. (Make the CON save, even if you didn't.) |
 | 20 | You somehow have a **Bag of Holding** and a lingering sense of guilt. |
 
-## 🎩 Cave Weirdness (d20) — Session 2
-*Roll on entering a new room or taking a short rest.*
+## 🎩 Cave Weirdness (2d10) — Session 2
+*Roll on entering a new room or taking a short rest. Middle totals are most likely; 2 and 20 are rare.*
 
-| d20 | Weirdness |
+| 2d10 | Weirdness |
 |---|---|
-| 1–2 | Echoes repeat what you said 10 minutes ago, louder. |
-| 3 | A trail of sand leads downward, warm underfoot. |
+| 2 | A natural hot spring. A short rest here gives max Hit Dice healing and +1 Contentment. |
+| 3 | A guest ledger on a stand. Hundreds of signatures. One is Mira Fratelli, sixty years ago. |
 | 4 | Gravity is 10% lighter. Jump distances are doubled. |
 | 5 | A little drinks cart rolls past on its own, offering a cool cordial. (+1 Contentment if you take one.) |
 | 6 | Old carvings in the Undercroft script: a warning about "the Hungry Vale." |
 | 7 | Torches burn blue. Faint, cheerful music from below. |
-| 8 | A **door** in the rock opens onto a single cabin bedroom. Perfectly made bed. Do not sleep in it. |
-| 9 | Stalactites drip warm water that smells like roasting meat. |
-| 10 | A skeleton in summer clothes, holding a "Do Not Disturb" sign. |
-| 11 | **Wandering Monster**: roll below. |
-| 12 | A friendly cave frog. It follows the party and vanishes when looked at directly. |
-| 13 | The walls are faintly warm and *pulse*, like a heartbeat. |
-| 14 | A dropped Gilded Hand pack: 1d6 × 10 gp and a crude map. |
-| 15 | Everyone hears their name whispered in the voice of someone they love. |
-| 16 | A natural hot spring. A short rest here gives max Hit Dice healing and +1 Contentment. |
-| 17 | Cart tracks in the mud, which stop dead in the middle of the tunnel. |
-| 18 | A guest ledger on a stand. Hundreds of signatures. One is Mira Fratelli, sixty years ago. |
-| 19 | Silence. Total silence. Spells with verbal components fail for 1 minute. |
-| 20 | A lost **Returned** wanders by, babbling, and gives one useful hint before fleeing. |
+| 8 | Stalactites drip warm water that smells like roasting meat. |
+| 9 | Echoes repeat what you said 10 minutes ago, louder. |
+| 10–12 | **Wandering Monster**: roll below. |
+| 13 | A lost **Returned** wanders by, babbling, and gives one useful hint before fleeing. |
+| 14 | A friendly cave frog. It follows the party and vanishes when looked at directly. |
+| 15 | Cart tracks in the mud, which stop dead in the middle of the tunnel. |
+| 16 | The walls are faintly warm and *pulse*, like a heartbeat. |
+| 17 | A skeleton in summer clothes, holding a "Do Not Disturb" sign. |
+| 18 | A dropped Gilded Hand pack: 1d6 × 10 gp and a crude map. |
+| 19 | A **door** in the rock opens onto a single cabin bedroom. Perfectly made bed. Do not sleep in it. |
+| 20 | Silence. Total silence. Spells with verbal components fail for 1 minute. |
 
 ## 🎩 Wandering Monsters (d8) — Session 2
 
